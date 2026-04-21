@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kilimanjaro &amp; Mountains — Philipo Safari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script>if('scrollRestoration'in history)history.scrollRestoration='manual';window.addEventListener('pageshow',function(e){if(!e.persisted)window.scrollTo(0,0);});</script>
+</head>
+<body>
+  <nav class="nav nav--page" id="nav">
+    <a href="index.html" class="nav-logo-text">Philipo Safari</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about" data-en="About" data-fr="À Propos">About</a></li>
+      <li><a href="index.html#experiences" data-en="Experiences" data-fr="Expériences">Experiences</a></li>
+      <li><a href="gallery.html" data-en="Gallery" data-fr="Galerie">Gallery</a></li>
+      <li><a href="index.html#contact" class="nav-cta" data-en="Plan Your Journey" data-fr="Planifier Mon Voyage">Plan Your Journey</a></li>
+      <li><div class="lang-toggle"><button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button><button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button></div></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobile-menu">
+    <a href="index.html" data-en="Home" data-fr="Accueil">Home</a>
+    <a href="wildlife.html" data-en="Wildlife" data-fr="Faune">Wildlife</a>
+    <a href="tribes.html" data-en="Tribes" data-fr="Tribus">Tribes</a>
+    <a href="gallery.html" data-en="Gallery" data-fr="Galerie">Gallery</a>
+    <a href="index.html#contact" data-en="Contact" data-fr="Contact">Contact</a>
+    <div class="lang-toggle"><button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button><button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button></div>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"><img src="pictures/kilimanjaro/IMG_1279.jpeg" alt="Kilimanjaro, Tanzania"></div>
+    <div class="page-hero-overlay" style="background:linear-gradient(to top, rgba(5,3,1,.95) 0%, rgba(5,3,1,.6) 50%, rgba(5,3,1,.3) 100%);"></div>
+    <div class="container" style="position:relative;z-index:2;width:100%;">
+      <div class="breadcrumb"><a href="index.html" data-en="Home" data-fr="Accueil">Home</a><span class="sep">/</span><span data-en="Kilimanjaro &amp; Mountains" data-fr="Kilimandjaro &amp; Montagnes">Kilimanjaro &amp; Mountains</span></div>
+      <div class="page-hero-content">
+        <p class="section-eyebrow" data-en="Roof of Africa" data-fr="Toit de l'Afrique">Roof of Africa</p>
+        <h1 data-en="Kilimanjaro &amp; East Africa's Great Peaks" data-fr="Le Kilimandjaro &amp; les Grands Sommets d'Afrique de l'Est">Kilimanjaro &amp; East Africa's Great Peaks</h1>
+        <p data-en="5,895 m. The highest free-standing mountain on Earth. Philipo coordinates every element of your expedition — from your first planning email to your summit sunrise." data-fr="5 895 m. La plus haute montagne indépendante de la Terre. Philipo coordonne chaque élément de votre expédition — de votre premier email de planification au lever du soleil au sommet.">5,895 m. The highest free-standing mountain on Earth. Philipo coordinates every element of your expedition — from your first planning email to your summit sunrise.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Organisation -->
+  <section class="page-section page-section--alt">
+    <div class="container">
+      <div style="max-width:760px;margin:0 auto;text-align:center;">
+        <p class="section-eyebrow" data-en="What Philipo Organises" data-fr="Ce que Philipo Organise">What Philipo Organises</p>
+        <h2 class="section-title" data-en="Everything — So You Just Hike" data-fr="Tout — Pour que Vous Puissiez Juste Randonner">Everything — So You Just Hike</h2>
+        <p style="color:var(--text-sec);line-height:1.85;margin-bottom:2.5rem;" data-en="A successful Kilimanjaro summit requires months of logistics. Philipo handles all of it: certified mountain guides, experienced porters and cooks, all park and conservation area permits, camp equipment, medical oxygen, emergency evacuation protocols, and daily acclimatisation monitoring." data-fr="Un sommet réussi du Kilimandjaro nécessite des mois de logistique. Philipo gère tout : guides de montagne certifiés, porteurs et cuisiniers expérimentés, tous les permis de parc et de zone de conservation, équipement de camp, oxygène médical, protocoles d'évacuation d'urgence et surveillance quotidienne de l'acclimatation.">A successful Kilimanjaro summit requires months of logistics. Philipo handles all of it: certified mountain guides, experienced porters and cooks, all park and conservation area permits, camp equipment, medical oxygen, emergency evacuation protocols, and daily acclimatisation monitoring.</p>
+      </div>
+      <div class="why-grid" style="margin-top:0;">
+        <div class="why-card"><div class="why-number">01</div><h3 data-en="Certified Guides" data-fr="Guides Certifiés">Certified Guides</h3><p data-en="All mountain guides are licensed by KINAPA (Kilimanjaro National Park Authority) and carry first aid certifications. Philipo personally selects and vets his entire team." data-fr="Tous les guides de montagne sont agréés par le KINAPA (Autorité du Parc National du Kilimandjaro) et possèdent des certifications de premiers secours. Philipo sélectionne et vérifie personnellement toute son équipe.">All mountain guides are licensed by KINAPA (Kilimanjaro National Park Authority) and carry first aid certifications. Philipo personally selects and vets his entire team.</p></div>
+        <div class="why-card"><div class="why-number">02</div><h3 data-en="Experienced Porters" data-fr="Porteurs Expérimentés">Experienced Porters</h3><p data-en="Porters carry all camping equipment, food, and group gear. They are paid above the Kilimanjaro Porters Assistance Project (KPAP) standards and given proper equipment and accommodation." data-fr="Les porteurs transportent tout le matériel de camping, la nourriture et l'équipement du groupe. Ils sont payés au-dessus des normes du Kilimanjaro Porters Assistance Project (KPAP) et reçoivent équipement et hébergement appropriés.">Porters carry all camping equipment, food, and group gear. They are paid above the Kilimanjaro Porters Assistance Project (KPAP) standards and given proper equipment and accommodation.</p></div>
+        <div class="why-card"><div class="why-number">03</div><h3 data-en="All Permits &amp; Fees" data-fr="Tous Permis &amp; Frais">All Permits &amp; Fees</h3><p data-en="Park fees, conservation fees, camping fees, and rescue fees — all included and arranged in advance. You arrive in Moshi with nothing left to organise." data-fr="Frais de parc, frais de conservation, frais de camping et frais de secours — tout inclus et organisé à l'avance. Vous arrivez à Moshi sans rien à organiser.">Park fees, conservation fees, camping fees, and rescue fees — all included and arranged in advance. You arrive in Moshi with nothing left to organise.</p></div>
+        <div class="why-card"><div class="why-number">04</div><h3 data-en="Medical &amp; Safety" data-fr="Médical &amp; Sécurité">Medical &amp; Safety</h3><p data-en="Emergency oxygen, pulse oximeters, and Diamox availability on all treks. Daily health checks. Clear protocols for descent if altitude sickness strikes. Your safety is never compromised for the summit." data-fr="Oxygène d'urgence, oxymètres de pouls et disponibilité du Diamox sur tous les treks. Contrôles de santé quotidiens. Protocoles clairs pour la descente en cas de mal des montagnes. Votre sécurité n'est jamais compromise pour le sommet.">Emergency oxygen, pulse oximeters, and Diamox availability on all treks. Daily health checks. Clear protocols for descent if altitude sickness strikes. Your safety is never compromised for the summit.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Routes -->
+  <section class="page-section">
+    <div class="container">
+      <div class="section-header" style="text-align:left;margin-bottom:3rem;">
+        <p class="section-eyebrow" data-en="Kilimanjaro Routes" data-fr="Routes du Kilimandjaro">Kilimanjaro Routes</p>
+        <h2 class="section-title" data-en="Choosing Your Path" data-fr="Choisir Votre Chemin">Choosing Your Path</h2>
+        <p class="section-desc" data-en="Philipo will recommend the best route for your fitness level, schedule, and the experience you want. The longer the route, the higher the success rate." data-fr="Philipo vous recommandera la meilleure route selon votre niveau de forme physique, votre planning et l'expérience que vous souhaitez. Plus la route est longue, plus le taux de réussite est élevé.">Philipo will recommend the best route for your fitness level, schedule, and the experience you want. The longer the route, the higher the success rate.</p>
+      </div>
+      <div class="routes-grid">
+
+        <div class="route-card">
+          <div class="route-header">
+            <h3>Lemosho Route</h3>
+            <span class="route-days" data-en="7–8 days" data-fr="7–8 jours">7–8 days</span>
+          </div>
+          <div class="route-diff">
+            <span data-en="Difficulty:" data-fr="Difficulté :">Difficulty:</span>
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div>
+          </div>
+          <p data-en="Philipo's most recommended route for first-timers. Approaches from the remote western side, crossing the vast Shira Plateau with dramatic scenery. Low foot traffic, excellent acclimatisation profile, and the highest summit success rate (~95%). Every serious trekker's first choice." data-fr="La route la plus recommandée par Philipo pour les débutants. Approche par le côté ouest isolé, traversant le vaste plateau du Shira avec des paysages dramatiques. Faible fréquentation, excellent profil d'acclimatation et le taux de réussite au sommet le plus élevé (~95%). Le premier choix de tout trekkeur sérieux.">Philipo's most recommended route for first-timers. Approaches from the remote western side, crossing the vast Shira Plateau with dramatic scenery. Low foot traffic, excellent acclimatisation profile, and the highest summit success rate (~95%). Every serious trekker's first choice.</p>
+          <p class="route-tip" data-en="Best for: first-timers, those who want scenic variety and high success probability." data-fr="Idéal pour : les débutants, ceux qui veulent de la variété scénique et une haute probabilité de succès.">Best for: first-timers, those who want scenic variety and high success probability.</p>
+        </div>
+
+        <div class="route-card">
+          <div class="route-header">
+            <h3>Machame Route</h3>
+            <span class="route-days" data-en="6–7 days" data-fr="6–7 jours">6–7 days</span>
+          </div>
+          <div class="route-diff">
+            <span data-en="Difficulty:" data-fr="Difficulté :">Difficulty:</span>
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+          </div>
+          <p data-en="The 'Whiskey Route' — Kili's most scenic and most popular. Steep, dramatic, and rewarding. The Machame approach winds through extraordinary ecological zones, from dense rainforest to the surreal ice-world of the summit. 80% success rate on 7 days, lower on 6." data-fr="La 'Route Whiskey' — la plus pittoresque et la plus populaire du Kili. Raide, dramatique et gratifiante. L'approche Machame serpente à travers des zones écologiques extraordinaires, de la forêt tropicale dense au monde glacé surréel du sommet. Taux de réussite de 80% sur 7 jours, moins sur 6.">The 'Whiskey Route' — Kili's most scenic and most popular. Steep, dramatic, and rewarding. The Machame approach winds through extraordinary ecological zones, from dense rainforest to the surreal ice-world of the summit. 80% success rate on 7 days, lower on 6.</p>
+          <p class="route-tip" data-en="Best for: fit hikers who want drama and scenery. Choose 7 days over 6 for safety." data-fr="Idéal pour : les randonneurs en forme qui veulent du drame et des paysages. Choisissez 7 jours plutôt que 6 pour la sécurité.">Best for: fit hikers who want drama and scenery. Choose 7 days over 6 for safety.</p>
+        </div>
+
+        <div class="route-card">
+          <div class="route-header">
+            <h3>Marangu Route</h3>
+            <span class="route-days" data-en="5–6 days" data-fr="5–6 jours">5–6 days</span>
+          </div>
+          <div class="route-diff">
+            <span data-en="Difficulty:" data-fr="Difficulté :">Difficulty:</span>
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+          </div>
+          <p data-en="The 'Coca-Cola Route' — the only route with hut accommodation (dormitory-style). More gentle gradients make this feel accessible, but the shorter itinerary means lower acclimatisation time and a summit success rate of only ~65%. Best chosen for its comfort, not its ease." data-fr="La 'Route Coca-Cola' — la seule route avec hébergement en dortoir. Des pentes plus douces donnent une impression d'accessibilité, mais l'itinéraire plus court signifie moins de temps d'acclimatation et un taux de réussite au sommet de seulement ~65%. Mieux choisie pour son confort, pas sa facilité.">The 'Coca-Cola Route' — the only route with hut accommodation (dormitory-style). More gentle gradients make this feel accessible, but the shorter itinerary means lower acclimatisation time and a summit success rate of only ~65%. Best chosen for its comfort, not its ease.</p>
+          <p class="route-tip" data-en="Best for: those who prefer sleeping in huts. Consider adding an extra night." data-fr="Idéal pour : ceux qui préfèrent dormir en refuges. Envisagez d'ajouter une nuit supplémentaire.">Best for: those who prefer sleeping in huts. Consider adding an extra night.</p>
+        </div>
+
+        <div class="route-card">
+          <div class="route-header">
+            <h3>Rongai Route</h3>
+            <span class="route-days" data-en="6–7 days" data-fr="6–7 jours">6–7 days</span>
+          </div>
+          <div class="route-diff">
+            <span data-en="Difficulty:" data-fr="Difficulté :">Difficulty:</span>
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+          </div>
+          <p data-en="The only route approaching from the north (Kenya side). Drier and less crowded than southern routes. The wide, open moorland views are spectacular and the more gradual ascent suits those who prefer a less steep approach. Recommended during the rainy season." data-fr="La seule route venant du nord (côté Kenya). Plus sèche et moins fréquentée que les routes du sud. Les vues larges et ouvertes sur la lande sont spectaculaires et l'ascension plus progressive convient à ceux qui préfèrent une approche moins abrupte. Recommandée pendant la saison des pluies.">The only route approaching from the north (Kenya side). Drier and less crowded than southern routes. The wide, open moorland views are spectacular and the more gradual ascent suits those who prefer a less steep approach. Recommended during the rainy season.</p>
+          <p class="route-tip" data-en="Best for: dry-season hikers, those wanting a quieter experience." data-fr="Idéal pour : les randonneurs en saison sèche, ceux qui veulent une expérience plus tranquille.">Best for: dry-season hikers, those wanting a quieter experience.</p>
+        </div>
+
+        <div class="route-card">
+          <div class="route-header">
+            <h3>Northern Circuit</h3>
+            <span class="route-days" data-en="9–10 days" data-fr="9–10 jours">9–10 days</span>
+          </div>
+          <div class="route-diff">
+            <span data-en="Difficulty:" data-fr="Difficulté :">Difficulty:</span>
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div>
+          </div>
+          <p data-en="The longest route circles Kilimanjaro's entire northern face, offering perspectives seen by almost no other trekker. The extended duration means outstanding acclimatisation — the highest success rate of any route (~95%). For those who want the full, unhurried Kilimanjaro experience." data-fr="La route la plus longue fait le tour du versant nord du Kilimandjaro, offrant des perspectives vues par presque aucun autre trekkeur. La durée prolongée signifie une acclimatation remarquable — le taux de réussite le plus élevé de toutes les routes (~95%). Pour ceux qui veulent l'expérience complète et tranquille du Kilimandjaro.">The longest route circles Kilimanjaro's entire northern face, offering perspectives seen by almost no other trekker. The extended duration means outstanding acclimatisation — the highest success rate of any route (~95%). For those who want the full, unhurried Kilimanjaro experience.</p>
+          <p class="route-tip" data-en="Best for: those who want the best possible chance of summit and maximum wilderness." data-fr="Idéal pour : ceux qui veulent les meilleures chances d'atteindre le sommet et un maximum de nature sauvage.">Best for: those who want the best possible chance of summit and maximum wilderness.</p>
+        </div>
+
+        <div class="route-card">
+          <div class="route-header">
+            <h3>Umbwe Route</h3>
+            <span class="route-days" data-en="5–6 days" data-fr="5–6 jours">5–6 days</span>
+          </div>
+          <div class="route-diff">
+            <span data-en="Difficulty:" data-fr="Difficulté :">Difficulty:</span>
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+          </div>
+          <p data-en="The most direct and most demanding route on the mountain. Near-vertical sections through dense forest, very limited acclimatisation time. Not recommended for first-time Kili trekkers — this route is for experienced high-altitude trekkers who know their bodies and want a serious challenge." data-fr="La route la plus directe et la plus exigeante de la montagne. Sections quasi-verticales à travers une forêt dense, très peu de temps d'acclimatation. Non recommandée pour les débutants au trekking sur le Kili — cette route est pour les trekkeurs expérimentés en haute altitude qui connaissent leur corps et veulent un vrai défi.">The most direct and most demanding route on the mountain. Near-vertical sections through dense forest, very limited acclimatisation time. Not recommended for first-time Kili trekkers — this route is for experienced high-altitude trekkers who know their bodies and want a serious challenge.</p>
+          <p class="route-tip" data-en="Best for: experienced trekkers only. Discuss with Philipo before choosing this route." data-fr="Idéal pour : trekkeurs expérimentés uniquement. Discutez avec Philipo avant de choisir cette route.">Best for: experienced trekkers only. Discuss with Philipo before choosing this route.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Gear -->
+  <section class="page-section page-section--alt">
+    <div class="container">
+      <div class="section-header" style="text-align:left;margin-bottom:3rem;">
+        <p class="section-eyebrow" data-en="What to Bring" data-fr="Quoi Apporter">What to Bring</p>
+        <h2 class="section-title" data-en="Complete Gear List" data-fr="Liste de Matériel Complète">Complete Gear List</h2>
+        <p class="section-desc" data-en="Temperatures on Kilimanjaro range from 30°C at the gate to -20°C at the summit. Being properly equipped is the difference between summit and descent." data-fr="Les températures sur le Kilimandjaro varient de 30°C à la porte à -20°C au sommet. Être correctement équipé fait la différence entre le sommet et la descente.">Temperatures on Kilimanjaro range from 30°C at the gate to -20°C at the summit. Being properly equipped is the difference between summit and descent.</p>
+      </div>
+      <div class="gear-grid">
+        <div class="gear-category">
+          <h4 data-en="Upper Body Layers" data-fr="Couches Haut du Corps">Upper Body Layers</h4>
+          <ul class="gear-list">
+            <li data-en="Thermal base layer (x2)" data-fr="Sous-vêtement thermique (x2)">Thermal base layer (x2)</li>
+            <li data-en="Fleece mid-layer" data-fr="Couche intermédiaire polaire">Fleece mid-layer</li>
+            <li data-en="Waterproof hardshell jacket" data-fr="Veste imperméable hardshell">Waterproof hardshell jacket</li>
+            <li data-en="Summit down jacket (-20°C rated)" data-fr="Doudoune de sommet (résistante à -20°C)">Summit down jacket (-20°C rated)</li>
+            <li data-en="Sun hat &amp; warm beanie" data-fr="Chapeau de soleil &amp; bonnet chaud">Sun hat &amp; warm beanie</li>
+            <li data-en="Balaclava" data-fr="Cache-nez / cagoule">Balaclava</li>
+            <li data-en="Liner gloves + summit mitts" data-fr="Gants légers + moufles de sommet">Liner gloves + summit mitts</li>
+          </ul>
+        </div>
+        <div class="gear-category">
+          <h4 data-en="Lower Body &amp; Feet" data-fr="Bas du Corps &amp; Pieds">Lower Body &amp; Feet</h4>
+          <ul class="gear-list">
+            <li data-en="Thermal leggings" data-fr="Collants thermiques">Thermal leggings</li>
+            <li data-en="Waterproof trekking trousers" data-fr="Pantalon de trek imperméable">Waterproof trekking trousers</li>
+            <li data-en="Waterproof gaiters" data-fr="Guêtres imperméables">Waterproof gaiters</li>
+            <li data-en="Broken-in waterproof hiking boots" data-fr="Chaussures de randonnée imperméables rodées">Broken-in waterproof hiking boots</li>
+            <li data-en="Wool/merino socks (x4–5 pairs)" data-fr="Chaussettes laine/mérinos (x4–5 paires)">Wool/merino socks (x4–5 pairs)</li>
+            <li data-en="Camp sandals or crocs" data-fr="Sandales de camp ou crocs">Camp sandals or crocs</li>
+          </ul>
+        </div>
+        <div class="gear-category">
+          <h4 data-en="Pack &amp; Equipment" data-fr="Sac &amp; Équipement">Pack &amp; Equipment</h4>
+          <ul class="gear-list">
+            <li data-en="60–80L main pack (porter carries it)" data-fr="Sac principal 60–80L (le porteur le porte)">60–80L main pack (porter carries it)</li>
+            <li data-en="20–25L day pack (you carry this)" data-fr="Sac de jour 20–25L (vous le portez)">20–25L day pack (you carry this)</li>
+            <li data-en="Sleeping bag rated to -10°C" data-fr="Sac de couchage -10°C">Sleeping bag rated to -10°C</li>
+            <li data-en="Trekking poles (strongly recommended)" data-fr="Bâtons de marche (vivement recommandés)">Trekking poles (strongly recommended)</li>
+            <li data-en="Headlamp + spare batteries" data-fr="Frontale + piles de rechange">Headlamp + spare batteries</li>
+            <li data-en="Water bottles or hydration bladder (3L)" data-fr="Gourdes ou poche d'hydratation (3L)">Water bottles or hydration bladder (3L)</li>
+          </ul>
+        </div>
+        <div class="gear-category">
+          <h4 data-en="Sun &amp; Personal Care" data-fr="Soleil &amp; Soins Personnels">Sun &amp; Personal Care</h4>
+          <ul class="gear-list">
+            <li data-en="Sunglasses (UV400 or glacier glasses)" data-fr="Lunettes de soleil (UV400 ou lunettes de glacier)">Sunglasses (UV400 or glacier glasses)</li>
+            <li data-en="High-factor sunscreen (SPF 50+)" data-fr="Crème solaire haute protection (SPF 50+)">High-factor sunscreen (SPF 50+)</li>
+            <li data-en="Lip balm with SPF" data-fr="Baume à lèvres avec SPF">Lip balm with SPF</li>
+            <li data-en="Blister prevention &amp; first-aid kit" data-fr="Prévention des ampoules &amp; trousse de secours">Blister prevention &amp; first-aid kit</li>
+            <li data-en="Camera / action cam" data-fr="Appareil photo / caméra d'action">Camera / action cam</li>
+          </ul>
+        </div>
+        <div class="gear-category">
+          <h4 data-en="Medication" data-fr="Médicaments">Medication</h4>
+          <ul class="gear-list">
+            <li data-en="Diamox (acetazolamide) — discuss with your doctor" data-fr="Diamox (acétazolamide) — à discuter avec votre médecin">Diamox (acetazolamide) — discuss with your doctor</li>
+            <li data-en="Ibuprofen / paracetamol" data-fr="Ibuprofène / paracétamol">Ibuprofen / paracetamol</li>
+            <li data-en="Rehydration salts" data-fr="Sels de réhydratation">Rehydration salts</li>
+            <li data-en="Personal prescription medications" data-fr="Médicaments personnels sur ordonnance">Personal prescription medications</li>
+          </ul>
+        </div>
+        <div class="gear-category" style="background:rgba(201,149,42,.08);border:1px solid rgba(201,149,42,.25);">
+          <h4 data-en="Provided by Philipo" data-fr="Fourni par Philipo">Provided by Philipo</h4>
+          <ul class="gear-list">
+            <li data-en="All camping equipment &amp; tents" data-fr="Tout l'équipement de camping &amp; tentes">All camping equipment &amp; tents</li>
+            <li data-en="Mess tent, chairs, tables" data-fr="Tente mess, chaises, tables">Mess tent, chairs, tables</li>
+            <li data-en="All meals on the mountain" data-fr="Tous les repas sur la montagne">All meals on the mountain</li>
+            <li data-en="Emergency oxygen" data-fr="Oxygène d'urgence">Emergency oxygen</li>
+            <li data-en="Pulse oximeters &amp; first-aid kit" data-fr="Oxymètres de pouls &amp; trousse de secours">Pulse oximeters &amp; first-aid kit</li>
+            <li data-en="All permits &amp; fees" data-fr="Tous les permis &amp; frais">All permits &amp; fees</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Mountains -->
+  <section class="page-section">
+    <div class="container">
+      <div class="section-header" style="text-align:left;margin-bottom:3rem;">
+        <p class="section-eyebrow" data-en="Beyond Kilimanjaro" data-fr="Au-delà du Kilimandjaro">Beyond Kilimanjaro</p>
+        <h2 class="section-title" data-en="Other Great Peaks" data-fr="Autres Grands Sommets">Other Great Peaks</h2>
+        <p class="section-desc" data-en="Kilimanjaro is extraordinary — but Tanzania and the surrounding region offer other magnificent mountains, each with their own character and rewards." data-fr="Le Kilimandjaro est extraordinaire — mais la Tanzanie et la région environnante offrent d'autres montagnes magnifiques, chacune avec son propre caractère et ses récompenses.">Kilimanjaro is extraordinary — but Tanzania and the surrounding region offer other magnificent mountains, each with their own character and rewards.</p>
+      </div>
+      <div class="mountains-grid">
+        <div class="mountain-card">
+          <div class="mountain-alt">4,562 m</div>
+          <h3>Mount Meru</h3>
+          <p data-en="Tanzania's second-highest peak sits inside Arusha National Park. A dramatic 3–4 day trek through forest alive with colobus monkeys and buffalo, before an exposed crater rim walk with stunning Kilimanjaro views on clear days. An outstanding acclimatisation peak before Kilimanjaro — or a magnificent expedition in its own right." data-fr="Le deuxième plus haut sommet de Tanzanie se trouve dans le Parc National d'Arusha. Un trek dramatique de 3–4 jours à travers une forêt vivante peuplée de colobes et de buffles, avant une marche exposée sur le bord du cratère avec de superbes vues sur le Kilimandjaro par temps clair. Un excellent sommet d'acclimatation avant le Kilimandjaro — ou une magnifique expédition à part entière.">Tanzania's second-highest peak sits inside Arusha National Park. A dramatic 3–4 day trek through forest alive with colobus monkeys and buffalo, before an exposed crater rim walk with stunning Kilimanjaro views on clear days. An outstanding acclimatisation peak before Kilimanjaro — or a magnificent expedition in its own right.</p>
+        </div>
+        <div class="mountain-card">
+          <div class="mountain-alt">3,417 m</div>
+          <h3>Mount Hanang</h3>
+          <p data-en="Tanzania's fourth-highest peak, rising dramatically from the Rift Valley floor near Katesh. Very few tourists ever visit — which makes this a special off-the-beaten-path experience. The surrounding area is home to the Barabaig people, a fascinating nomadic pastoralist culture. A 2-day hike with big views over the Rift." data-fr="Le quatrième plus haut sommet de Tanzanie, s'élevant dramatiquement du fond de la Vallée du Rift près de Katesh. Très peu de touristes y viennent jamais — ce qui en fait une expérience spéciale hors des sentiers battus. La zone environnante est la maison du peuple Barabaig, une fascinante culture pastorale nomade. Une randonnée de 2 jours avec de grandes vues sur le Rift.">Tanzania's fourth-highest peak, rising dramatically from the Rift Valley floor near Katesh. Very few tourists ever visit — which makes this a special off-the-beaten-path experience. The surrounding area is home to the Barabaig people, a fascinating nomadic pastoralist culture. A 2-day hike with big views over the Rift.</p>
+        </div>
+        <div class="mountain-card">
+          <div class="mountain-alt">2,637 m</div>
+          <h3>Mount Longido</h3>
+          <p data-en="A sacred Maasai mountain on the Kenya border, rising from the thornbush savanna. A 1–2 day hike with extraordinary views over both Kenya and Tanzania. Walking with Maasai guides through cattle country to the summit is itself a profound cultural experience. Perfect to combine with an Arusha area safari." data-fr="Une montagne sacrée Maasaï à la frontière kenyane, s'élevant de la savane épineuse. Une randonnée de 1–2 jours avec des vues extraordinaires sur le Kenya et la Tanzanie. Marcher avec des guides Maasaï à travers le pays des bovins jusqu'au sommet est en lui-même une expérience culturelle profonde. Parfait à combiner avec un safari de la région d'Arusha.">A sacred Maasai mountain on the Kenya border, rising from the thornbush savanna. A 1–2 day hike with extraordinary views over both Kenya and Tanzania. Walking with Maasai guides through cattle country to the summit is itself a profound cultural experience. Perfect to combine with an Arusha area safari.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mountains Map -->
+  <section class="page-section page-section--alt">
+    <div class="container">
+      <div class="section-header" style="text-align:left;margin-bottom:2rem;padding-top:3rem;">
+        <p class="section-eyebrow" data-en="Mountain Locations" data-fr="Localisation des Sommets">Mountain Locations</p>
+        <h2 class="section-title" data-en="East Africa's Great Peaks" data-fr="Les Grands Sommets d'Afrique de l'Est">East Africa's Great Peaks</h2>
+      </div>
+      <div id="mountains-map" style="height:440px;border-radius:8px;overflow:hidden;"></div>
+    </div>
+  </section>
+
+  <!-- Combo packages -->
+  <section class="page-section page-section--dark">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow" data-en="Combo Packages" data-fr="Forfaits Combinés">Combo Packages</p>
+        <h2 class="section-title" style="color:white;" data-en="Combine the Mountains" data-fr="Combinez les Montagnes">Combine the Mountains</h2>
+        <p class="section-desc" style="color:rgba(255,255,255,.55);margin:0 auto;" data-en="Every mountain experience can be combined with wildlife safaris, cultural tribal visits, or both. Philipo designs seamless itineraries." data-fr="Chaque expérience en montagne peut être combinée avec des safaris animaliers, des visites culturelles tribales, ou les deux. Philipo conçoit des itinéraires sans couture.">Every mountain experience can be combined with wildlife safaris, cultural tribal visits, or both. Philipo designs seamless itineraries.</p>
+      </div>
+      <div class="combos-grid">
+        <div class="combo-card">
+          <h3 data-en="Kilimanjaro + Safari" data-fr="Kilimandjaro + Safari">Kilimanjaro + Safari</h3>
+          <p data-en="Summit first, then celebrate on the plains. There is nothing quite like watching lions after standing on Uhuru Peak." data-fr="Le sommet d'abord, puis la célébration dans les plaines. Rien n'égale l'observation des lions après avoir été debout sur le Pic Uhuru.">Summit first, then celebrate on the plains. There is nothing quite like watching lions after standing on Uhuru Peak.</p>
+          <span class="combo-duration" data-en="12–16 days total" data-fr="12–16 jours au total">12–16 days total</span>
+        </div>
+        <div class="combo-card">
+          <h3 data-en="Meru + Kilimanjaro" data-fr="Mérou + Kilimandjaro">Meru + Kilimanjaro</h3>
+          <p data-en="The ultimate acclimatisation strategy. Trek Meru first to adapt to altitude, then tackle Kilimanjaro with a significantly higher chance of success." data-fr="La stratégie d'acclimatation ultime. Randonnez d'abord sur le Mérou pour s'adapter à l'altitude, puis attaquez le Kilimandjaro avec une chance de succès significativement plus élevée.">The ultimate acclimatisation strategy. Trek Meru first to adapt to altitude, then tackle Kilimanjaro with a significantly higher chance of success.</p>
+          <span class="combo-duration" data-en="10–12 days total" data-fr="10–12 jours au total">10–12 days total</span>
+        </div>
+        <div class="combo-card">
+          <h3 data-en="Summit + Tribes" data-fr="Sommet + Tribus">Summit + Tribes</h3>
+          <p data-en="Trek with Chagga cultural visits on the slopes, then meet Maasai warriors or Hadzabe hunters in the valley. Mountain and culture as one journey." data-fr="Randonnez avec des visites culturelles Chagga sur les pentes, puis rencontrez des guerriers Maasaï ou des chasseurs Hadzabe dans la vallée. Montagne et culture comme un seul voyage.">Trek with Chagga cultural visits on the slopes, then meet Maasai warriors or Hadzabe hunters in the valley. Mountain and culture as one journey.</p>
+          <span class="combo-duration" data-en="9–12 days total" data-fr="9–12 jours au total">9–12 days total</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-cta-strip">
+    <h2 data-en="Ready to Reach the Summit?" data-fr="Prêt à Atteindre le Sommet ?">Ready to Reach the Summit?</h2>
+    <p data-en="Tell Philipo your fitness level, preferred timeline, and dream — he'll choose the right route and build the perfect expedition." data-fr="Dites à Philipo votre niveau de forme, votre planning préféré et votre rêve — il choisira la bonne route et construira l'expédition parfaite.">Tell Philipo your fitness level, preferred timeline, and dream — he'll choose the right route and build the perfect expedition.</p>
+    <a href="index.html#contact" class="btn-primary" data-en="Plan My Expedition" data-fr="Planifier Mon Expédition">Plan My Expedition</a>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand"><a href="index.html" class="footer-logo">Philipo Safari</a><p data-en="Arusha, Tanzania — Est. 2005" data-fr="Arusha, Tanzanie — Fondé en 2005">Arusha, Tanzania — Est. 2005</p></div>
+        <div class="footer-links">
+          <a href="index.html" data-en="Home" data-fr="Accueil">Home</a>
+          <a href="wildlife.html" data-en="Wildlife" data-fr="Faune">Wildlife</a>
+          <a href="tribes.html" data-en="Tribes" data-fr="Tribus">Tribes</a>
+          <a href="gallery.html" data-en="Gallery" data-fr="Galerie">Gallery</a>
+          <a href="index.html#contact" data-en="Contact" data-fr="Contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 Philipo Safari.</p></div>
+    </div>
+  </footer>
+
+  <script src="lang.js"></script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : ''; });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }));
+    const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }), { threshold: .08 });
+    document.querySelectorAll('.route-card,.package-card,.mountain-card,.combo-card,.why-card,.gear-category').forEach(el => { el.classList.add('fade-in'); obs.observe(el); });
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const mtnMap = L.map('mountains-map').setView([-3.3, 36.8], 7);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
+      maxZoom: 19
+    }).addTo(mtnMap);
+    const mtnIcon = (size) => L.divIcon({
+      className: '',
+      html: `<div style="width:${size}px;height:${size}px;background:#C9952A;border:2px solid rgba(255,255,255,.75);border-radius:50%;box-shadow:0 0 10px rgba(201,149,42,.8);"></div>`,
+      iconSize: [size, size], iconAnchor: [size/2, size/2], popupAnchor: [0, -14]
+    });
+    const mountains = [
+      { name: 'Kilimanjaro', alt: '5,895 m — Roof of Africa', lat: -3.0674, lng: 37.3556, size: 20 },
+      { name: 'Mount Meru', alt: '4,562 m — Arusha National Park', lat: -3.2425, lng: 36.7519, size: 15 },
+      { name: 'Mount Longido', alt: '2,637 m — Kenya border', lat: -2.7333, lng: 36.7, size: 11 },
+      { name: 'Mount Hanang', alt: '3,417 m — Rift Valley', lat: -4.4333, lng: 35.4, size: 12 }
+    ];
+    mountains.forEach(m => {
+      L.marker([m.lat, m.lng], { icon: mtnIcon(m.size) }).addTo(mtnMap)
+        .bindPopup(`<strong style="color:#C9952A">${m.name}</strong><br><span style="font-size:.8em;color:#aaa">${m.alt}</span>`);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Philipo Safari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>if('scrollRestoration'in history)history.scrollRestoration='manual';window.addEventListener('pageshow',function(e){if(!e.persisted)window.scrollTo(0,0);});</script>
+  <style>
+    body { background: var(--charcoal); }
+    .gallery-page { padding: 8rem 2rem 5rem; }
+    .gallery-page .section-header { margin-bottom: 2.5rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav nav--page" id="nav" style="background:rgba(28,21,18,0.97);">
+    <a href="index.html" class="nav-logo-text" style="color:var(--gold);">Philipo Safari</a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-fr="Accueil">Home</a></li>
+      <li><a href="wildlife.html" data-en="Wildlife" data-fr="Faune">Wildlife</a></li>
+      <li><a href="tribes.html" data-en="Tribes" data-fr="Tribus">Tribes</a></li>
+      <li><a href="kilimanjaro.html">Kilimanjaro</a></li>
+      <li><a href="index.html#contact" class="nav-cta" data-en="Plan Your Journey" data-fr="Planifier Mon Voyage">Plan Your Journey</a></li>
+      <li><div class="lang-toggle"><button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button><button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button></div></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="nav-mobile" id="mobile-menu">
+    <a href="index.html" data-en="Home" data-fr="Accueil">Home</a>
+    <a href="wildlife.html" data-en="Wildlife" data-fr="Faune">Wildlife</a>
+    <a href="tribes.html" data-en="Tribes" data-fr="Tribus">Tribes</a>
+    <a href="kilimanjaro.html">Kilimanjaro</a>
+    <a href="index.html#contact" data-en="Contact" data-fr="Contact">Contact</a>
+    <div class="lang-toggle"><button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button><button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button></div>
+  </div>
+
+  <section class="gallery-page">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow" data-en="Tanzania Through Philipo's Lens" data-fr="La Tanzanie à Travers l'Objectif de Philipo">Tanzania Through Philipo's Lens</p>
+        <h1 class="section-title" style="color:white;" data-en="Gallery" data-fr="Galerie">Gallery</h1>
+        <div class="gallery-filters">
+          <button class="filter-btn active" data-filter="all" data-en="All Photos" data-fr="Toutes les Photos">All Photos</button>
+          <button class="filter-btn" data-filter="wildlife" data-en="Wildlife" data-fr="Faune">Wildlife</button>
+          <button class="filter-btn" data-filter="maasai" data-en="Tribes &amp; Culture" data-fr="Tribus &amp; Culture">Tribes &amp; Culture</button>
+          <button class="filter-btn" data-filter="landscape" data-en="Landscapes" data-fr="Paysages">Landscapes</button>
+          <button class="filter-btn" data-filter="kilimanjaro" data-en="Kilimanjaro" data-fr="Kilimandjaro">Kilimanjaro</button>
+        </div>
+      </div>
+
+      <div class="gallery-masonry" id="gallery-grid">
+
+        <!-- Wildlife -->
+        <div class="gallery-thumb" data-cat="wildlife">
+          <img src="pictures/safari/IMG_2186.jpeg" alt="Giraffe, Serengeti" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="wildlife">
+          <img src="pictures/safari/IMG_1535.jpeg" alt="Elephant in grasslands" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="wildlife">
+          <img src="pictures/safari/IMG_1864.jpeg" alt="Zebras, Serengeti" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="wildlife">
+          <img src="pictures/safari/IMG_2186.jpeg" alt="Giraffe feeding from acacia" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="wildlife">
+          <img src="pictures/safari/IMG_1765.jpeg" alt="Elephant with tusks" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="wildlife">
+          <img src="pictures/safari/IMG_2563.jpeg" alt="Baboon in forest" loading="lazy">
+        </div>
+
+        <!-- Landscapes -->
+        <div class="gallery-thumb" data-cat="landscape">
+          <img src="pictures/safari/IMG_2486.jpeg" alt="Tarangire plains, Tanzania" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="landscape">
+          <img src="pictures/safari/IMG_2219.jpeg" alt="Acacia tree with vultures, Serengeti" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="landscape">
+          <img src="pictures/safari/IMG_1627.jpeg" alt="Campfire at sunset" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="landscape">
+          <img src="pictures/maasai/084AC426-586E-4DFC-B501-6A7A504BC498.PNG" alt="Acacia tree, Tanzania" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="landscape">
+          <img src="pictures/kilimanjaro/IMG_1370.jpeg" alt="Tanzania highlands" loading="lazy">
+        </div>
+
+        <!-- Kilimanjaro -->
+        <div class="gallery-thumb" data-cat="kilimanjaro">
+          <img src="pictures/kilimanjaro/IMG_1279.jpeg" alt="Kilimanjaro" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="kilimanjaro">
+          <img src="pictures/kilimanjaro/IMG_1669.jpeg" alt="Kilimanjaro trek" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="kilimanjaro">
+          <img src="pictures/kilimanjaro/IMG_1199.jpeg" alt="Kilimanjaro route" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="kilimanjaro">
+          <img src="pictures/kilimanjaro/IMG_1221.jpeg" alt="Kilimanjaro landscape" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="kilimanjaro">
+          <img src="pictures/kilimanjaro/IMG_1240.jpeg" alt="Kilimanjaro camp" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="kilimanjaro">
+          <img src="pictures/kilimanjaro/IMG_1249.jpeg" alt="Kilimanjaro trail" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="kilimanjaro">
+          <img src="pictures/kilimanjaro/IMG_1268.jpeg" alt="Kilimanjaro summit approach" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="kilimanjaro">
+          <img src="pictures/kilimanjaro/IMG_1358.jpeg" alt="Kilimanjaro climb" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="kilimanjaro">
+          <img src="pictures/kilimanjaro/IMG_1360.jpeg" alt="Kilimanjaro views" loading="lazy">
+        </div>
+
+        <!-- Maasai / Culture -->
+        <div class="gallery-thumb" data-cat="maasai">
+          <img src="pictures/maasai/CIZIE6224.JPG" alt="Maasai warriors" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="maasai">
+          <img src="pictures/maasai/2AEB23FF-CC8D-40D7-BC1D-467AE04F5290.PNG" alt="Maasai" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="maasai">
+          <img src="pictures/maasai/05E8E415-56F5-45DB-9E8E-39A4037F6369.PNG" alt="Maasai warriors on the land" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="maasai">
+          <img src="pictures/maasai/2AEB23FF-CC8D-40D7-BC1D-467AE04F5290.PNG" alt="Maasai girl" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="maasai">
+          <img src="pictures/maasai/15E3A61D-F246-44BF-ADE6-7943164EAB71.PNG" alt="Maasai women" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="maasai">
+          <img src="pictures/maasai/191042B6-50B0-4BB5-BBF9-043FBE03EAF7.PNG" alt="Maasai family" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="maasai">
+          <img src="pictures/maasai/510AB032-66A5-47A7-B62F-515D33EDF356.PNG" alt="Maasai man and child in village" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="maasai">
+          <img src="pictures/maasai/68D84BF2-13B3-43B7-9ADA-D0875CCFA4B3.PNG" alt="Maasai boy" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="maasai">
+          <img src="pictures/maasai/6CDD5441-C603-4E77-A84C-A2AFC6291461.PNG" alt="Maasai boys" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="maasai">
+          <img src="pictures/maasai/86BA67E3-0AFC-4E02-87DC-BC607D753541.PNG" alt="Maasai cattle" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="maasai">
+          <img src="pictures/maasai/997812F2-5CF5-4AF6-8410-D7B846B8C86E.PNG" alt="Maasai man carrying wood" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="maasai">
+          <img src="pictures/maasai/B4041A37-AAAA-45B0-A3BD-746FF65933E4.PNG" alt="Maasai warrior portrait" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="maasai">
+          <img src="pictures/maasai/BE0D4206-44F8-4F0F-8B01-4FF0216CFD31.PNG" alt="Maasai women walking" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="maasai">
+          <img src="pictures/maasai/F268034E-9A8D-44C8-B3E4-A1CCFF888B80.PNG" alt="Maasai beads and jewellery" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="maasai">
+          <img src="pictures/maasai/F8CF6B62-C2CE-4EA0-8F1A-1D64E68204C6.PNG" alt="Maasai walking" loading="lazy">
+        </div>
+        <div class="gallery-thumb" data-cat="maasai">
+          <img src="pictures/maasai/0CF38D16-BFED-4BA7-91F9-7997F778AE2F.PNG" alt="Maasai group" loading="lazy">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lb-close">&#x2715;</button>
+    <button class="lightbox-prev" id="lb-prev">&#8592;</button>
+    <img src="" id="lb-img" alt="">
+    <button class="lightbox-next" id="lb-next">&#8594;</button>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">Philipo Safari</a>
+          <p data-en="Arusha, Tanzania — Est. 2005" data-fr="Arusha, Tanzanie — Fondé en 2005">Arusha, Tanzania — Est. 2005</p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html" data-en="Home" data-fr="Accueil">Home</a>
+          <a href="wildlife.html" data-en="Wildlife" data-fr="Faune">Wildlife</a>
+          <a href="tribes.html" data-en="Tribes" data-fr="Tribus">Tribes</a>
+          <a href="kilimanjaro.html">Kilimanjaro</a>
+          <a href="index.html#contact" data-en="Contact" data-fr="Contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 Philipo Safari.</p></div>
+    </div>
+  </footer>
+
+  <script src="lang.js"></script>
+  <script>
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = '';
+    }));
+
+    // Filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const thumbs = document.querySelectorAll('.gallery-thumb');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        thumbs.forEach(t => {
+          t.style.display = (filter === 'all' || t.dataset.cat === filter) ? 'block' : 'none';
+        });
+        updateVisible();
+      });
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    let visibleThumbs = [];
+    let currentIdx = 0;
+
+    function updateVisible() {
+      visibleThumbs = [...document.querySelectorAll('.gallery-thumb')]
+        .filter(t => t.style.display !== 'none');
+    }
+    updateVisible();
+
+    function openLightbox(idx) {
+      currentIdx = idx;
+      lbImg.src = visibleThumbs[idx].querySelector('img').src;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    thumbs.forEach((thumb, i) => {
+      thumb.addEventListener('click', () => {
+        updateVisible();
+        const idx = visibleThumbs.indexOf(thumb);
+        if (idx !== -1) openLightbox(idx);
+      });
+    });
+
+    document.getElementById('lb-close').addEventListener('click', () => {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+
+    document.getElementById('lb-prev').addEventListener('click', () => {
+      currentIdx = (currentIdx - 1 + visibleThumbs.length) % visibleThumbs.length;
+      lbImg.src = visibleThumbs[currentIdx].querySelector('img').src;
+    });
+
+    document.getElementById('lb-next').addEventListener('click', () => {
+      currentIdx = (currentIdx + 1) % visibleThumbs.length;
+      lbImg.src = visibleThumbs[currentIdx].querySelector('img').src;
+    });
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
+      if (e.key === 'ArrowLeft') { currentIdx = (currentIdx - 1 + visibleThumbs.length) % visibleThumbs.length; lbImg.src = visibleThumbs[currentIdx].querySelector('img').src; }
+      if (e.key === 'ArrowRight') { currentIdx = (currentIdx + 1) % visibleThumbs.length; lbImg.src = visibleThumbs[currentIdx].querySelector('img').src; }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tribes &amp; Culture — Philipo Safari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script>if('scrollRestoration'in history)history.scrollRestoration='manual';window.addEventListener('pageshow',function(e){if(!e.persisted)window.scrollTo(0,0);});</script>
+</head>
+<body>
+  <nav class="nav nav--page" id="nav">
+    <a href="index.html" class="nav-logo-text">Philipo Safari</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about" data-en="About" data-fr="À Propos">About</a></li>
+      <li><a href="index.html#experiences" data-en="Experiences" data-fr="Expériences">Experiences</a></li>
+      <li><a href="gallery.html" data-en="Gallery" data-fr="Galerie">Gallery</a></li>
+      <li><a href="index.html#contact" class="nav-cta" data-en="Plan Your Journey" data-fr="Planifier Mon Voyage">Plan Your Journey</a></li>
+      <li><div class="lang-toggle"><button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button><button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button></div></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobile-menu">
+    <a href="index.html" data-en="Home" data-fr="Accueil">Home</a>
+    <a href="wildlife.html" data-en="Wildlife" data-fr="Faune">Wildlife</a>
+    <a href="kilimanjaro.html">Kilimanjaro</a>
+    <a href="gallery.html" data-en="Gallery" data-fr="Galerie">Gallery</a>
+    <a href="index.html#contact" data-en="Contact" data-fr="Contact">Contact</a>
+    <div class="lang-toggle"><button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button><button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button></div>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"><img src="pictures/maasai/05E8E415-56F5-45DB-9E8E-39A4037F6369.PNG" alt="Maasai warriors, Tanzania"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="container" style="position:relative;z-index:2;width:100%;">
+      <div class="breadcrumb"><a href="index.html" data-en="Home" data-fr="Accueil">Home</a><span class="sep">/</span><span data-en="Tribes &amp; Culture" data-fr="Tribus &amp; Culture">Tribes &amp; Culture</span></div>
+      <div class="page-hero-content">
+        <p class="section-eyebrow" data-en="Cultural Immersion" data-fr="Immersion Culturelle">Cultural Immersion</p>
+        <h1 data-en="Tanzania's Living Cultures" data-fr="Les Cultures Vivantes de Tanzanie">Tanzania's Living Cultures</h1>
+        <p data-en="Philipo is Maasai. He doesn't take you to see these communities — he takes you home. The access, the depth, and the authenticity are unlike anything else in Africa." data-fr="Philipo est Maasaï. Il ne vous emmène pas voir ces communautés — il vous emmène chez lui. L'accès, la profondeur et l'authenticité sont sans pareil en Afrique.">Philipo is Maasai. He doesn't take you to see these communities — he takes you home. The access, the depth, and the authenticity are unlike anything else in Africa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philipo Maasai intro -->
+  <section class="page-section page-section--alt">
+    <div class="container">
+      <div class="about-grid" style="grid-template-columns:1fr 1.8fr;gap:4rem;">
+        <div style="aspect-ratio:1;overflow:hidden;">
+          <img src="pictures/maasai/6CDD5441-C603-4E77-A84C-A2AFC6291461.PNG" alt="Maasai" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div>
+          <p class="section-eyebrow" data-en="Philipo's Heritage" data-fr="L'Héritage de Philipo">Philipo's Heritage</p>
+          <h2 class="section-title" data-en="An Insider's Perspective" data-fr="Une Perspective de l'Intérieur">An Insider's Perspective</h2>
+          <p class="about-lead" data-en="Growing up in a Maasai community near Arusha, Philipo was raised with the rites, the language, and the land that define his people." data-fr="Ayant grandi dans une communauté Maasaï près d'Arusha, Philipo a été élevé avec les rites, la langue et la terre qui définissent son peuple.">Growing up in a Maasai community near Arusha, Philipo was raised with the rites, the language, and the land that define his people.</p>
+          <p class="about-body" data-en="When he brings guests into a boma, elders aren't performing for tourists — they're welcoming a member of their community. That changes everything: the conversations are real, the ceremonies genuine, the connections lasting. Combined with his fluency in English, French, Swahili and Maa, Philipo bridges worlds that rarely meet." data-fr="Quand il amène des visiteurs dans un boma, les anciens n'offrent pas un spectacle touristique — ils accueillent un membre de leur communauté. Cela change tout : les conversations sont réelles, les cérémonies authentiques, les liens durables. Combiné à sa maîtrise de l'anglais, du français, du swahili et du maa, Philipo fait le pont entre des mondes qui se croisent rarement.">When he brings guests into a boma, elders aren't performing for tourists — they're welcoming a member of their community. That changes everything: the conversations are real, the ceremonies genuine, the connections lasting. Combined with his fluency in English, French, Swahili and Maa, Philipo bridges worlds that rarely meet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tribes -->
+  <section class="page-section">
+    <div class="container">
+      <div class="section-header" style="text-align:left;margin-bottom:3rem;">
+        <p class="section-eyebrow" data-en="The Tribes" data-fr="Les Tribus">The Tribes</p>
+        <h2 class="section-title" data-en="Who You Will Meet" data-fr="Qui Vous Rencontrerez">Who You Will Meet</h2>
+      </div>
+      <div class="tribes-grid">
+
+        <div class="tribe-card">
+          <div class="tribe-icon">◈</div>
+          <div>
+            <h3>Maasai</h3>
+            <span class="tribe-where" data-en="Ngorongoro · Arusha · Lake Manyara" data-fr="Ngorongoro · Arusha · Lake Manyara">Ngorongoro · Arusha · Lake Manyara</span>
+            <p data-en="The iconic semi-nomadic pastoralists of East Africa. Recognised by their vivid red shukas and intricate beadwork, the Maasai have resisted assimilation for centuries. Visit a boma (family homestead), watch the adumu jumping ceremony, learn about the warrior age-grade system, and share a meal with elders. Philipo's own family opens their homes." data-fr="Les iconiques pasteurs semi-nomades d'Afrique de l'Est. Reconnaissables à leurs shukas rouges vifs et à leurs ornements de perles complexes, les Maasaï ont résisté à l'assimilation pendant des siècles. Visitez un boma (foyer familial), regardez la cérémonie de saut adumu, découvrez le système de grades d'âge des guerriers et partagez un repas avec des anciens. La propre famille de Philipo ouvre ses maisons.">The iconic semi-nomadic pastoralists of East Africa. Recognised by their vivid red shukas and intricate beadwork, the Maasai have resisted assimilation for centuries. Visit a boma (family homestead), watch the adumu jumping ceremony, learn about the warrior age-grade system, and share a meal with elders. Philipo's own family opens their homes.</p>
+          </div>
+        </div>
+
+        <div class="tribe-card">
+          <div class="tribe-icon">◈</div>
+          <div>
+            <h3>Hadzabe</h3>
+            <span class="tribe-where" data-en="Lake Eyasi — Central Rift Valley" data-fr="Lac Eyasi — Vallée du Rift Central">Lake Eyasi — Central Rift Valley</span>
+            <p data-en="One of the last true hunter-gatherer societies on Earth — only around 1,200 remain. The Hadzabe live exactly as their ancestors did, hunting with bow and arrow and gathering berries and tubers. Philipo arranges pre-dawn walks to join them on the hunt. Their click-consonant language is one of the oldest on the planet." data-fr="L'une des dernières vraies sociétés de chasseurs-cueilleurs sur Terre — seulement environ 1 200 restent. Les Hadzabe vivent exactement comme leurs ancêtres, chassant avec arc et flèches et cueillant des baies et des tubercules. Philipo organise des marches avant l'aube pour les rejoindre à la chasse. Leur langue à consonnes cliquées est l'une des plus anciennes de la planète.">One of the last true hunter-gatherer societies on Earth — only around 1,200 remain. The Hadzabe live exactly as their ancestors did, hunting with bow and arrow and gathering berries and tubers. Philipo arranges pre-dawn walks to join them on the hunt. Their click-consonant language is one of the oldest on the planet.</p>
+          </div>
+        </div>
+
+        <div class="tribe-card">
+          <div class="tribe-icon">◈</div>
+          <div>
+            <h3>Datoga</h3>
+            <span class="tribe-where" data-en="Lake Eyasi — Central Rift Valley" data-fr="Lac Eyasi — Vallée du Rift Central">Lake Eyasi — Central Rift Valley</span>
+            <p data-en="Ancient pastoralists and master blacksmiths. The Datoga are famous for forging metal jewellery, arrowheads and tools from scrap metal — including old bullet casings. Often visited alongside the Hadzabe at Lake Eyasi. Their tattooing traditions and distinctive circular scarification patterns are deeply symbolic." data-fr="Anciens pasteurs et maîtres forgerons. Les Datoga sont célèbres pour forger des bijoux en métal, des pointes de flèches et des outils à partir de métal de récupération — y compris des étuis de cartouches usagés. Souvent visités aux côtés des Hadzabe au lac Eyasi. Leurs traditions de tatouage et leurs motifs de scarification circulaires distinctifs sont profondément symboliques.">Ancient pastoralists and master blacksmiths. The Datoga are famous for forging metal jewellery, arrowheads and tools from scrap metal — including old bullet casings. Often visited alongside the Hadzabe at Lake Eyasi. Their tattooing traditions and distinctive circular scarification patterns are deeply symbolic.</p>
+          </div>
+        </div>
+
+        <div class="tribe-card">
+          <div class="tribe-icon">◈</div>
+          <div>
+            <h3>Iraqw (Mbulu)</h3>
+            <span class="tribe-where" data-en="Karatu — Ngorongoro Highlands" data-fr="Karatu — Hautes Terres du Ngorongoro">Karatu — Ngorongoro Highlands</span>
+            <p data-en="A Cushitic people who settled the Ngorongoro Highlands millennia ago. The Iraqw built elaborate underground tunnel systems to hide cattle and children from Maasai raids. Their language is entirely distinct from all surrounding groups. Visits to Iraqw communities near Karatu pair naturally with Ngorongoro and Tarangire safaris." data-fr="Un peuple couchitique qui s'est installé dans les hautes terres du Ngorongoro il y a des millénaires. Les Iraqw ont construit des systèmes de tunnels souterrains élaborés pour cacher bovins et enfants lors des raids Maasaï. Leur langue est entièrement distincte de tous les groupes environnants. Les visites aux communautés Iraqw près de Karatu s'associent naturellement aux safaris du Ngorongoro et de Tarangire.">A Cushitic people who settled the Ngorongoro Highlands millennia ago. The Iraqw built elaborate underground tunnel systems to hide cattle and children from Maasai raids. Their language is entirely distinct from all surrounding groups. Visits to Iraqw communities near Karatu pair naturally with Ngorongoro and Tarangire safaris.</p>
+          </div>
+        </div>
+
+        <div class="tribe-card">
+          <div class="tribe-icon">◈</div>
+          <div>
+            <h3>Chagga</h3>
+            <span class="tribe-where" data-en="Kilimanjaro slopes — Moshi &amp; Marangu" data-fr="Flancs du Kilimandjaro — Moshi &amp; Marangu">Kilimanjaro slopes — Moshi &amp; Marangu</span>
+            <p data-en="Farmers and traders who cultivated the fertile slopes of Kilimanjaro for centuries. Famous for coffee and banana cultivation, the Chagga also built an extraordinary underground tunnel network to protect against Maasai raids. A Chagga cultural tour pairs perfectly with a Kilimanjaro climb." data-fr="Agriculteurs et commerçants qui ont cultivé les fertiles pentes du Kilimandjaro pendant des siècles. Célèbres pour la culture du café et des bananes, les Chagga ont également construit un extraordinaire réseau de tunnels souterrains pour se protéger des raids Maasaï. Une visite culturelle Chagga s'associe parfaitement avec une ascension du Kilimandjaro.">Farmers and traders who cultivated the fertile slopes of Kilimanjaro for centuries. Famous for coffee and banana cultivation, the Chagga also built an extraordinary underground tunnel network to protect against Maasai raids. A Chagga cultural tour pairs perfectly with a Kilimanjaro climb.</p>
+          </div>
+        </div>
+
+        <div class="tribe-card">
+          <div class="tribe-icon">◈</div>
+          <div>
+            <h3>Sandawe</h3>
+            <span class="tribe-where" data-en="Dodoma Region — Central Tanzania" data-fr="Région de Dodoma — Centre Tanzanie">Dodoma Region — Central Tanzania</span>
+            <p data-en="Linguistically related to the Khoisan peoples of southern Africa, the Sandawe speak one of the rare click-consonant languages of East Africa. Their ancestors painted extraordinary rock art — some over 4,000 years old — that still covers cave walls across their territory. A rare and deeply moving experience." data-fr="Linguistiquement liés aux peuples Khoïsan d'Afrique australe, les Sandawe parlent l'une des rares langues à consonnes cliquées d'Afrique de l'Est. Leurs ancêtres ont peint des peintures rupestres extraordinaires — certaines vieilles de plus de 4 000 ans — qui recouvrent encore les parois des grottes de tout leur territoire. Une expérience rare et profondément émouvante.">Linguistically related to the Khoisan peoples of southern Africa, the Sandawe speak one of the rare click-consonant languages of East Africa. Their ancestors painted extraordinary rock art — some over 4,000 years old — that still covers cave walls across their territory. A rare and deeply moving experience.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Tribes Map -->
+  <section class="page-section">
+    <div class="container">
+      <div class="section-header" style="text-align:left;margin-bottom:2rem;padding-top:3rem;">
+        <p class="section-eyebrow" data-en="Where to Find Them" data-fr="Où les Trouver">Where to Find Them</p>
+        <h2 class="section-title" data-en="Tribes Across Tanzania" data-fr="Les Tribus à Travers la Tanzanie">Tribes Across Tanzania</h2>
+      </div>
+      <div id="tribes-map" style="height:440px;border-radius:8px;overflow:hidden;"></div>
+    </div>
+  </section>
+
+  <!-- Cultural Packages -->
+  <section class="page-section page-section--alt">
+    <div class="container">
+      <div class="section-header" style="text-align:left;margin-bottom:3rem;">
+        <p class="section-eyebrow" data-en="Cultural Experiences" data-fr="Expériences Culturelles">Cultural Experiences</p>
+        <h2 class="section-title" data-en="Choose Your Depth" data-fr="Choisissez Votre Immersion">Choose Your Depth</h2>
+      </div>
+      <div class="packages-grid">
+        <div class="package-card">
+          <div class="package-name" data-en="Visit" data-fr="Visite">Visit</div>
+          <div class="package-days">½</div>
+          <div class="package-days-label" data-en="day" data-fr="journée">day</div>
+          <p class="package-desc" data-en="A meaningful Maasai boma visit near Arusha. Meet warriors and elders, see daily life, watch beadwork, and learn about the cattle-centred world." data-fr="Une visite significative d'un boma Maasaï près d'Arusha. Rencontrez guerriers et anciens, découvrez la vie quotidienne, observez le travail des perles et apprenez le monde centré sur le bétail.">A meaningful Maasai boma visit near Arusha. Meet warriors and elders, see daily life, watch beadwork, and learn about the cattle-centred world.</p>
+          <ul class="package-includes">
+            <li>Maasai boma</li>
+            <li data-en="Elder conversations" data-fr="Conversations avec les anciens">Elder conversations</li>
+            <li data-en="Beadwork &amp; crafts" data-fr="Perles &amp; artisanat">Beadwork &amp; crafts</li>
+          </ul>
+          <a href="index.html#contact" class="btn-outline" data-en="Enquire" data-fr="Renseignements">Enquire</a>
+        </div>
+        <div class="package-card">
+          <div class="package-name" data-en="Full Day" data-fr="Journée Complète">Full Day</div>
+          <div class="package-days">1</div>
+          <div class="package-days-label" data-en="day" data-fr="jour">day</div>
+          <p class="package-desc" data-en="Lake Eyasi — the full Hadzabe hunting walk at dawn, followed by an afternoon with Datoga blacksmiths. Two of Africa's most extraordinary encounters in one day." data-fr="Lac Eyasi — la marche de chasse complète avec les Hadzabe à l'aube, suivie d'un après-midi avec les forgerons Datoga. Deux des rencontres les plus extraordinaires d'Afrique en une journée.">Lake Eyasi — the full Hadzabe hunting walk at dawn, followed by an afternoon with Datoga blacksmiths. Two of Africa's most extraordinary encounters in one day.</p>
+          <ul class="package-includes">
+            <li data-en="Pre-dawn Hadzabe hunt" data-fr="Chasse Hadzabe avant l'aube">Pre-dawn Hadzabe hunt</li>
+            <li data-en="Datoga blacksmith visit" data-fr="Visite forgeron Datoga">Datoga blacksmith visit</li>
+            <li data-en="All meals" data-fr="Tous les repas">All meals</li>
+          </ul>
+          <a href="index.html#contact" class="btn-outline" data-en="Enquire" data-fr="Renseignements">Enquire</a>
+        </div>
+        <div class="package-card package-card--featured">
+          <div class="package-name" data-en="Immersion" data-fr="Immersion">Immersion</div>
+          <div class="package-days">2–3</div>
+          <div class="package-days-label" data-en="days" data-fr="jours">days</div>
+          <p class="package-desc" data-en="Multiple tribes, overnight in a Maasai boma under the stars, Hadzabe at dawn, Iraqw highlands. The deepest cultural journey available in East Africa." data-fr="Plusieurs tribus, nuit dans un boma Maasaï sous les étoiles, Hadzabe à l'aube, hautes terres Iraqw. Le voyage culturel le plus profond disponible en Afrique de l'Est.">Multiple tribes, overnight in a Maasai boma under the stars, Hadzabe at dawn, Iraqw highlands. The deepest cultural journey available in East Africa.</p>
+          <ul class="package-includes">
+            <li data-en="Overnight Maasai boma" data-fr="Nuit dans un boma Maasaï">Overnight Maasai boma</li>
+            <li data-en="Hadzabe hunt" data-fr="Chasse Hadzabe">Hadzabe hunt</li>
+            <li data-en="Datoga + Iraqw" data-fr="Datoga + Iraqw">Datoga + Iraqw</li>
+            <li data-en="Traditional meals" data-fr="Repas traditionnels">Traditional meals</li>
+          </ul>
+          <a href="index.html#contact" class="btn-primary" data-en="Enquire" data-fr="Renseignements">Enquire</a>
+        </div>
+        <div class="package-card">
+          <div class="package-name" data-en="Grand Tour" data-fr="Grand Tour">Grand Tour</div>
+          <div class="package-days">4–5</div>
+          <div class="package-days-label" data-en="days" data-fr="jours">days</div>
+          <p class="package-desc" data-en="From Arusha to Karatu to Lake Eyasi to the Chagga on Kilimanjaro's slopes — a complete ethnographic journey through five living cultures." data-fr="D'Arusha à Karatu, du lac Eyasi aux Chagga sur les pentes du Kilimandjaro — un voyage ethnographique complet à travers cinq cultures vivantes.">From Arusha to Karatu to Lake Eyasi to the Chagga on Kilimanjaro's slopes — a complete ethnographic journey through five living cultures.</p>
+          <ul class="package-includes">
+            <li data-en="5 tribal communities" data-fr="5 communautés tribales">5 tribal communities</li>
+            <li data-en="Rock art sites" data-fr="Sites d'art rupestre">Rock art sites</li>
+            <li data-en="Combine with safari" data-fr="Combinable avec safari">Combine with safari</li>
+            <li data-en="Full logistics" data-fr="Logistique complète">Full logistics</li>
+          </ul>
+          <a href="index.html#contact" class="btn-outline" data-en="Enquire" data-fr="Renseignements">Enquire</a>
+        </div>
+      </div>
+      <div class="info-box">
+        <p data-en="<strong>Responsible tourism:</strong> all cultural visits are arranged with full community consent and benefit the communities directly. Philipo's personal relationships ensure visits are genuine — not theatrical performances staged for outsiders." data-fr="<strong>Tourisme responsable :</strong> toutes les visites culturelles sont organisées avec le plein consentement de la communauté et en bénéficient directement. Les relations personnelles de Philipo garantissent que les visites sont authentiques — pas des spectacles montés pour les étrangers."><strong>Responsible tourism:</strong> all cultural visits are arranged with full community consent and benefit the communities directly. Philipo's personal relationships ensure visits are genuine — not theatrical performances staged for outsiders.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo row -->
+  <div class="gallery-strip" style="height:280px;">
+    <div class="gallery-item"><img src="pictures/maasai/F268034E-9A8D-44C8-B3E4-A1CCFF888B80.PNG" alt="Maasai beads"></div>
+    <div class="gallery-item"><img src="pictures/maasai/510AB032-66A5-47A7-B62F-515D33EDF356.PNG" alt="Maasai village"></div>
+    <div class="gallery-item"><img src="pictures/maasai/68D84BF2-13B3-43B7-9ADA-D0875CCFA4B3.PNG" alt="Maasai boy"></div>
+    <div class="gallery-item"><img src="pictures/maasai/86BA67E3-0AFC-4E02-87DC-BC607D753541.PNG" alt="Maasai cattle"></div>
+    <div class="gallery-item"><img src="pictures/maasai/0CF38D16-BFED-4BA7-91F9-7997F778AE2F.PNG" alt="Maasai group"></div>
+  </div>
+
+  <div class="page-cta-strip">
+    <h2 data-en="Ready to Meet Tanzania's People?" data-fr="Prêt à Rencontrer le Peuple de Tanzanie ?">Ready to Meet Tanzania's People?</h2>
+    <p data-en="Tell Philipo which tribes and experiences call to you — he will design a journey that goes deeper than any tour." data-fr="Dites à Philipo quelles tribus et expériences vous attirent — il concevra un voyage plus profond que tout autre tour.">Tell Philipo which tribes and experiences call to you — he will design a journey that goes deeper than any tour.</p>
+    <a href="index.html#contact" class="btn-primary" data-en="Plan My Cultural Journey" data-fr="Planifier Mon Voyage Culturel">Plan My Cultural Journey</a>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand"><a href="index.html" class="footer-logo">Philipo Safari</a><p data-en="Arusha, Tanzania — Est. 2005" data-fr="Arusha, Tanzanie — Fondé en 2005">Arusha, Tanzania — Est. 2005</p></div>
+        <div class="footer-links">
+          <a href="index.html" data-en="Home" data-fr="Accueil">Home</a>
+          <a href="wildlife.html" data-en="Wildlife" data-fr="Faune">Wildlife</a>
+          <a href="kilimanjaro.html">Kilimanjaro</a>
+          <a href="gallery.html" data-en="Gallery" data-fr="Galerie">Gallery</a>
+          <a href="index.html#contact" data-en="Contact" data-fr="Contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 Philipo Safari.</p></div>
+    </div>
+  </footer>
+
+  <script src="lang.js"></script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : ''; });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }));
+    const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }), { threshold: .08 });
+    document.querySelectorAll('.tribe-card,.package-card,.info-box').forEach(el => { el.classList.add('fade-in'); obs.observe(el); });
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const tribesMap = L.map('tribes-map').setView([-4.0, 35.5], 6);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
+      maxZoom: 19
+    }).addTo(tribesMap);
+    const tribeIcon = (color) => L.divIcon({
+      className: '',
+      html: `<div style="width:14px;height:14px;background:${color};border:2px solid rgba(255,255,255,.7);border-radius:50%;box-shadow:0 0 8px ${color}99;"></div>`,
+      iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -12]
+    });
+    const tribes = [
+      { name: 'Maasai', sub: 'Ngorongoro · Arusha · Lake Manyara', lat: -3.05, lng: 36.05, color: '#e05c3a' },
+      { name: 'Hadzabe', sub: 'Lake Eyasi — Central Rift Valley', lat: -3.62, lng: 35.07, color: '#C9952A' },
+      { name: 'Datoga', sub: 'Lake Eyasi — Central Rift Valley', lat: -3.75, lng: 35.2, color: '#C9952A' },
+      { name: 'Iraqw (Mbulu)', sub: 'Karatu — Ngorongoro Highlands', lat: -3.36, lng: 35.65, color: '#6aaa8a' },
+      { name: 'Chagga', sub: 'Kilimanjaro slopes — Moshi & Marangu', lat: -3.35, lng: 37.33, color: '#8a9fc9' },
+      { name: 'Sandawe', sub: 'Dodoma Region — Central Tanzania', lat: -5.8, lng: 35.8, color: '#b97db5' }
+    ];
+    tribes.forEach(t => {
+      L.marker([t.lat, t.lng], { icon: tribeIcon(t.color) }).addTo(tribesMap)
+        .bindPopup(`<strong style="color:${t.color}">${t.name}</strong><br><span style="font-size:.8em;color:#aaa">${t.sub}</span>`);
+    });
+  </script>
+</body>
+</html>

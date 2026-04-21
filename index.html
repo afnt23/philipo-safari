@@ -3,11 +3,447 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Philipo Safari</title>
+  <title>Philipo Safari — Tanzania's Premier Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>if('scrollRestoration'in history)history.scrollRestoration='manual';window.addEventListener('pageshow',function(e){if(!e.persisted)window.scrollTo(0,0);});</script>
 </head>
 <body>
-  <h1>Welcome to Philipo Safari</h1>
-  <p>Your adventure starts here.</p>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo-text">Philipo Safari</a>
+    <ul class="nav-links">
+      <li><a href="#about" data-en="About" data-fr="À Propos">About</a></li>
+      <li><a href="#experiences" data-en="Experiences" data-fr="Expériences">Experiences</a></li>
+      <li><a href="gallery.html" data-en="Gallery" data-fr="Galerie">Gallery</a></li>
+      <li><a href="#why-us" data-en="Why Philipo" data-fr="Pourquoi Philipo">Why Philipo</a></li>
+      <li><a href="#contact" class="nav-cta" data-en="Plan Your Journey" data-fr="Planifier Mon Voyage">Plan Your Journey</a></li>
+      <li>
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
+        </div>
+      </li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-mobile" id="mobile-menu">
+    <a href="#about" data-en="About" data-fr="À Propos">About</a>
+    <a href="#experiences" data-en="Experiences" data-fr="Expériences">Experiences</a>
+    <a href="gallery.html" data-en="Gallery" data-fr="Galerie">Gallery</a>
+    <a href="#why-us" data-en="Why Philipo" data-fr="Pourquoi Philipo">Why Philipo</a>
+    <a href="#contact" data-en="Plan Your Journey" data-fr="Planifier Mon Voyage">Plan Your Journey</a>
+    <div class="lang-toggle">
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-bg"><img src="pictures/safari/IMG_2486.jpeg" alt="The Serengeti plains"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow" data-en="Tanzania &nbsp;·&nbsp; 20 Years of Expertise" data-fr="Tanzanie &nbsp;·&nbsp; 20 Ans d'Expertise">Tanzania &nbsp;·&nbsp; 20 Years of Expertise</p>
+      <h1 class="hero-title">
+        <span data-en="Where the" data-fr="Là où la">Where the</span>
+        <em data-en="Wild" data-fr="Nature">Wild</em>
+        <span data-en="Calls" data-fr="Appelle">Calls</span>
+      </h1>
+      <p class="hero-subtitle" data-en="Private safari experiences crafted by Tanzania's most trusted guide" data-fr="Des expériences safari privées, signées par le guide le plus reconnu de Tanzanie">Private safari experiences crafted by Tanzania's most trusted guide</p>
+      <a href="#experiences" class="btn-primary" data-en="Discover Your Safari" data-fr="Découvrez Votre Safari">Discover Your Safari</a>
+    </div>
+    <div class="hero-landscape">
+      <svg viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 130 Q120 100 240 120 Q360 140 480 105 Q600 72 720 100 Q840 128 960 95 Q1080 65 1200 100 Q1320 132 1440 110 L1440 200 L0 200 Z" fill="#0a0604"/>
+        <path d="M0 155 Q180 130 360 148 Q540 165 720 138 Q900 115 1080 142 Q1260 165 1440 150 L1440 200 L0 200 Z" fill="#0d0806"/>
+        <g transform="translate(45,50)"><rect x="15" y="90" width="7" height="100" fill="#0a0604" rx="2"/><ellipse cx="18" cy="86" rx="40" ry="14" fill="#0a0604"/><ellipse cx="2" cy="93" rx="23" ry="9" fill="#0a0604"/><ellipse cx="37" cy="90" rx="27" ry="11" fill="#0a0604"/></g>
+        <g transform="translate(250,20) scale(1.4)"><rect x="16" y="95" width="8" height="115" fill="#0a0604" rx="2"/><ellipse cx="20" cy="90" rx="50" ry="17" fill="#0a0604"/><ellipse cx="2" cy="98" rx="28" ry="11" fill="#0a0604"/><ellipse cx="45" cy="94" rx="34" ry="13" fill="#0a0604"/></g>
+        <g transform="translate(545,20)"><polygon points="22,185 30,185 47,18 39,18" fill="#0a0604"/><ellipse cx="43" cy="13" rx="10" ry="7" fill="#0a0604" transform="rotate(-15,43,13)"/><rect x="40" y="4" width="3" height="10" fill="#0a0604" rx="1"/><rect x="47" y="2" width="3" height="10" fill="#0a0604" rx="1"/><ellipse cx="20" cy="180" rx="26" ry="15" fill="#0a0604"/><rect x="5" y="190" width="6" height="48" fill="#0a0604" rx="3"/><rect x="14" y="192" width="6" height="46" fill="#0a0604" rx="3"/><rect x="23" y="190" width="6" height="48" fill="#0a0604" rx="3"/><rect x="32" y="192" width="6" height="46" fill="#0a0604" rx="3"/></g>
+        <g transform="translate(720,35) scale(1.2)"><rect x="16" y="90" width="7" height="115" fill="#0a0604" rx="2"/><ellipse cx="19" cy="85" rx="46" ry="16" fill="#0a0604"/><ellipse cx="2" cy="93" rx="27" ry="10" fill="#0a0604"/><ellipse cx="42" cy="89" rx="32" ry="12" fill="#0a0604"/></g>
+        <g transform="translate(980,70)"><ellipse cx="58" cy="110" rx="68" ry="46" fill="#0a0604"/><circle cx="18" cy="88" r="30" fill="#0a0604"/><path d="M6 98 Q-14 124 -10 146 Q-7 155 0 152 Q7 148 4 137 Q2 124 13 110" fill="#0a0604"/><ellipse cx="27" cy="83" rx="18" ry="24" fill="#0a0604"/><rect x="16" y="145" width="16" height="44" fill="#0a0604" rx="4"/><rect x="36" y="147" width="16" height="42" fill="#0a0604" rx="4"/><rect x="62" y="147" width="16" height="42" fill="#0a0604" rx="4"/><rect x="82" y="145" width="16" height="44" fill="#0a0604" rx="4"/></g>
+        <g transform="translate(1255,30) scale(1.15)"><rect x="16" y="88" width="7" height="118" fill="#0a0604" rx="2"/><ellipse cx="19" cy="83" rx="47" ry="16" fill="#0a0604"/><ellipse cx="2" cy="91" rx="27" ry="10" fill="#0a0604"/><ellipse cx="43" cy="87" rx="31" ry="12" fill="#0a0604"/></g>
+      </svg>
+    </div>
+    <div class="hero-scroll"><span data-en="Scroll" data-fr="Défiler">Scroll</span><div class="scroll-line"></div></div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <div class="portrait-frame">
+            <img src="pictures/philipo/Screenshot%202026-04-21%20at%2015.42.28.png" alt="Philipo — Safari Guide, Tanzania">
+          </div>
+          <div class="experience-badge">
+            <span class="badge-number">20</span>
+            <span class="badge-text" data-en="Years in the Wild" data-fr="Ans dans la Nature">Years in the Wild</span>
+          </div>
+        </div>
+        <div class="about-content">
+          <p class="section-eyebrow" data-en="Your Guide" data-fr="Votre Guide">Your Guide</p>
+          <h2 class="section-title" data-en="Meet Philipo" data-fr="Rencontrez Philipo">Meet Philipo</h2>
+          <p class="about-lead" data-en="Born Maasai in Tanzania, Philipo has spent two decades guiding travellers through the land his ancestors have called home for centuries — from the endless Serengeti plains to the summit of Kilimanjaro." data-fr="Né Maasaï en Tanzanie, Philipo guide les voyageurs depuis vingt ans à travers la terre que ses ancêtres appellent maison depuis des siècles — des plaines infinies du Serengeti jusqu'au sommet du Kilimandjaro.">Born Maasai in Tanzania, Philipo has spent two decades guiding travellers through the land his ancestors have called home for centuries — from the endless Serengeti plains to the summit of Kilimanjaro.</p>
+          <p class="about-body" data-en="As a Maasai himself, Philipo opens doors that no outsider can. His personal bonds with elders, warriors, and Hadzabe hunters create experiences of genuine depth. With expertise in wildlife tracking, cultural immersion, and mountain expeditions, Philipo designs every journey from scratch — around you." data-fr="En tant que Maasaï lui-même, Philipo ouvre des portes qu'aucun étranger ne peut franchir. Ses liens personnels avec les anciens, les guerriers et les chasseurs Hadzabe créent des expériences d'une profondeur authentique. Expert en pistage animalier, immersion culturelle et expéditions en montagne, Philipo conçoit chaque voyage sur mesure — autour de vous.">As a Maasai himself, Philipo opens doors that no outsider can. His personal bonds with elders, warriors, and Hadzabe hunters create experiences of genuine depth. With expertise in wildlife tracking, cultural immersion, and mountain expeditions, Philipo designs every journey from scratch — around you.</p>
+          <div class="about-features">
+            <div class="feature-item"><span class="feature-icon">◈</span><span data-en="Licensed Senior Field Guide" data-fr="Guide de terrain senior licencié">Licensed Senior Field Guide</span></div>
+            <div class="feature-item"><span class="feature-icon">◈</span><span data-en="Speaks English, French, Swahili &amp; Maa" data-fr="Parle anglais, français, swahili et maa">Speaks English, French, Swahili &amp; Maa</span></div>
+            <div class="feature-item"><span class="feature-icon">◈</span><span data-en="Maasai — insider cultural access" data-fr="Maasaï — accès culturel privilégié">Maasai — insider cultural access</span></div>
+            <div class="feature-item"><span class="feature-icon">◈</span><span data-en="Expert wildlife tracker &amp; naturalist" data-fr="Expert en pistage animalier et naturaliste">Expert wildlife tracker &amp; naturalist</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiences -->
+  <section class="experiences" id="experiences">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow" data-en="What Awaits You" data-fr="Ce Qui Vous Attend">What Awaits You</p>
+        <h2 class="section-title" data-en="Safari Experiences" data-fr="Expériences Safari">Safari Experiences</h2>
+        <p class="section-desc" data-en="Every journey is designed around you. Combine experiences or explore each in depth — Philipo makes it happen." data-fr="Chaque voyage est conçu autour de vous. Combinez les expériences ou explorez chacune en profondeur — Philipo s'occupe de tout.">Every journey is designed around you. Combine experiences or explore each in depth — Philipo makes it happen.</p>
+      </div>
+    </div>
+    <div class="experiences-grid">
+
+      <a href="wildlife.html" class="exp-card">
+        <div class="exp-photo"><img src="pictures/safari/IMG_1765.jpeg" alt="Elephant, Tanzania"></div>
+        <div class="exp-overlay">
+          <div class="exp-tag" data-en="Wildlife Safari" data-fr="Safari Animalier">Wildlife Safari</div>
+          <h3 data-en="Animal Safari" data-fr="Safari Animalier">Animal Safari</h3>
+          <p data-en="From the Great Migration to lone leopards at dusk — every park, every season, every encounter. Serengeti, Ngorongoro, Tarangire and beyond." data-fr="De la Grande Migration aux léopards solitaires au crépuscule — chaque parc, chaque saison, chaque rencontre. Serengeti, Ngorongoro, Tarangire et bien plus.">From the Great Migration to lone leopards at dusk — every park, every season, every encounter. Serengeti, Ngorongoro, Tarangire and beyond.</p>
+          <span class="exp-cta" data-en="Explore parks &amp; packages →" data-fr="Explorer les parcs &amp; forfaits →">Explore parks &amp; packages →</span>
+        </div>
+      </a>
+
+      <a href="tribes.html" class="exp-card">
+        <div class="exp-photo"><img src="pictures/maasai/CIZIE6224.JPG" alt="Maasai warriors, Tanzania"></div>
+        <div class="exp-overlay">
+          <div class="exp-tag" data-en="Culture" data-fr="Culture">Culture</div>
+          <h3 data-en="Tribes &amp; Culture" data-fr="Tribus &amp; Culture">Tribes &amp; Culture</h3>
+          <p data-en="Live alongside Maasai warriors, walk with Hadzabe hunters, witness Datoga blacksmiths. Philipo is Maasai — his community opens its doors." data-fr="Vivez aux côtés de guerriers Maasaï, marchez avec les chasseurs Hadzabe, observez les forgerons Datoga. Philipo est Maasaï — sa communauté ouvre ses portes.">Live alongside Maasai warriors, walk with Hadzabe hunters, witness Datoga blacksmiths. Philipo is Maasai — his community opens its doors.</p>
+          <span class="exp-cta" data-en="Meet the tribes →" data-fr="Rencontrer les tribus →">Meet the tribes →</span>
+        </div>
+      </a>
+
+      <a href="kilimanjaro.html" class="exp-card">
+        <div class="exp-photo"><img src="pictures/kilimanjaro/IMG_1279.jpeg" alt="Kilimanjaro, Tanzania"></div>
+        <div class="exp-overlay">
+          <div class="exp-tag" data-en="Mountains" data-fr="Montagnes">Mountains</div>
+          <h3 data-en="Kilimanjaro &amp; Mountains" data-fr="Kilimandjaro &amp; Montagnes">Kilimanjaro &amp; Mountains</h3>
+          <p data-en="Stand on the roof of Africa at 5,895 m. Philipo organises every route, guide, porter, and permit. Also Mt Meru, Mt Hanang and custom combos." data-fr="Tenez-vous au toit de l'Afrique à 5 895 m. Philipo organise chaque route, guide, porteur et permis. Aussi le mont Mérou, le mont Hanang et des combinaisons sur mesure.">Stand on the roof of Africa at 5,895 m. Philipo organises every route, guide, porter, and permit. Also Mt Meru, Mt Hanang and custom combos.</p>
+          <span class="exp-cta" data-en="See routes &amp; gear →" data-fr="Voir les routes &amp; équipement →">See routes &amp; gear →</span>
+        </div>
+      </a>
+
+      <a href="#contact" class="exp-card">
+        <div class="exp-photo"><img src="pictures/kilimanjaro/IMG_1669.jpeg" alt="Custom adventures, Tanzania"></div>
+        <div class="exp-overlay">
+          <div class="exp-tag" data-en="Tailor-Made" data-fr="Sur Mesure">Tailor-Made</div>
+          <h3 data-en="Custom Adventures" data-fr="Aventures Sur Mesure">Custom Adventures</h3>
+          <p data-en="Combine wildlife parks with tribal culture, add Kilimanjaro to your safari, or explore lesser-known peaks and hidden reserves. Anything is possible." data-fr="Combinez parcs animaliers et culture tribale, ajoutez le Kilimandjaro à votre safari, ou explorez des sommets méconnus et des réserves cachées. Tout est possible.">Combine wildlife parks with tribal culture, add Kilimanjaro to your safari, or explore lesser-known peaks and hidden reserves. Anything is possible.</p>
+          <span class="exp-cta" data-en="Tell Philipo your dream →" data-fr="Partagez votre rêve avec Philipo →">Tell Philipo your dream →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Gallery strip -->
+  <div class="gallery-strip-section">
+    <div class="gallery-strip">
+      <div class="gallery-item"><img src="pictures/safari/IMG_1535.jpeg" alt="Elephant"></div>
+      <div class="gallery-item"><img src="pictures/safari/IMG_1864.jpeg" alt="Zebras"></div>
+      <div class="gallery-item"><img src="pictures/maasai/2AEB23FF-CC8D-40D7-BC1D-467AE04F5290.PNG" alt="Maasai"></div>
+      <div class="gallery-item"><img src="pictures/maasai/191042B6-50B0-4BB5-BBF9-043FBE03EAF7.PNG" alt="Maasai family"></div>
+      <div class="gallery-item"><img src="pictures/safari/IMG_2563.jpeg" alt="Baboon"></div>
+    </div>
+    <div class="gallery-cta">
+      <a href="gallery.html" class="btn-outline" data-en="View Full Gallery" data-fr="Voir la Galerie Complète">View Full Gallery</a>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item"><span class="stat-number">20</span><span class="stat-label" data-en="Years Guiding" data-fr="Ans de Guide">Years Guiding</span></div>
+        <div class="stat-item"><span class="stat-number">15+</span><span class="stat-label" data-en="Parks &amp; Reserves" data-fr="Parcs &amp; Réserves">Parks &amp; Reserves</span></div>
+        <div class="stat-item"><span class="stat-number">500+</span><span class="stat-label" data-en="Happy Travellers" data-fr="Voyageurs Heureux">Happy Travellers</span></div>
+        <div class="stat-item"><span class="stat-number">4</span><span class="stat-label" data-en="Languages Spoken" data-fr="Langues Parlées">Languages Spoken</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Philipo -->
+  <section class="why-us" id="why-us">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow" data-en="The Difference" data-fr="La Différence">The Difference</p>
+        <h2 class="section-title" data-en="Why Travel with Philipo" data-fr="Pourquoi Voyager avec Philipo">Why Travel with Philipo</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-number">01</div><h3 data-en="Fully Tailored" data-fr="Entièrement Sur Mesure">Fully Tailored</h3><p data-en="No two safaris are alike. Every itinerary is built from scratch around your interests, timeframe, and travel style — whether three days or three weeks." data-fr="Pas deux safaris pareils. Chaque itinéraire est construit sur mesure autour de vos intérêts, votre planning et votre style de voyage — que ce soit trois jours ou trois semaines.">No two safaris are alike. Every itinerary is built from scratch around your interests, timeframe, and travel style — whether three days or three weeks.</p></div>
+        <div class="why-card"><div class="why-number">02</div><h3 data-en="Born Maasai" data-fr="Né Maasaï">Born Maasai</h3><p data-en="Philipo's Maasai heritage and personal relationships with tribal elders, Hadzabe hunters, and park rangers unlock experiences that no tour operator can replicate." data-fr="L'héritage Maasaï de Philipo et ses relations personnelles avec les anciens des tribus, les chasseurs Hadzabe et les rangers ouvrent des expériences qu'aucun tour opérateur ne peut reproduire.">Philipo's Maasai heritage and personal relationships with tribal elders, Hadzabe hunters, and park rangers unlock experiences that no tour operator can replicate.</p></div>
+        <div class="why-card"><div class="why-number">03</div><h3 data-en="Small Groups Only" data-fr="Petits Groupes Uniquement">Small Groups Only</h3><p data-en="Maximum 6 guests per group. More wildlife sightings, more flexibility, more meaningful connections — and a quieter, more respectful presence in the bush." data-fr="Maximum 6 personnes par groupe. Plus d'observations animalières, plus de flexibilité, des liens plus profonds — et une présence plus discrète et respectueuse dans la brousse.">Maximum 6 guests per group. More wildlife sightings, more flexibility, more meaningful connections — and a quieter, more respectful presence in the bush.</p></div>
+        <div class="why-card"><div class="why-number">04</div><h3 data-en="End-to-End Care" data-fr="Prise en Charge Complète">End-to-End Care</h3><p data-en="Accommodation, park permits, transfers, and every on-the-ground detail — Philipo handles it all. You arrive and simply experience. Nothing falls through the cracks." data-fr="Hébergement, permis de parc, transferts et chaque détail sur place — Philipo s'occupe de tout. Vous arrivez et vous vivez simplement. Rien n'est laissé au hasard.">Accommodation, park permits, transfers, and every on-the-ground detail — Philipo handles it all. You arrive and simply experience. Nothing falls through the cracks.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tanzania History -->
+  <section class="history" id="history">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow" data-en="Did You Know?" data-fr="Le Saviez-Vous ?">Did You Know?</p>
+        <h2 class="section-title" data-en="Tanzania — A Land of Wonders" data-fr="La Tanzanie — Une Terre de Merveilles">Tanzania — A Land of Wonders</h2>
+        <p class="section-desc" data-en="One of the oldest inhabited lands on Earth, Tanzania is as rich in human history as it is in wildlife." data-fr="L'une des terres habitées les plus anciennes de la Terre, la Tanzanie est aussi riche en histoire humaine qu'en faune sauvage.">One of the oldest inhabited lands on Earth, Tanzania is as rich in human history as it is in wildlife.</p>
+      </div>
+      <div class="history-grid">
+        <div class="history-card">
+          <span class="history-icon">◈</span>
+          <h3 data-en="Cradle of Humanity" data-fr="Berceau de l'Humanité">Cradle of Humanity</h3>
+          <p data-en="Olduvai Gorge in the Ngorongoro area holds fossils of our earliest ancestors dating back 1.8 million years. Mary Leakey discovered footprints of hominids here — 3.6 million years old." data-fr="La gorge d'Olduvai dans la région du Ngorongoro contient des fossiles de nos premiers ancêtres vieux de 1,8 million d'années. Mary Leakey y a découvert des empreintes d'hominidés vieilles de 3,6 millions d'années.">Olduvai Gorge in the Ngorongoro area holds fossils of our earliest ancestors dating back 1.8 million years. Mary Leakey discovered footprints of hominids here — 3.6 million years old.</p>
+        </div>
+        <div class="history-card">
+          <span class="history-icon">◈</span>
+          <h3 data-en="120+ Languages" data-fr="Plus de 120 Langues">120+ Languages</h3>
+          <p data-en="Tanzania is home to over 120 ethnic groups, each with its own language and traditions — held together in peace by Swahili, one of Africa's great lingua francas." data-fr="La Tanzanie abrite plus de 120 groupes ethniques, chacun avec sa propre langue et ses traditions — unis dans la paix par le swahili, l'une des grandes langues communes d'Afrique.">Tanzania is home to over 120 ethnic groups, each with its own language and traditions — held together in peace by Swahili, one of Africa's great lingua francas.</p>
+        </div>
+        <div class="history-card">
+          <span class="history-icon">◈</span>
+          <h3 data-en="Born from Unity" data-fr="Né de l'Union">Born from Unity</h3>
+          <p data-en="The name Tanzania was created in 1964 when mainland Tanganyika united with the island of Zanzibar. TANganyika + ZANzibar = TANZANIA. The country gained independence from Britain in 1961, led by Julius Nyerere." data-fr="Le nom Tanzanie est né en 1964 de l'union du Tanganyika continental et de l'île de Zanzibar. TANganyika + ZANzibar = TANZANIE. Le pays avait obtenu son indépendance de la Grande-Bretagne en 1961, sous la direction de Julius Nyerere.">The name Tanzania was created in 1964 when mainland Tanganyika united with the island of Zanzibar. TANganyika + ZANzibar = TANZANIA. The country gained independence from Britain in 1961, led by Julius Nyerere.</p>
+        </div>
+        <div class="history-card">
+          <span class="history-icon">◈</span>
+          <h3 data-en="Wildlife Capital of Africa" data-fr="Capitale Faunique de l'Afrique">Wildlife Capital of Africa</h3>
+          <p data-en="Tanzania contains 25% of all of Africa's large mammals. The Serengeti — meaning 'endless plains' in Maasai — hosts the world's largest mammal migration and is a Seven Natural Wonders of Africa." data-fr="La Tanzanie contient 25% des grands mammifères d'Afrique. Le Serengeti — qui signifie 'plaines infinies' en Maasaï — accueille la plus grande migration de mammifères du monde et est l'une des Sept Merveilles Naturelles d'Afrique.">Tanzania contains 25% of all of Africa's large mammals. The Serengeti — meaning 'endless plains' in Maasai — hosts the world's largest mammal migration and is a Seven Natural Wonders of Africa.</p>
+        </div>
+        <div class="history-card">
+          <span class="history-icon">◈</span>
+          <h3 data-en="Swahili: The Ocean Language" data-fr="Le Swahili : La Langue de l'Océan">Swahili: The Ocean Language</h3>
+          <p data-en="Swahili was born from centuries of trade between Bantu-speaking Africans and Arab, Persian, and Indian merchants along the coast. Its name comes from the Arabic 'sahil' — meaning shore." data-fr="Le swahili est né de siècles de commerce entre Africains bantouphones et marchands arabes, perses et indiens le long des côtes. Son nom vient de l'arabe 'sahil' — qui signifie rivage.">Swahili was born from centuries of trade between Bantu-speaking Africans and Arab, Persian, and Indian merchants along the coast. Its name comes from the Arabic 'sahil' — meaning shore.</p>
+        </div>
+        <div class="history-card">
+          <span class="history-icon">◈</span>
+          <h3 data-en="Tanzanite — Rarer Than Diamonds" data-fr="Tanzanite — Plus Rare que le Diamant">Tanzanite — Rarer Than Diamonds</h3>
+          <p data-en="Found only in a tiny area near Kilimanjaro, tanzanite is estimated to be 1,000 times rarer than diamonds. The world's entire supply could be exhausted within decades." data-fr="Trouvée uniquement dans une petite zone près du Kilimandjaro, la tanzanite est estimée 1 000 fois plus rare que le diamant. L'offre mondiale entière pourrait s'épuiser en quelques décennies.">Found only in a tiny area near Kilimanjaro, tanzanite is estimated to be 1,000 times rarer than diamonds. The world's entire supply could be exhausted within decades.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practical Info -->
+  <section class="practical-info" id="practical">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow" data-en="Useful Information" data-fr="Informations Pratiques">Useful Information</p>
+        <h2 class="section-title" data-en="Planning Your Trip" data-fr="Préparer Votre Voyage">Planning Your Trip</h2>
+      </div>
+      <div class="practical-grid">
+        <div class="practical-card">
+          <h3 data-en="Getting Here — Airports" data-fr="S'y Rendre — Aéroports">Getting Here — Airports</h3>
+          <p class="practical-lead" data-en="Tanzania has two airports convenient for Philipo's territory:" data-fr="La Tanzanie dispose de deux aéroports pratiques pour le territoire de Philipo :">Tanzania has two airports convenient for Philipo's territory:</p>
+          <div class="airport-item">
+            <strong data-en="Kilimanjaro International (JRO) — Recommended" data-fr="Kilimandjaro International (JRO) — Recommandé">Kilimanjaro International (JRO) — Recommended</strong>
+            <p data-en="Located between Arusha and Moshi, 45 min from Arusha. The main gateway for Northern Circuit safaris and Kilimanjaro. Direct international connections: Amsterdam (KLM), Doha (Qatar Airways), Addis Ababa (Ethiopian Airlines), Nairobi, Dar es Salaam, Istanbul (Turkish Airlines)." data-fr="Situé entre Arusha et Moshi, à 45 min d'Arusha. La principale porte d'entrée pour les safaris du Circuit Nord et le Kilimandjaro. Connexions internationales directes : Amsterdam (KLM), Doha (Qatar Airways), Addis-Abeba (Ethiopian Airlines), Nairobi, Dar es Salaam, Istanbul (Turkish Airlines).">Located between Arusha and Moshi, 45 min from Arusha. The main gateway for Northern Circuit safaris and Kilimanjaro. Direct international connections: Amsterdam (KLM), Doha (Qatar Airways), Addis Ababa (Ethiopian Airlines), Nairobi, Dar es Salaam, Istanbul (Turkish Airlines).</p>
+          </div>
+          <div class="airport-item">
+            <strong data-en="Arusha Airport (ARK)" data-fr="Aéroport d'Arusha (ARK)">Arusha Airport (ARK)</strong>
+            <p data-en="Smaller domestic and charter airport right in Arusha. Convenient for connections from Dar es Salaam and internal Tanzania flights." data-fr="Petit aéroport domestique et charter en plein cœur d'Arusha. Pratique pour les correspondances depuis Dar es Salaam et les vols intérieurs tanzaniens.">Smaller domestic and charter airport right in Arusha. Convenient for connections from Dar es Salaam and internal Tanzania flights.</p>
+          </div>
+          <p class="practical-note" data-en="Philipo arranges all airport pickups and ground transfers." data-fr="Philipo organise tous les transferts aéroport et les déplacements terrestres.">Philipo arranges all airport pickups and ground transfers.</p>
+        </div>
+        <div class="practical-card">
+          <h3 data-en="Currency &amp; Money" data-fr="Devise &amp; Argent">Currency &amp; Money</h3>
+          <p class="practical-lead" data-en="The official currency is the Tanzanian Shilling (TZS). USD is also widely accepted for safari, lodge, and tour payments." data-fr="La devise officielle est le Shilling tanzanien (TZS). Le dollar américain est également largement accepté pour les safaris, lodges et circuits.">The official currency is the Tanzanian Shilling (TZS). USD is also widely accepted for safari, lodge, and tour payments.</p>
+          <ul class="practical-list">
+            <li data-en="Exchange currency locally in Arusha — forex bureaux and banks offer far better rates than airports or home countries." data-fr="Échangez votre argent localement à Arusha — les bureaux de change et banques offrent de bien meilleurs taux qu'aux aéroports ou dans vos pays d'origine.">Exchange currency locally in Arusha — forex bureaux and banks offer far better rates than airports or home countries.</li>
+            <li data-en="ATMs are available in Arusha and accept Visa and Mastercard." data-fr="Des distributeurs automatiques sont disponibles à Arusha et acceptent Visa et Mastercard.">ATMs are available in Arusha and accept Visa and Mastercard.</li>
+            <li data-en="Credit cards accepted at most lodges and hotels." data-fr="Cartes de crédit acceptées dans la plupart des lodges et hôtels.">Credit cards accepted at most lodges and hotels.</li>
+            <li data-en="Bring clean, unmarked USD bills (post-2009) for the best local exchange rates." data-fr="Apportez des billets USD propres et non marqués (après 2009) pour les meilleurs taux de change locaux.">Bring clean, unmarked USD bills (post-2009) for the best local exchange rates.</li>
+            <li data-en="Tipping is customary — Philipo will advise on amounts for porters, drivers, and camp staff." data-fr="Le pourboire est de coutume — Philipo vous conseillera sur les montants pour les porteurs, chauffeurs et personnel de camp.">Tipping is customary — Philipo will advise on amounts for porters, drivers, and camp staff.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow" data-en="Guest Stories" data-fr="Témoignages">Guest Stories</p>
+        <h2 class="section-title" data-en="In Their Words" data-fr="En Leurs Mots">In Their Words</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <p data-en="Philipo didn't just show us the Serengeti — he made us feel like we were part of it. His knowledge of animal behaviour is extraordinary, and his warmth made every moment feel like a gift." data-fr="Philipo ne nous a pas seulement montré le Serengeti — il nous a fait sentir que nous en faisions partie. Sa connaissance du comportement animal est extraordinaire, et sa chaleur rendait chaque moment précieux.">Philipo didn't just show us the Serengeti — he made us feel like we were part of it. His knowledge of animal behaviour is extraordinary, and his warmth made every moment feel like a gift.</p>
+          <div class="testimonial-author"><div class="author-avatar">S</div><div><strong>Sarah &amp; Mark</strong><span>United Kingdom</span></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <p data-en="The Maasai village visit was the highlight of our trip. We weren't tourists — we were genuine guests. Philipo's relationship with his own community made all the difference." data-fr="La visite au village Maasaï était le point fort de notre voyage. Nous n'étions pas des touristes — nous étions de véritables invités. Le rapport de Philipo avec sa propre communauté a tout changé.">The Maasai village visit was the highlight of our trip. We weren't tourists — we were genuine guests. Philipo's relationship with his own community made all the difference.</p>
+          <div class="testimonial-author"><div class="author-avatar">J</div><div><strong>João &amp; Ana</strong><span>Brazil</span></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <p data-en="Summiting Kilimanjaro was my dream for ten years. Philipo organised everything flawlessly. His team was extraordinary — and the safari we added at the end was the perfect celebration." data-fr="Gravir le Kilimandjaro était mon rêve depuis dix ans. Philipo a tout organisé à la perfection. Son équipe était extraordinaire — et le safari que nous avons ajouté à la fin était la célébration parfaite.">Summiting Kilimanjaro was my dream for ten years. Philipo organised everything flawlessly. His team was extraordinary — and the safari we added at the end was the perfect celebration.</p>
+          <div class="testimonial-author"><div class="author-avatar">M</div><div><strong>Michael</strong><span>United States</span></div></div>
+        </div>
+      </div>
+
+      <!-- User-submitted reviews (from localStorage) -->
+      <div id="user-reviews-container" style="display:none;">
+        <div class="review-divider"></div>
+        <h3 class="review-section-title" data-en="Recent Reviews" data-fr="Avis Récents">Recent Reviews</h3>
+        <div class="testimonials-grid" id="user-reviews"></div>
+      </div>
+
+      <!-- Submit a review -->
+      <div class="review-divider"></div>
+      <div class="review-submit">
+        <h3 class="review-section-title" data-en="Share Your Experience" data-fr="Partagez Votre Expérience">Share Your Experience</h3>
+        <p data-en="Travelled with Philipo? We'd love to hear about your journey." data-fr="Vous avez voyagé avec Philipo ? Nous aimerions en savoir plus sur votre aventure.">Travelled with Philipo? We'd love to hear about your journey.</p>
+        <form id="review-form" class="review-form">
+          <div class="review-form-grid">
+            <div class="form-group">
+              <label data-en="Your Name" data-fr="Votre Nom">Your Name</label>
+              <input type="text" name="name" required data-en="Jane Smith" data-fr="Marie Dupont" placeholder="Jane Smith">
+            </div>
+            <div class="form-group">
+              <label data-en="Country" data-fr="Pays">Country</label>
+              <input type="text" name="country" data-en="e.g. France" data-fr="ex. France" placeholder="e.g. France">
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-en="Your Review" data-fr="Votre Avis">Your Review</label>
+            <textarea name="text" required rows="4" data-en="Tell us about your safari experience with Philipo..." data-fr="Parlez-nous de votre expérience safari avec Philipo..." placeholder="Tell us about your safari experience with Philipo..."></textarea>
+          </div>
+          <button type="submit" class="btn-outline" data-en="Submit Review" data-fr="Soumettre mon Avis">Submit Review</button>
+          <p class="review-success" id="review-success" style="display:none;" data-en="Thank you — your review has been added." data-fr="Merci — votre avis a été ajouté.">Thank you — your review has been added.</p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-content">
+          <p class="section-eyebrow" data-en="Begin Your Journey" data-fr="Commencez Votre Voyage">Begin Your Journey</p>
+          <h2 class="section-title" data-en="Plan Your Safari" data-fr="Planifiez Votre Safari">Plan Your Safari</h2>
+          <p data-en="Every great adventure starts with a conversation. Tell Philipo about your dream — and he will make it a reality." data-fr="Toute grande aventure commence par une conversation. Partagez votre rêve avec Philipo — et il en fera une réalité.">Every great adventure starts with a conversation. Tell Philipo about your dream — and he will make it a reality.</p>
+          <div class="contact-details">
+            <div class="contact-item"><span class="contact-label" data-en="Email" data-fr="Email">Email</span><a href="mailto:philipo@philipo-safari.com">philipo@philipo-safari.com</a></div>
+            <div class="contact-item"><span class="contact-label">WhatsApp</span><span>+255 XXX XXX XXX</span></div>
+            <div class="contact-item"><span class="contact-label" data-en="Based in" data-fr="Basé à">Based in</span><span>Arusha, Tanzania</span></div>
+            <div class="contact-item"><span class="contact-label" data-en="Languages" data-fr="Langues">Languages</span><span data-en="English · French · Swahili · Maa" data-fr="Anglais · Français · Swahili · Maa">English · French · Swahili · Maa</span></div>
+          </div>
+        </div>
+        <form class="contact-form">
+          <div class="form-group"><label data-en="Your Name" data-fr="Votre Nom">Your Name</label><input type="text" data-en="Jane &amp; John Smith" data-fr="Jean &amp; Marie Dupont" placeholder="Jane &amp; John Smith"></div>
+          <div class="form-group"><label data-en="Email Address" data-fr="Adresse Email">Email Address</label><input type="email" placeholder="you@example.com"></div>
+          <div class="form-group"><label data-en="Desired Travel Dates" data-fr="Dates de Voyage Souhaitées">Desired Travel Dates</label><input type="text" data-en="e.g. July 2025, flexible" data-fr="ex. Juillet 2025, flexible" placeholder="e.g. July 2025, flexible"></div>
+          <div class="form-group"><label data-en="What calls to you?" data-fr="Qu'est-ce qui vous appelle ?">What calls to you?</label><textarea data-en="Serengeti, Kilimanjaro, Maasai culture — tell Philipo your dream..." data-fr="Serengeti, Kilimandjaro, culture Maasaï — partagez votre rêve avec Philipo..." placeholder="Serengeti, Kilimanjaro, Maasai culture — tell Philipo your dream..."></textarea></div>
+          <button type="submit" class="btn-primary" data-en="Send Message" data-fr="Envoyer le Message">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">Philipo Safari</a>
+          <p data-en="Tanzania's most trusted private guide.<br>Arusha, Tanzania — Est. 2005" data-fr="Le guide privé le plus reconnu de Tanzanie.<br>Arusha, Tanzanie — Fondé en 2005">Tanzania's most trusted private guide.<br>Arusha, Tanzania — Est. 2005</p>
+        </div>
+        <div class="footer-links">
+          <a href="#about" data-en="About" data-fr="À Propos">About</a>
+          <a href="wildlife.html" data-en="Wildlife" data-fr="Faune">Wildlife</a>
+          <a href="tribes.html" data-en="Tribes" data-fr="Tribus">Tribes</a>
+          <a href="kilimanjaro.html">Kilimanjaro</a>
+          <a href="gallery.html" data-en="Gallery" data-fr="Galerie">Gallery</a>
+          <a href="#contact" data-en="Contact" data-fr="Contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom"><p data-en="© 2025 Philipo Safari. All rights reserved." data-fr="© 2025 Philipo Safari. Tous droits réservés.">© 2025 Philipo Safari. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="lang.js"></script>
+  <script>
+    // Review system
+    function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+    function getReviews(){try{return JSON.parse(localStorage.getItem('philipo_reviews')||'[]');}catch(e){return[];}}
+    function renderUserReviews(){
+      var reviews=getReviews();
+      var container=document.getElementById('user-reviews');
+      var wrapper=document.getElementById('user-reviews-container');
+      if(!reviews.length){wrapper.style.display='none';return;}
+      wrapper.style.display='block';
+      container.innerHTML=reviews.map(function(r){
+        return '<div class="testimonial-card">'
+          +'<div class="quote-mark">“</div>'
+          +'<p>'+escHtml(r.text)+'</p>'
+          +'<div class="testimonial-author">'
+          +'<div class="author-avatar">'+escHtml(r.name.charAt(0).toUpperCase())+'</div>'
+          +'<div><strong>'+escHtml(r.name)+'</strong><span>'+escHtml(r.country||'')+'</span></div>'
+          +'</div></div>';
+      }).join('');
+    }
+    document.getElementById('review-form').addEventListener('submit',function(e){
+      e.preventDefault();
+      var name=this.querySelector('[name=name]').value.trim();
+      var country=this.querySelector('[name=country]').value.trim();
+      var text=this.querySelector('[name=text]').value.trim();
+      if(!name||!text)return;
+      var reviews=getReviews();
+      reviews.unshift({name:name,country:country,text:text,date:new Date().toLocaleDateString()});
+      localStorage.setItem('philipo_reviews',JSON.stringify(reviews));
+      renderUserReviews();
+      this.reset();
+      var msg=document.getElementById('review-success');
+      msg.style.display='block';
+      setTimeout(function(){msg.style.display='none';},4000);
+    });
+    renderUserReviews();
+  </script>
+  <script>
+    const nav = document.getElementById('nav');
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    window.addEventListener('scroll', () => nav.classList.toggle('nav--scrolled', window.scrollY > 60));
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.exp-card,.why-card,.testimonial-card,.stat-item,.about-grid,.history-card').forEach(el => { el.classList.add('fade-in'); obs.observe(el); });
+  </script>
 </body>
 </html>
