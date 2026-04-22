@@ -884,19 +884,27 @@ body {
   /* Instagram section */
   .insta-section { padding: 2.5rem 0; }
   .insta-profile {
-    flex-wrap: wrap; gap: .9rem;
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "avatar  stats   stats"
+      "info    info    btn";
+    gap: .6rem 1.2rem;
     padding-bottom: 1.5rem; margin-bottom: 1.5rem;
     align-items: center;
   }
-  .insta-avatar-ring { width: 56px; height: 56px; }
-  .insta-profile-info { flex: 1; min-width: 0; }
-  .insta-display-name { font-size: 1rem; }
-  .insta-username { font-size: .78rem; }
-  .insta-stats { gap: 1rem; margin-top: .3rem; }
-  .insta-stat strong { font-size: .95rem; }
-  .insta-stat span { font-size: .62rem; }
-  .insta-follow-btn { margin-left: auto; padding: .45rem 1.1rem; font-size: .75rem; }
-  .insta-embeds-grid { grid-template-columns: 1fr 1fr 1fr; gap: .6rem; }
+  .insta-avatar-link { grid-area: avatar; align-self: center; }
+  .insta-avatar-ring { width: 70px; height: 70px; }
+  .insta-stats { grid-area: stats; display: flex; gap: 0; justify-content: space-around; flex-wrap: nowrap; margin: 0; }
+  .insta-stat { align-items: center; text-align: center; }
+  .insta-stat strong { font-size: 1.1rem; }
+  .insta-stat span { font-size: .6rem; }
+  .insta-profile-info { grid-area: info; min-width: 0; }
+  .insta-display-name { font-size: .97rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .insta-username { font-size: .78rem; margin-bottom: 0; }
+  .insta-follow-btn { grid-area: btn; margin-left: 0; align-self: center; padding: .4rem .9rem; font-size: .75rem; white-space: nowrap; }
+  .insta-embeds-grid { grid-template-columns: 1fr 1fr 1fr; gap: .5rem; }
   .insta-embeds-grid .insta-post-link:nth-child(n+7) { display: none; }
 
   /* Contact */
@@ -1002,33 +1010,46 @@ body {
   .mountains-grid { grid-template-columns: 1fr; }
   .gear-grid { grid-template-columns: 1fr; }
 
-  /* Season explorer — compact layout */
-  .season-content-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .season-content-grid > div:last-child { grid-column: 1 / -1; }
-  /* Big 5 — horizontal scroll row */
-  .big5-grid {
-    display: flex; overflow-x: auto; gap: 1.2rem;
-    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
-    padding-bottom: .4rem;
-  }
-  .b5-item { min-width: 56px; flex-shrink: 0; scroll-snap-align: start; }
-  .b5-name { font-size: .52rem; }
-  .b5-val { font-size: 1rem; }
-  .season-month-heading { font-size: 1.7rem; }
-  .season-display { padding: 1.1rem; }
-  .season-event-box { padding: .8rem .9rem; margin-bottom: 1.2rem; }
-  .season-event-name { font-size: 1rem; }
-  .season-event-body { font-size: .8rem; }
+  /* Season explorer — fit in one screen */
+  .season-explorer { padding: 1.8rem 1rem; }
+  .season-explorer .section-eyebrow { display: none; }
+  .season-explorer .section-title { font-size: 1.4rem; margin-bottom: .2rem; }
+  .season-explorer .section-desc { display: none; }
+  .season-explorer .section-header { margin-bottom: 1rem; }
+  .season-slider-container { margin: .8rem 0 0; }
+  .season-legend { gap: .5rem; font-size: .6rem; }
+  .season-display { padding: .9rem; margin-top: 1rem; }
+  .season-display-top { padding-bottom: .8rem; margin-bottom: .8rem; gap: .5rem; }
+  .season-month-heading { font-size: 1.5rem; }
+  .season-type-pill { font-size: .55rem; padding: .22rem .65rem; }
+  .season-mig-label { font-size: .5rem; margin-bottom: .2rem; }
+  .season-mig-place { font-size: .85rem; }
+  .season-event-box { padding: .6rem .8rem; margin-bottom: .9rem; border-left-width: 2px; }
+  .season-event-name { font-size: .9rem; margin-bottom: .25rem; }
+  .season-event-body { font-size: .75rem; line-height: 1.5; }
+  .season-content-grid { grid-template-columns: 1fr 1fr; gap: .7rem; margin-bottom: .7rem; }
+  .season-content-grid > div:last-child { display: none; }
+  .season-col-label { font-size: .52rem; margin-bottom: .5rem; }
+  .animal-tag { font-size: .68rem; padding: .2rem .6rem; }
+  .season-parks-ul li { font-size: .75rem; padding: .25rem 0 .25rem 1rem; }
+  .big5-index { margin-top: 1rem; padding-top: .8rem; }
+  .big5-grid { grid-template-columns: repeat(5,1fr); gap: .3rem .5rem; margin-top: .5rem; }
+  .b5-name { font-size: .48rem; }
+  .b5-val { font-size: .85rem; }
+  .b5-max { font-size: .6rem; }
 
-  /* Instagram — 2×2 grid */
-  .insta-section { padding: 2rem 0; }
-  .insta-profile { gap: .7rem; padding-bottom: 1.2rem; margin-bottom: 1.2rem; }
-  .insta-avatar-ring { width: 46px; height: 46px; }
-  .insta-display-name { font-size: .9rem; }
-  .insta-stats { gap: .7rem; }
-  .insta-stat strong { font-size: .85rem; }
-  .insta-follow-btn { padding: .38rem .85rem; font-size: .7rem; }
-  .insta-embeds-grid { grid-template-columns: 1fr 1fr; gap: .5rem; }
+  /* Instagram — tighter grid layout, 2×2 posts */
+  .insta-section { padding: 1.8rem 0; }
+  .insta-profile {
+    grid-template-columns: 66px 1fr auto;
+    gap: .5rem .9rem;
+    padding-bottom: 1.2rem; margin-bottom: 1.2rem;
+  }
+  .insta-avatar-ring { width: 60px; height: 60px; }
+  .insta-stat strong { font-size: .95rem; }
+  .insta-stat span { font-size: .55rem; }
+  .insta-follow-btn { padding: .35rem .75rem; font-size: .7rem; }
+  .insta-embeds-grid { grid-template-columns: 1fr 1fr; gap: 3px; }
   .insta-embeds-grid .insta-post-link:nth-child(n+5) { display: none; }
 
   .stat-number { font-size: 2.1rem; }
@@ -1286,10 +1307,9 @@ body {
 
 /* Profile card */
 .insta-profile {
-  display: flex; align-items: center; gap: 2rem;
+  display: flex; align-items: center; gap: 2.5rem;
   padding-bottom: 2.5rem; margin-bottom: 2.5rem;
   border-bottom: 1px solid rgba(255,255,255,.08);
-  flex-wrap: wrap;
 }
 .insta-avatar-link { flex-shrink: 0; text-decoration: none; }
 .insta-avatar-ring {
@@ -1304,7 +1324,8 @@ body {
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
 }
-.insta-profile-info { flex: 1; min-width: 200px; }
+.insta-profile-info { flex: 1; min-width: 0; }
+.insta-stats { display: flex; gap: 2rem; flex-wrap: nowrap; }
 .insta-name-row {
   display: flex; align-items: center; gap: .5rem; margin-bottom: .2rem;
 }
@@ -1317,9 +1338,6 @@ body {
   text-decoration: none; letter-spacing: .02em; display: block; margin-bottom: .9rem;
 }
 .insta-username:hover { color: rgba(255,255,255,.7); }
-.insta-stats {
-  display: flex; gap: 2rem; flex-wrap: wrap;
-}
 .insta-stat {
   display: flex; flex-direction: column; align-items: flex-start; gap: .1rem;
 }
