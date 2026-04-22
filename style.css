@@ -852,9 +852,16 @@ body {
   .history-card h3 { font-size: .92rem; margin-bottom: .3rem; }
   .history-card p { font-size: .78rem; line-height: 1.6; }
 
-  /* Practical info */
+  /* Practical info — keep 2-col, just tighten */
   .practical-info { padding: 3rem 1.1rem; }
-  .practical-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .practical-grid { grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.2rem; }
+  .practical-card { padding: 1.25rem 1rem; }
+  .practical-card h3 { font-size: 1rem; margin-bottom: .6rem; padding-bottom: .5rem; }
+  .practical-lead { font-size: .8rem; margin-bottom: .8rem; }
+  .practical-list li { font-size: .78rem; padding: .28rem 0 .28rem 1rem; }
+  .airport-item { margin-bottom: .9rem; }
+  .airport-item p { font-size: .78rem; }
+  .practical-note { font-size: .75rem; margin-top: .7rem; padding-top: .7rem; }
 
   /* Testimonials — horizontal scroll carousel */
   .testimonials { padding: 3rem 0; }
@@ -875,16 +882,22 @@ body {
   .review-form-grid { grid-template-columns: 1fr; gap: .8rem; }
 
   /* Instagram section */
-  /* Instagram section */
-  .insta-section { padding: 3rem 0; }
-  .insta-profile { gap: 1.1rem; padding-bottom: 1.8rem; margin-bottom: 1.8rem; }
-  .insta-avatar-ring { width: 60px; height: 60px; }
-  .insta-display-name { font-size: 1.2rem; }
-  .insta-stats { gap: 1.2rem; }
-  .insta-stat strong { font-size: 1.1rem; }
-  .insta-follow-btn { margin-left: 0; }
-  .insta-embeds-grid { grid-template-columns: 1fr 1fr; gap: .8rem; }
-  .insta-embeds-grid .insta-post-link:nth-child(n+5) { display: none; }
+  .insta-section { padding: 2.5rem 0; }
+  .insta-profile {
+    flex-wrap: wrap; gap: .9rem;
+    padding-bottom: 1.5rem; margin-bottom: 1.5rem;
+    align-items: center;
+  }
+  .insta-avatar-ring { width: 56px; height: 56px; }
+  .insta-profile-info { flex: 1; min-width: 0; }
+  .insta-display-name { font-size: 1rem; }
+  .insta-username { font-size: .78rem; }
+  .insta-stats { gap: 1rem; margin-top: .3rem; }
+  .insta-stat strong { font-size: .95rem; }
+  .insta-stat span { font-size: .62rem; }
+  .insta-follow-btn { margin-left: auto; padding: .45rem 1.1rem; font-size: .75rem; }
+  .insta-embeds-grid { grid-template-columns: 1fr 1fr 1fr; gap: .6rem; }
+  .insta-embeds-grid .insta-post-link:nth-child(n+7) { display: none; }
 
   /* Contact */
   .contact { padding: 3rem 1.1rem; }
@@ -969,19 +982,56 @@ body {
   .experiences-grid { grid-template-rows: repeat(2, 185px); }
   .exp-overlay h3 { font-size: .95rem; }
   .gallery-strip { height: 100px; }
-  .packages-grid { grid-template-columns: 1fr; }
+  /* Package cards — horizontal scroll carousel */
+  .packages-grid {
+    display: flex; overflow-x: auto; gap: .8rem;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    padding-bottom: .6rem;
+  }
+  .package-card {
+    min-width: 72vw; max-width: 72vw;
+    flex-shrink: 0; scroll-snap-align: start;
+  }
+  .package-days { font-size: 2.4rem; }
+
+  /* Practical info — stack on tiny screens */
+  .practical-grid { grid-template-columns: 1fr; gap: .9rem; }
+
   .gallery-masonry { columns: 1; }
   .why-grid { grid-template-columns: 1fr; gap: .7rem; }
   .mountains-grid { grid-template-columns: 1fr; }
   .gear-grid { grid-template-columns: 1fr; }
-  .season-content-grid { grid-template-columns: 1fr; }
-  .big5-grid { grid-template-columns: repeat(5,1fr); gap: .4rem .4rem; }
+
+  /* Season explorer — compact layout */
+  .season-content-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .season-content-grid > div:last-child { grid-column: 1 / -1; }
+  /* Big 5 — horizontal scroll row */
+  .big5-grid {
+    display: flex; overflow-x: auto; gap: 1.2rem;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    padding-bottom: .4rem;
+  }
+  .b5-item { min-width: 56px; flex-shrink: 0; scroll-snap-align: start; }
   .b5-name { font-size: .52rem; }
-  .b5-val { font-size: .95rem; }
+  .b5-val { font-size: 1rem; }
+  .season-month-heading { font-size: 1.7rem; }
+  .season-display { padding: 1.1rem; }
+  .season-event-box { padding: .8rem .9rem; margin-bottom: 1.2rem; }
+  .season-event-name { font-size: 1rem; }
+  .season-event-body { font-size: .8rem; }
+
+  /* Instagram — 2×2 grid */
+  .insta-section { padding: 2rem 0; }
+  .insta-profile { gap: .7rem; padding-bottom: 1.2rem; margin-bottom: 1.2rem; }
+  .insta-avatar-ring { width: 46px; height: 46px; }
+  .insta-display-name { font-size: .9rem; }
+  .insta-stats { gap: .7rem; }
+  .insta-stat strong { font-size: .85rem; }
+  .insta-follow-btn { padding: .38rem .85rem; font-size: .7rem; }
+  .insta-embeds-grid { grid-template-columns: 1fr 1fr; gap: .5rem; }
+  .insta-embeds-grid .insta-post-link:nth-child(n+5) { display: none; }
+
   .stat-number { font-size: 2.1rem; }
-  .package-days { font-size: 2.4rem; }
-  .insta-embeds-grid { grid-template-columns: 1fr; }
-  .insta-embeds-grid .insta-post-link:nth-child(n+3) { display: none; }
 }
 
 /* ============================================================
@@ -1171,10 +1221,11 @@ body {
   .season-mig-col { text-align: left; max-width: 100%; }
 }
 @media (max-width: 600px) {
-  .season-content-grid { grid-template-columns: 1fr; }
+  .season-content-grid { grid-template-columns: 1fr 1fr; }
+  .season-content-grid > div:last-child { grid-column: 1 / -1; }
   .big5-grid { grid-template-columns: repeat(3, 1fr); }
-  .season-display { padding: 1.5rem; }
-  .season-month-heading { font-size: 2.2rem; }
+  .season-display { padding: 1.3rem; }
+  .season-month-heading { font-size: 2rem; }
 }
 
 /* Leaflet map popup */
