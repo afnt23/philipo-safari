@@ -591,7 +591,8 @@
         var featured = document.querySelector('.package-card--featured');
         if (pkgHint) pkgHint.style.display = mobile ? 'flex' : 'none';
         if (mobile && pkgGrid && featured) {
-          pkgGrid.scrollLeft = featured.offsetLeft - pkgGrid.offsetLeft;
+          // Center the featured card in the scroll container
+          pkgGrid.scrollLeft = featured.offsetLeft - (pkgGrid.clientWidth - featured.offsetWidth) / 2;
         }
 
         // Parks carousel
