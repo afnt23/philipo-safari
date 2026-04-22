@@ -881,30 +881,48 @@ body {
   .testimonial-card p { font-size: .83rem; line-height: 1.65; }
   .review-form-grid { grid-template-columns: 1fr; gap: .8rem; }
 
-  /* Instagram section */
+  /* Instagram section — real Instagram mobile layout */
   .insta-section { padding: 2.5rem 0; }
   .insta-profile {
-    display: grid;
-    grid-template-columns: 80px 1fr auto;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "avatar  stats   stats"
-      "info    info    btn";
-    gap: .6rem 1.2rem;
-    padding-bottom: 1.5rem; margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    column-gap: .8rem;
+    row-gap: .55rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
   }
-  .insta-avatar-link { grid-area: avatar; align-self: center; }
-  .insta-avatar-ring { width: 70px; height: 70px; }
-  .insta-stats { grid-area: stats; display: flex; gap: 0; justify-content: space-around; flex-wrap: nowrap; margin: 0; }
+  /* Row 1: avatar (fixed) + stats (fills rest) */
+  .insta-avatar-link { flex-shrink: 0; width: 72px; }
+  .insta-avatar-ring { width: 68px; height: 68px; }
+  .insta-stats {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0;
+    min-width: 0;
+    flex-wrap: nowrap;
+  }
   .insta-stat { align-items: center; text-align: center; }
-  .insta-stat strong { font-size: 1.1rem; }
+  .insta-stat strong { font-size: 1.05rem; }
   .insta-stat span { font-size: .6rem; }
-  .insta-profile-info { grid-area: info; min-width: 0; }
-  .insta-display-name { font-size: .97rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* Row 2: name + username spans full width */
+  .insta-profile-info {
+    width: 100%;
+    min-width: 0;
+  }
+  .insta-display-name { font-size: .95rem; white-space: normal; overflow: visible; text-overflow: clip; }
   .insta-username { font-size: .78rem; margin-bottom: 0; }
-  .insta-follow-btn { grid-area: btn; margin-left: 0; align-self: center; padding: .4rem .9rem; font-size: .75rem; white-space: nowrap; }
-  .insta-embeds-grid { grid-template-columns: 1fr 1fr 1fr; gap: .5rem; }
+  /* Row 3: follow button spans full width */
+  .insta-follow-btn {
+    width: 100% !important;
+    text-align: center;
+    margin: 0 !important;
+    padding: .5rem 1rem;
+    font-size: .8rem;
+  }
+  .insta-embeds-grid { grid-template-columns: repeat(3, 1fr); gap: .5rem; }
   .insta-embeds-grid .insta-post-link:nth-child(n+7) { display: none; }
 
   /* Contact */
@@ -1010,45 +1028,70 @@ body {
   .mountains-grid { grid-template-columns: 1fr; }
   .gear-grid { grid-template-columns: 1fr; }
 
-  /* Season explorer — fit in one screen */
-  .season-explorer { padding: 1.8rem 1rem; }
+  /* Season explorer — 2×2 display grid, fits one screen */
+  .season-explorer { padding: 1.5rem 1rem 1.8rem; }
   .season-explorer .section-eyebrow { display: none; }
-  .season-explorer .section-title { font-size: 1.4rem; margin-bottom: .2rem; }
+  .season-explorer .section-title { font-size: 1.25rem; margin-bottom: 0; }
   .season-explorer .section-desc { display: none; }
-  .season-explorer .section-header { margin-bottom: 1rem; }
-  .season-slider-container { margin: .8rem 0 0; }
-  .season-legend { gap: .5rem; font-size: .6rem; }
-  .season-display { padding: .9rem; margin-top: 1rem; }
-  .season-display-top { padding-bottom: .8rem; margin-bottom: .8rem; gap: .5rem; }
-  .season-month-heading { font-size: 1.5rem; }
-  .season-type-pill { font-size: .55rem; padding: .22rem .65rem; }
-  .season-mig-label { font-size: .5rem; margin-bottom: .2rem; }
-  .season-mig-place { font-size: .85rem; }
-  .season-event-box { padding: .6rem .8rem; margin-bottom: .9rem; border-left-width: 2px; }
-  .season-event-name { font-size: .9rem; margin-bottom: .25rem; }
-  .season-event-body { font-size: .75rem; line-height: 1.5; }
-  .season-content-grid { grid-template-columns: 1fr 1fr; gap: .7rem; margin-bottom: .7rem; }
-  .season-content-grid > div:last-child { display: none; }
-  .season-col-label { font-size: .52rem; margin-bottom: .5rem; }
-  .animal-tag { font-size: .68rem; padding: .2rem .6rem; }
-  .season-parks-ul li { font-size: .75rem; padding: .25rem 0 .25rem 1rem; }
-  .big5-index { margin-top: 1rem; padding-top: .8rem; }
-  .big5-grid { grid-template-columns: repeat(5,1fr); gap: .3rem .5rem; margin-top: .5rem; }
-  .b5-name { font-size: .48rem; }
-  .b5-val { font-size: .85rem; }
-  .b5-max { font-size: .6rem; }
-
-  /* Instagram — tighter grid layout, 2×2 posts */
-  .insta-section { padding: 1.8rem 0; }
-  .insta-profile {
-    grid-template-columns: 66px 1fr auto;
-    gap: .5rem .9rem;
-    padding-bottom: 1.2rem; margin-bottom: 1.2rem;
+  .season-explorer .section-header { margin-bottom: .7rem; }
+  .season-slider-container { margin: .6rem 0 0; }
+  .season-month-labels { height: 1.1rem; margin-bottom: .2rem; }
+  .season-month-labels span { font-size: .52rem; }
+  .season-legend { gap: .35rem; }
+  .sleg span { font-size: .55rem; }
+  .season-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: .6rem;
+    padding: .8rem;
+    margin-top: .7rem;
   }
-  .insta-avatar-ring { width: 60px; height: 60px; }
-  .insta-stat strong { font-size: .95rem; }
+  .season-display-top {
+    grid-column: 1; grid-row: 1;
+    flex-direction: column; align-items: flex-start;
+    gap: .3rem; border-bottom: none;
+    padding-bottom: 0; margin-bottom: 0;
+  }
+  .season-name-row { gap: .35rem; flex-wrap: wrap; }
+  .season-month-heading { font-size: 1.35rem; }
+  .season-type-pill { font-size: .5rem; padding: .18rem .55rem; }
+  .season-mig-col { text-align: left; max-width: 100%; }
+  .season-mig-label { font-size: .48rem; margin-bottom: .15rem; }
+  .season-mig-place { font-size: .78rem; }
+  .big5-index {
+    grid-column: 2; grid-row: 1;
+    margin-top: 0; padding-top: 0; border-top: none;
+    border-left: 1px solid rgba(255,255,255,.08); padding-left: .6rem;
+  }
+  .big5-grid { grid-template-columns: repeat(5,1fr); gap: .2rem .25rem; margin-top: .35rem; }
+  .b5-name { font-size: .44rem; }
+  .b5-val { font-size: .78rem; }
+  .b5-max { font-size: .52rem; }
+  .season-event-box {
+    grid-column: 1; grid-row: 2;
+    margin-bottom: 0; padding: .5rem .65rem; border-left-width: 2px;
+  }
+  .season-event-name { font-size: .82rem; margin-bottom: .18rem; }
+  .season-event-body { font-size: .7rem; line-height: 1.4; }
+  .season-content-grid {
+    grid-column: 2; grid-row: 2;
+    grid-template-columns: 1fr; gap: .4rem;
+    border-left: 1px solid rgba(255,255,255,.08); padding-left: .6rem;
+  }
+  .season-content-grid > div:last-child { display: none; }
+  .season-col-label { font-size: .48rem; margin-bottom: .35rem; }
+  .animal-tag { font-size: .62rem; padding: .14rem .5rem; }
+  .season-parks-ul li { font-size: .68rem; padding: .18rem 0 .18rem .85rem; }
+
+  /* Instagram — 2×2 posts */
+  .insta-section { padding: 1.8rem 0; }
+  .insta-profile { column-gap: .6rem; row-gap: .45rem; padding-bottom: 1.1rem; margin-bottom: 1.1rem; }
+  .insta-avatar-link { width: 60px; }
+  .insta-avatar-ring { width: 56px; height: 56px; }
+  .insta-stat strong { font-size: .9rem; }
   .insta-stat span { font-size: .55rem; }
-  .insta-follow-btn { padding: .35rem .75rem; font-size: .7rem; }
+  .insta-follow-btn { padding: .42rem .9rem !important; font-size: .75rem; }
   .insta-embeds-grid { grid-template-columns: 1fr 1fr; gap: 3px; }
   .insta-embeds-grid .insta-post-link:nth-child(n+5) { display: none; }
 
@@ -1240,13 +1283,6 @@ body {
 @media (max-width: 700px) {
   .season-display-top { flex-direction: column; gap: 1rem; }
   .season-mig-col { text-align: left; max-width: 100%; }
-}
-@media (max-width: 600px) {
-  .season-content-grid { grid-template-columns: 1fr 1fr; }
-  .season-content-grid > div:last-child { grid-column: 1 / -1; }
-  .big5-grid { grid-template-columns: repeat(3, 1fr); }
-  .season-display { padding: 1.3rem; }
-  .season-month-heading { font-size: 2rem; }
 }
 
 /* Leaflet map popup */
