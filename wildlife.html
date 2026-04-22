@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wildlife Safari — Philipo Safari</title>
+  <title>Wildlife Safari — Ole Momo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 </head>
 <body>
   <nav class="nav nav--page" id="nav">
-    <a href="index.html" class="nav-logo-text">Philipo Safari</a>
+    <a href="index.html" class="nav-logo-text">Ole Momo</a>
     <ul class="nav-links">
       <li><a href="index.html#about" data-en="About" data-fr="À Propos">About</a></li>
       <li><a href="index.html#experiences" data-en="Experiences" data-fr="Expériences">Experiences</a></li>
@@ -193,7 +193,7 @@
             <span class="season-type-pill" id="sd-badge"></span>
           </div>
           <div class="season-mig-col">
-            <span class="season-mig-label" data-en="Great Migration" data-fr="Grande Migration">Great Migration</span>
+            <span class="season-mig-label" id="sd-mig-label"></span>
             <span class="season-mig-place" id="sd-mig"></span>
           </div>
         </div>
@@ -214,6 +214,10 @@
             <p class="season-col-label" data-en="Philipo's Tip" data-fr="Conseil de Philipo">Philipo's Tip</p>
             <p class="season-tip-text" id="sd-tip"></p>
           </div>
+        </div>
+        <div class="big5-index">
+          <p class="season-col-label" data-en="Big 5 Encounter Index" data-fr="Indice de Rencontre Big 5">Big 5 Encounter Index</p>
+          <div class="big5-grid" id="sd-big5"></div>
         </div>
       </div>
     </div>
@@ -307,7 +311,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <div class="footer-brand"><a href="index.html" class="footer-logo">Philipo Safari</a><p data-en="Arusha, Tanzania — Est. 2005" data-fr="Arusha, Tanzanie — Fondé en 2005">Arusha, Tanzania — Est. 2005</p></div>
+        <div class="footer-brand"><a href="index.html" class="footer-logo">Ole Momo</a><p data-en="Arusha, Tanzania — Est. 2005" data-fr="Arusha, Tanzanie — Fondé en 2005">Arusha, Tanzania — Est. 2005</p></div>
         <div class="footer-links">
           <a href="index.html" data-en="Home" data-fr="Accueil">Home</a>
           <a href="tribes.html" data-en="Tribes" data-fr="Tribus">Tribes</a>
@@ -316,7 +320,7 @@
           <a href="index.html#contact" data-en="Contact" data-fr="Contact">Contact</a>
         </div>
       </div>
-      <div class="footer-bottom"><p>© 2025 Philipo Safari.</p></div>
+      <div class="footer-bottom"><p>© 2025 Ole Momo.</p></div>
     </div>
   </footer>
 
@@ -326,137 +330,181 @@
   const SEASONS = [
     {
       name: 'January', badge: 'Short Dry', type: 'dry',
-      mig: 'Southern Serengeti & Ndutu — calving season begins',
+      migLabel: 'Calving Season',
+      mig: 'Southern Serengeti & Ndutu',
       event: 'Wildebeest Calving Begins',
       desc: 'Up to 8,000 calves born daily on the Ndutu plains. Predator action peaks as lions, cheetah and hyena follow the herds. Warm, dry and excellent visibility.',
       animals: [{n:'Wildebeest',s:1},{n:'Lion',s:1},{n:'Cheetah',s:1},{n:'Hyena',s:0},{n:'Zebra',s:0},{n:'Flamingo',s:0}],
       parks: ['Serengeti (Ndutu)', 'Ngorongoro', 'Lake Manyara'],
-      tip: 'Book Ndutu-area mobile camps — they position right on the calving grounds for extraordinary predator-prey scenes.'
+      tip: 'Book Ndutu-area mobile camps — they position right on the calving grounds for extraordinary predator-prey scenes.',
+      big5: [5, 3, 3, 3, 3]
     },
     {
       name: 'February', badge: 'Short Dry', type: 'dry',
-      mig: 'Ndutu & Southern Serengeti — peak calving',
+      migLabel: 'Peak Calving',
+      mig: 'Ndutu & Southern Serengeti',
       event: 'Peak Calving Season',
       desc: 'The most dramatic predator-prey spectacle on Earth. Half a million calves in the southern plains. Cheetah mothers with cubs are frequently seen. Clear skies and excellent photography conditions.',
       animals: [{n:'Wildebeest',s:1},{n:'Cheetah',s:1},{n:'Lion',s:1},{n:'Newborn Calves',s:1},{n:'Hyena',s:0},{n:'Jackal',s:0}],
       parks: ['Serengeti (Ndutu)', 'Ngorongoro Crater', 'Tarangire'],
-      tip: 'February is arguably the single best month in Tanzania. Fewer crowds than peak July. Lock in dates early — demand is very high.'
+      tip: 'February is arguably the single best month in Tanzania. Fewer crowds than peak July. Lock in dates early — demand is very high.',
+      big5: [5, 3, 3, 3, 3]
     },
     {
       name: 'March', badge: 'Long Rains Start', type: 'rain',
-      mig: 'Moving north through Central Serengeti',
+      migLabel: 'Moving North',
+      mig: 'Central Serengeti, heading northwest',
       event: 'Green Season Begins',
       desc: 'Rains arrive and the Serengeti turns vivid emerald. Migratory birds appear. Lush landscapes make for dramatic photography. Some roads become challenging — 4×4 essential.',
       animals: [{n:'Elephant',s:1},{n:'Giraffe',s:1},{n:'Migratory Birds',s:1},{n:'Buffalo',s:0},{n:'Wildebeest',s:0},{n:'Stork',s:0}],
       parks: ['Serengeti', 'Tarangire', 'Arusha NP'],
-      tip: 'Rates drop 30–40% in the green season. You\'ll have parks largely to yourself — a real advantage for photography and game viewing.'
+      tip: 'Rates drop 30–40% in the green season. You\'ll have parks largely to yourself — a real advantage for photography and game viewing.',
+      big5: [3, 2, 4, 3, 2]
     },
     {
       name: 'April', badge: 'Long Rains', type: 'rain',
-      mig: 'Central Serengeti, moving toward Western Corridor',
+      migLabel: 'Western Corridor',
+      mig: 'Central & Western Serengeti',
       event: 'Long Rains Peak',
       desc: 'Heaviest rainfall of the year. Southern circuit less accessible. Ruaha and Nyerere are better bets. Incredible birdlife and lush scenery. Very few tourists.',
       animals: [{n:'Birds (200+ species)',s:1},{n:'Elephant',s:0},{n:'Buffalo',s:0},{n:'Hippo',s:0},{n:'Crocodile',s:0},{n:'Impala',s:0}],
       parks: ['Nyerere / Selous', 'Ruaha', 'Gombe & Mahale'],
-      tip: 'If you want a true wilderness — no other vehicles — April is unbeatable. Roads are hard but the experience is unforgettable.'
+      tip: 'If you want a true wilderness — no other vehicles — April is unbeatable. Roads are hard but the experience is unforgettable.',
+      big5: [2, 2, 3, 2, 2]
     },
     {
       name: 'May', badge: 'Long Rains End', type: 'rain',
-      mig: 'Western Corridor — heading toward the Grumeti River',
+      migLabel: 'Grumeti Build-Up',
+      mig: 'Western Corridor, approaching Grumeti',
       event: 'Grumeti River Build-Up',
       desc: 'Rains taper off in the second half. The migration masses around the Grumeti — smaller but dramatic river crossings begin. Parks start to reopen fully.',
       animals: [{n:'Wildebeest',s:1},{n:'Crocodile',s:1},{n:'Hippo',s:0},{n:'Lion',s:0},{n:'Elephant',s:0},{n:'Topi',s:0}],
       parks: ['Serengeti (Western Corridor)', 'Ruaha', 'Nyerere'],
-      tip: 'The Grumeti crossing is dramatic but underrated. Stay in the Western Corridor — you may have the best river crossing seats to yourself.'
+      tip: 'The Grumeti crossing is dramatic but underrated. Stay in the Western Corridor — you may have the best river crossing seats to yourself.',
+      big5: [3, 2, 4, 3, 2]
     },
     {
       name: 'June', badge: 'Dry Season', type: 'dry-peak',
-      mig: 'Crossing the Grumeti into Northern Serengeti',
+      migLabel: 'Grumeti Crossings',
+      mig: 'Western Corridor & Northern Serengeti',
       event: 'Peak Dry Season Opens',
-      desc: 'Skies clear, dust settles and the dry season begins in earnest. Animals concentrate around water sources — game viewing intensifies. The Great Migration reaches the Northern Serengeti and approaches the Mara River.',
+      desc: 'Skies clear, dust settles and the dry season begins in earnest. Animals concentrate around water sources — game viewing intensifies. The migration reaches the Northern Serengeti and approaches the Mara River.',
       animals: [{n:'Wildebeest',s:1},{n:'Elephant',s:1},{n:'Lion',s:1},{n:'Leopard',s:0},{n:'Wild Dog',s:0},{n:'Giraffe',s:0}],
       parks: ['Serengeti (North)', 'Ngorongoro', 'Tarangire', 'Ruaha'],
-      tip: 'June marks the start of the best 5 months for safaris. Book 6–12 months ahead for July and August departures.'
+      tip: 'June marks the start of the best five months for safaris. Book 6–12 months ahead for July and August departures.',
+      big5: [4, 3, 5, 4, 3]
     },
     {
       name: 'July', badge: 'Peak Dry', type: 'dry-peak',
-      mig: 'Mara River crossings begin — the greatest show on Earth',
+      migLabel: 'Mara River Crossings',
+      mig: 'Northern Serengeti & Mara River',
       event: 'Mara River Crossings',
       desc: 'The iconic river crossings. Thousands of wildebeest charge into crocodile-filled waters, stampede up the far bank and back again. The crossing can happen multiple times a day. Peak season for all parks.',
       animals: [{n:'Wildebeest',s:1},{n:'Crocodile',s:1},{n:'Lion',s:1},{n:'Cheetah',s:0},{n:'Elephant',s:0},{n:'Chimpanzee',s:0}],
       parks: ['Serengeti (Kogatende)', 'Ngorongoro', 'Tarangire', 'Gombe & Mahale'],
-      tip: 'Position at a recognised crossing point (Mara 1 or Sand River) for multiple consecutive days — crossings are unpredictable. Patience is everything.'
+      tip: 'Position at a recognised crossing point (Mara 1 or Sand River) for multiple consecutive days — crossings are unpredictable. Patience is everything.',
+      big5: [5, 4, 5, 4, 3]
     },
     {
       name: 'August', badge: 'Peak Dry', type: 'dry-peak',
-      mig: 'Northern Serengeti & Masai Mara, river crossings continue',
+      migLabel: 'Mara River Crossings',
+      mig: 'Northern Serengeti & Masai Mara',
       event: 'River Crossings Continue',
       desc: 'Crossings continue through August. Tarangire reaches its spectacular peak — over 3,000 elephants in a single park. Ngorongoro lion prides at maximum activity. The busiest and most expensive month.',
       animals: [{n:'Elephant',s:1},{n:'Wildebeest',s:1},{n:'Lion',s:1},{n:'Leopard',s:1},{n:'Black Rhino',s:0},{n:'Hippo',s:0}],
       parks: ['Tarangire', 'Serengeti (North)', 'Ngorongoro', 'Katavi'],
-      tip: 'If budget allows, combine Northern Serengeti for crossings with a Tarangire extension — August is Tarangire\'s absolute peak.'
+      tip: 'If budget allows, combine Northern Serengeti for crossings with a Tarangire extension — August is Tarangire\'s absolute peak.',
+      big5: [5, 4, 5, 5, 4]
     },
     {
       name: 'September', badge: 'Dry Season', type: 'dry-peak',
-      mig: 'Masai Mara (Kenya side) — return journey begins',
+      migLabel: 'Southern Return',
+      mig: 'Masai Mara, beginning return south',
       event: 'Southbound Migration',
       desc: 'The herds begin their return south. Excellent conditions throughout Tanzania. Lower crowds than August. Katavi National Park reaches its extraordinary peak — hundreds of hippos in shrinking pools.',
       animals: [{n:'Hippo',s:1},{n:'Buffalo',s:1},{n:'Wild Dog',s:1},{n:'Lion',s:0},{n:'Elephant',s:0},{n:'Giraffe',s:0}],
       parks: ['Katavi', 'Ruaha', 'Nyerere', 'Ngorongoro'],
-      tip: 'September in Katavi is one of Africa\'s most dramatic wildlife experiences — hundreds of hippos competing for pools. Almost no tourists.'
+      tip: 'September in Katavi is one of Africa\'s most dramatic wildlife experiences — hundreds of hippos competing for pools. Almost no tourists.',
+      big5: [4, 4, 5, 5, 3]
     },
     {
       name: 'October', badge: 'Dry Season', type: 'dry-peak',
-      mig: 'Re-entering Northern Serengeti from Kenya',
+      migLabel: 'Returning South',
+      mig: 'Re-entering Northern Serengeti',
       event: 'Migration Returns South',
       desc: 'The last of the peak dry season. Great value — fewer visitors than July–August but conditions remain excellent. Chimpanzee trekking in Gombe and Mahale is ideal.',
       animals: [{n:'Chimpanzee',s:1},{n:'Wildebeest',s:1},{n:'Elephant',s:0},{n:'Leopard',s:0},{n:'Lion',s:0},{n:'Colobus Monkey',s:0}],
       parks: ['Gombe & Mahale', 'Serengeti', 'Ngorongoro', 'Arusha NP'],
-      tip: 'October is an underrated sweet spot — dry season quality at lower prices. Pair Serengeti with chimp trekking for an extraordinary combination.'
+      tip: 'October is an underrated sweet spot — dry season quality at lower prices. Pair Serengeti with chimp trekking for an extraordinary combination.',
+      big5: [4, 3, 4, 4, 3]
     },
     {
       name: 'November', badge: 'Short Rains', type: 'shower',
-      mig: 'Central & Southern Serengeti — heading to Ndutu',
+      migLabel: 'Ndutu Approach',
+      mig: 'Central Serengeti, moving to Ndutu',
       event: 'Short Rains Arrive',
       desc: 'Brief afternoon showers bring relief and freshen the landscape. Good conditions still prevail in the mornings. Birdlife explodes with hundreds of migratory species arriving from Europe and Asia.',
       animals: [{n:'Migratory Birds',s:1},{n:'Wildebeest',s:0},{n:'Zebra',s:0},{n:'Elephant',s:0},{n:'Flamingo',s:1},{n:'Stork',s:0}],
       parks: ['Lake Manyara', 'Tarangire', 'Serengeti', 'Arusha NP'],
-      tip: 'November\'s rains are short and predictable — usually afternoon storms. Mornings are glorious. Lake Manyara turns flamingo-pink again.'
+      tip: 'November\'s rains are short and predictable — usually afternoon storms. Mornings are glorious. Lake Manyara turns flamingo-pink again.',
+      big5: [3, 2, 3, 3, 2]
     },
     {
       name: 'December', badge: 'Short Dry', type: 'dry',
-      mig: 'Southern Serengeti & Ndutu plains — calving imminent',
+      migLabel: 'Ndutu Plains',
+      mig: 'Southern Serengeti & Ndutu, calving imminent',
       event: 'Migration Returns to Ndutu',
       desc: 'Rains ease in December. The herds converge on the nutrient-rich Ndutu plains ahead of calving. Festive season brings more visitors but the wildlife is exceptional — the cycle is about to begin again.',
       animals: [{n:'Wildebeest',s:1},{n:'Zebra',s:1},{n:'Lion',s:0},{n:'Cheetah',s:0},{n:'Elephant',s:0},{n:'Hyena',s:0}],
       parks: ['Serengeti (Ndutu)', 'Ngorongoro', 'Tarangire', 'Lake Manyara'],
-      tip: 'A great month for a festive safari — the Ndutu area is magical and calving-season anticipation makes every game drive electric.'
+      tip: 'A great month for a festive safari — the Ndutu area is magical and calving-season anticipation makes every game drive electric.',
+      big5: [4, 3, 3, 3, 3]
     }
   ];
 
   const rangeEl = document.getElementById('season-range');
   const labelsEl = document.getElementById('season-month-labels');
   const displayEl = document.getElementById('season-display');
+  const B5_NAMES = ['Lion', 'Leopard', 'Elephant', 'Buffalo', 'Rhino'];
+
+  function positionLabels() {
+    var spans = labelsEl.querySelectorAll('span');
+    var W = labelsEl.offsetWidth;
+    var thumbR = 13; // half of 26px thumb
+    var usable = W - 2 * thumbR;
+    spans.forEach(function(sp, i) {
+      sp.style.left = (thumbR + i * usable / 11) + 'px';
+    });
+  }
 
   function updateSeasonDisplay(idx) {
-    const s = SEASONS[idx];
+    var s = SEASONS[idx];
     displayEl.style.opacity = '0';
     setTimeout(function() {
       document.getElementById('sd-month').textContent = s.name;
-      const badge = document.getElementById('sd-badge');
+      var badge = document.getElementById('sd-badge');
       badge.textContent = s.badge;
       badge.className = 'season-type-pill ' + s.type;
+      document.getElementById('sd-mig-label').textContent = s.migLabel;
       document.getElementById('sd-mig').textContent = s.mig;
       document.getElementById('sd-event').textContent = s.event;
       document.getElementById('sd-desc').textContent = s.desc;
-      const aEl = document.getElementById('sd-animals');
+      var aEl = document.getElementById('sd-animals');
       aEl.innerHTML = s.animals.map(function(a) {
         return '<span class="animal-tag' + (a.s ? ' featured' : '') + '">' + a.n + '</span>';
       }).join('');
-      const pEl = document.getElementById('sd-parks');
+      var pEl = document.getElementById('sd-parks');
       pEl.innerHTML = s.parks.map(function(p) { return '<li>' + p + '</li>'; }).join('');
       document.getElementById('sd-tip').textContent = s.tip;
-      // update active label
+      var b5El = document.getElementById('sd-big5');
+      b5El.innerHTML = B5_NAMES.map(function(name, ai) {
+        var score = s.big5[ai];
+        return '<div class="b5-item">' +
+          '<span class="b5-name">' + name + '</span>' +
+          '<div class="b5-track"><div class="b5-fill" style="width:' + (score / 5 * 100) + '%"></div></div>' +
+          '<span class="b5-val">' + score + '<span class="b5-max"> / 5</span></span>' +
+          '</div>';
+      }).join('');
       labelsEl.querySelectorAll('span').forEach(function(sp, i) {
         sp.classList.toggle('active', i === idx);
       });
@@ -470,12 +518,14 @@
 
   labelsEl.querySelectorAll('span').forEach(function(sp) {
     sp.addEventListener('click', function() {
-      const m = parseInt(sp.getAttribute('data-m'));
+      var m = parseInt(sp.getAttribute('data-m'));
       rangeEl.value = m;
       updateSeasonDisplay(m);
     });
   });
 
+  positionLabels();
+  window.addEventListener('resize', positionLabels);
   updateSeasonDisplay(6); // start on July
   // ── end Season Explorer ──────────────────────────────────────────
   </script>

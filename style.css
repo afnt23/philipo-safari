@@ -1,5 +1,5 @@
 /* ============================================================
-   PHILIPO SAFARI — Global Stylesheet
+   OLE MOMO — Global Stylesheet
    ============================================================ */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -239,6 +239,28 @@ body {
 .about { padding: 7rem 2rem; background: var(--warm-white); }
 .about-grid {
   display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; align-items: center;
+}
+.about-insta-card {
+  display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+  margin-top: 2.5rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(0,0,0,.04);
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 14px;
+}
+.about-insta-avatar-link { flex-shrink: 0; }
+.about-insta-info { flex: 1; min-width: 0; }
+.about-insta-stats { margin-top: .5rem; }
+.about-insta-card .insta-display-name { color: var(--dark-brown); }
+.about-insta-card .insta-username { color: var(--gold); }
+.about-insta-card .insta-stat strong { color: var(--dark-brown); font-size: 1.15rem; }
+.about-insta-card .insta-stat span { color: var(--text-sec); }
+.about-insta-card .insta-avatar-inner { background: var(--warm-white); border-color: var(--warm-white); }
+.about-insta-card .insta-follow-btn { color: #fff; background: #3897F0; border-color: #3897F0; }
+.about-insta-card .insta-follow-btn:hover { background: #2d86e0; border-color: #2d86e0; color: #fff; }
+@media (max-width: 480px) {
+  .about-insta-card { gap: 1rem; padding: 1rem; }
+  .about-insta-info { width: 100%; }
 }
 .about-image { position: relative; }
 .portrait-frame { aspect-ratio: 3/4; overflow: hidden; }
@@ -743,58 +765,223 @@ body {
 }
 
 @media (max-width: 900px) {
-  .about-grid { grid-template-columns: 1fr; gap: 4rem; }
-  .about-image { max-width: 360px; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-image { max-width: 280px; margin: 0 auto; }
   .routes-grid { grid-template-columns: 1fr; }
   .tribes-grid { grid-template-columns: 1fr; }
   .combos-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
   .testimonials-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
-  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .mountains-grid { grid-template-columns: 1fr 1fr; }
   .gallery-masonry { columns: 2; }
 }
 
+/* ─── MOBILE (≤ 768px) ─────────────────────────────────────── */
 @media (max-width: 768px) {
-  .nav { padding: 1.1rem 1.5rem; }
-  .nav--scrolled, .nav--page { padding: .9rem 1.5rem; }
+
+  /* Global */
+  .container { padding: 0 1.1rem; }
+  .section-header { margin-bottom: 2rem; }
+  .section-title { font-size: clamp(1.8rem, 7vw, 2.6rem) !important; margin-bottom: .9rem; }
+  .section-desc { font-size: .9rem; }
+  .page-section, .page-section--alt { padding: 3rem 0; }
+
+  /* Nav */
+  .nav { padding: .95rem 1.1rem; }
+  .nav--scrolled, .nav--page { padding: .75rem 1.1rem; }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
 
-  .hero-title { font-size: clamp(3rem,13vw,4.5rem); }
-  .hero-subtitle { font-size: .9rem; }
+  /* Hero */
+  .hero-title { font-size: clamp(2.5rem, 11vw, 3.8rem); margin-bottom: 1.1rem; }
+  .hero-subtitle { font-size: .82rem; margin-bottom: 2rem; }
   .hero-scroll { display: none; }
 
-  .experiences-grid { grid-template-columns: 1fr; grid-template-rows: repeat(4,380px); }
-  .gallery-strip { height: 200px; }
+  /* About */
+  .about { padding: 3.5rem 1.1rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .about-image { max-width: 180px; }
+  .experience-badge { width: 82px; height: 82px; bottom: -.8rem; right: -.8rem; }
+  .badge-number { font-size: 2.2rem; }
+  .about-lead { font-size: 1.05rem; margin-bottom: .9rem; }
+  .about-body { font-size: .88rem; margin-bottom: 1.4rem; }
+  .about-features { grid-template-columns: 1fr 1fr; gap: .5rem .8rem; }
+  .feature-item { font-size: .78rem; }
 
+  /* Experiences — 2×2 compact grid, hide body text */
+  .experiences { padding: 3rem 0; }
+  .experiences-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 210px);
+    gap: 3px;
+  }
+  .exp-overlay { padding: .9rem 1rem; }
+  .exp-overlay h3 { font-size: 1.05rem; margin-bottom: 0; }
+  .exp-overlay p { display: none; }
+  .exp-cta { display: none; }
+  .exp-tag { font-size: .55rem; margin-bottom: .25rem; }
+
+  /* Gallery strip */
+  .gallery-strip { height: 140px; }
+  .gallery-cta { padding: 1.4rem 1.1rem; }
+
+  /* Stats — 2 cols, compact */
+  .stats { padding: 2.5rem 1.1rem; }
   .stats-grid { grid-template-columns: repeat(2,1fr); }
-  .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); }
+  .stat-item {
+    border-right: none; border-bottom: 1px solid rgba(255,255,255,.07);
+    padding: 1.1rem .8rem;
+  }
   .stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.07); }
   .stat-item:last-child { border-bottom: none; }
+  .stat-number { font-size: 2.6rem; }
+  .stat-label { font-size: .6rem; letter-spacing: .14em; }
 
-  .why-grid { grid-template-columns: 1fr; }
-  .parks-grid { grid-template-columns: 1fr; }
-  .packages-grid { grid-template-columns: 1fr 1fr; }
-  .history-grid { grid-template-columns: 1fr; }
-  .gear-grid { grid-template-columns: 1fr; }
-  .mountains-grid { grid-template-columns: 1fr; }
+  /* Why Us — 2 columns */
+  .why-us { padding: 3rem 1.1rem; }
+  .why-grid { grid-template-columns: 1fr 1fr; gap: .9rem; }
+  .why-card { padding: 1.3rem 1.1rem; }
+  .why-card h3 { font-size: .92rem; margin-bottom: .35rem; }
+  .why-card p { font-size: .78rem; line-height: 1.6; }
+  .why-number { font-size: 1.8rem; }
 
-  .footer-content { flex-direction: column; gap: 2rem; }
-  .about-features { grid-template-columns: 1fr; }
+  /* History — 2 columns */
+  .history { padding: 3rem 1.1rem; }
+  .history-grid { grid-template-columns: 1fr 1fr; gap: .9rem; }
+  .history-card { padding: 1.3rem 1.1rem; }
+  .history-card h3 { font-size: .92rem; margin-bottom: .3rem; }
+  .history-card p { font-size: .78rem; line-height: 1.6; }
+
+  /* Practical info */
+  .practical-info { padding: 3rem 1.1rem; }
+  .practical-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+
+  /* Testimonials — horizontal scroll carousel */
+  .testimonials { padding: 3rem 0; }
+  .testimonials .container { padding: 0; }
+  .testimonials .section-header { padding: 0 1.1rem; }
+  .review-divider { margin: 1.5rem 1.1rem 0; }
+  .review-section-title { padding: 0 1.1rem; }
+  .review-submit { padding: 0 1.1rem; }
+  .testimonials-grid {
+    display: flex; overflow-x: auto; gap: .9rem;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    padding: .5rem 1.1rem 1rem; margin: 0; max-width: none;
+  }
+  .testimonials-grid::-webkit-scrollbar { height: 3px; }
+  .testimonials-grid::-webkit-scrollbar-thumb { background: var(--gold-pale); border-radius: 2px; }
+  .testimonial-card { min-width: 270px; max-width: 300px; scroll-snap-align: start; flex-shrink: 0; padding: 1.4rem; }
+  .testimonial-card p { font-size: .83rem; line-height: 1.65; }
+  .review-form-grid { grid-template-columns: 1fr; gap: .8rem; }
+
+  /* Instagram section */
+  /* Instagram section */
+  .insta-section { padding: 3rem 0; }
+  .insta-profile { gap: 1.1rem; padding-bottom: 1.8rem; margin-bottom: 1.8rem; }
+  .insta-avatar-ring { width: 60px; height: 60px; }
+  .insta-display-name { font-size: 1.2rem; }
+  .insta-stats { gap: 1.2rem; }
+  .insta-stat strong { font-size: 1.1rem; }
+  .insta-follow-btn { margin-left: 0; }
+  .insta-embeds-grid { grid-template-columns: 1fr 1fr; gap: .8rem; }
+  .insta-embeds-grid .insta-post-link:nth-child(n+5) { display: none; }
+
+  /* Contact */
+  .contact { padding: 3rem 1.1rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .contact-form .form-group { margin-bottom: .8rem; }
+  .contact-form input, .contact-form textarea { font-size: .88rem; padding: .7rem .9rem; }
+
+  /* Footer */
+  .footer { padding: 2.5rem 0; }
+  .footer-content { flex-direction: column; gap: 1.5rem; padding: 0 1.1rem; }
+  .footer-links { flex-wrap: wrap; gap: .5rem 1.1rem; }
+  .footer-bottom { padding: 1.2rem 1.1rem 0; margin-top: 1.5rem; }
+
+  /* Gallery page */
   .gallery-masonry { columns: 2; }
+  .gallery-filters { gap: .45rem; flex-wrap: wrap; justify-content: center; }
+  .filter-btn { font-size: .58rem; padding: .45rem .85rem; }
 
-  .page-hero { height: 50vh; min-height: 320px; }
-  .page-hero-content h1 { font-size: clamp(2rem,7vw,3rem); }
+  /* Page hero (sub-pages) */
+  .page-hero { height: 42vh; min-height: 240px; }
+  .page-hero-content h1 { font-size: clamp(1.6rem, 6vw, 2.4rem) !important; }
+  .page-hero-content p { font-size: .8rem; }
+  .breadcrumb { font-size: .7rem; }
+
+  /* Parks — 1-col (text-heavy cards) */
+  .parks-grid { grid-template-columns: 1fr; gap: .8rem; }
+  .park-card { padding: 1.3rem 1.1rem; }
+  .park-card h3 { font-size: .97rem; }
+  .park-card p { font-size: .8rem; }
+  .park-meta span { font-size: .65rem; }
+
+  /* Packages */
+  .packages-grid { grid-template-columns: 1fr 1fr; gap: .9rem; }
+  .package-card { padding: 1.5rem 1.1rem; }
+  .package-days { font-size: 2.8rem; }
+  .package-desc, .package-includes li { font-size: .8rem; }
+
+  /* Kilimanjaro routes */
+  .routes-grid { grid-template-columns: 1fr; }
+  .route-card { padding: 1.3rem 1.1rem; }
+
+  /* Gear */
+  .gear-grid { grid-template-columns: 1fr 1fr; gap: .9rem; }
+  .gear-item { padding: 1.2rem 1rem; }
+  .gear-item h4 { font-size: .85rem; }
+  .gear-item p { font-size: .78rem; }
+
+  /* Mountains */
+  .mountains-grid { grid-template-columns: 1fr 1fr; gap: .9rem; }
+  .mountain-card { padding: 1.3rem 1.1rem; }
+
+  /* Tribes */
+  .tribes-grid { grid-template-columns: 1fr; }
+  .combos-grid { grid-template-columns: 1fr; max-width: 100%; }
+
+  /* Page CTA strip */
+  .page-cta-strip { padding: 3rem 1.1rem; }
+  .page-cta-strip h2 { font-size: 1.7rem; margin-bottom: .7rem; }
+  .page-cta-strip p { font-size: .85rem; margin-bottom: 1.4rem; }
+
+  /* Info box */
+  .info-box { padding: 1.3rem 1.1rem; }
+  .info-box p { font-size: .83rem; }
+
+  /* Season explorer */
+  .season-explorer { padding: 3rem 1.1rem; }
+  .season-display { padding: 1.3rem; margin-top: 1.4rem; }
+  .season-display-top { flex-direction: column; gap: .8rem; }
+  .season-mig-col { text-align: left; max-width: 100%; }
+  .season-month-heading { font-size: 1.9rem; }
+  .season-content-grid { grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .big5-grid { grid-template-columns: repeat(3,1fr); gap: .6rem .9rem; }
+  .b5-val { font-size: 1.2rem; }
+  .season-event-box { padding: .9rem 1rem; margin-bottom: 1.5rem; }
+  .season-legend { gap: .7rem; flex-wrap: wrap; }
+  .season-slider-container { margin: 1.5rem 0 0; }
 }
 
+/* ─── SMALL PHONES (≤ 480px) ─────────────────────────────── */
 @media (max-width: 480px) {
-  .hero-title { font-size: 2.8rem; }
-  .stats-grid { grid-template-columns: 1fr; }
-  .stat-item { border-right: none !important; }
-  .gallery-strip { height: 140px; }
-  .experiences-grid { grid-template-rows: repeat(4,300px); }
+  .hero-title { font-size: 2.2rem; }
+  .experiences-grid { grid-template-rows: repeat(2, 185px); }
+  .exp-overlay h3 { font-size: .95rem; }
+  .gallery-strip { height: 100px; }
   .packages-grid { grid-template-columns: 1fr; }
   .gallery-masonry { columns: 1; }
+  .why-grid { grid-template-columns: 1fr; gap: .7rem; }
+  .mountains-grid { grid-template-columns: 1fr; }
+  .gear-grid { grid-template-columns: 1fr; }
+  .season-content-grid { grid-template-columns: 1fr; }
+  .big5-grid { grid-template-columns: repeat(5,1fr); gap: .4rem .4rem; }
+  .b5-name { font-size: .52rem; }
+  .b5-val { font-size: .95rem; }
+  .stat-number { font-size: 2.1rem; }
+  .package-days { font-size: 2.4rem; }
+  .insta-embeds-grid { grid-template-columns: 1fr; }
+  .insta-embeds-grid .insta-post-link:nth-child(n+3) { display: none; }
 }
 
 /* ============================================================
@@ -808,15 +995,16 @@ body {
 /* Slider */
 .season-slider-container { margin: 2.5rem 0 0; }
 .season-month-labels {
-  display: grid; grid-template-columns: repeat(12,1fr);
-  padding: 0 13px; /* offset by half thumb width so cells align with thumb positions */
+  position: relative; height: 1.5rem;
   margin-bottom: .35rem;
 }
 .season-month-labels span {
+  position: absolute;
   font-family: var(--sans); font-size: .65rem; font-weight: 600;
   letter-spacing: .06em; text-transform: uppercase;
   color: rgba(255,255,255,.28);
-  text-align: center; cursor: pointer; padding: .2rem 0;
+  cursor: pointer; white-space: nowrap;
+  transform: translateX(-50%); line-height: 1.5rem;
   transition: color .15s;
 }
 .season-month-labels span.active { color: #fff; }
@@ -859,10 +1047,7 @@ body {
   box-shadow: 0 2px 10px rgba(0,0,0,.5); cursor: grab;
 }
 
-.season-legend {
-  display: flex; gap: 1.5rem; flex-wrap: wrap;
-  padding: .75rem 13px 0; /* match label inset */
-}
+.season-legend { display: flex; gap: 1.5rem; flex-wrap: wrap; padding-top: .75rem; }
 .sleg { display: flex; align-items: center; gap: .5rem; font-size: .65rem; font-family: var(--sans); color: rgba(255,255,255,.35); letter-spacing: .05em; text-transform: uppercase; }
 .sleg-bar { width: 20px; height: 4px; border-radius: 2px; flex-shrink: 0; }
 
@@ -898,13 +1083,13 @@ body {
 
 .season-mig-col { text-align: right; flex-shrink: 0; max-width: 44%; }
 .season-mig-label {
-  font-family: var(--sans); font-size: .6rem; font-weight: 700;
-  letter-spacing: .13em; text-transform: uppercase;
+  font-family: var(--sans); font-size: .58rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
   color: rgba(255,255,255,.28); display: block; margin-bottom: .4rem;
 }
 .season-mig-place {
-  font-family: var(--serif); font-size: .975rem; font-style: italic;
-  color: rgba(255,255,255,.65); line-height: 1.55;
+  font-family: var(--serif); font-size: 1.15rem; font-style: normal;
+  color: rgba(255,255,255,.82); line-height: 1.5;
 }
 
 .season-event-box {
@@ -949,6 +1134,35 @@ body {
   padding-left: 1rem; border-left: 2px solid rgba(201,149,42,.3); margin: 0;
 }
 
+/* Big 5 encounter index */
+.big5-index {
+  margin-top: 2rem; padding-top: 1.75rem;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.big5-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: .75rem 2rem; margin-top: .9rem;
+}
+.b5-item { display: flex; flex-direction: column; gap: .55rem; }
+.b5-name {
+  font-family: var(--sans); font-size: .65rem; font-weight: 600;
+  letter-spacing: .09em; text-transform: uppercase; color: rgba(255,255,255,.4);
+}
+.b5-track {
+  height: 4px; background: rgba(255,255,255,.1);
+  border-radius: 2px; position: relative; overflow: hidden;
+}
+.b5-fill {
+  position: absolute; top: 0; left: 0; height: 100%;
+  border-radius: 2px; background: var(--gold);
+  transition: width .35s ease;
+}
+.b5-val {
+  font-family: var(--serif); font-size: 1.55rem; font-weight: 300;
+  color: #fff; line-height: 1;
+}
+.b5-max { font-family: var(--sans); font-size: .72rem; color: rgba(255,255,255,.28); margin-left: .1rem; }
+
 @media (max-width: 900px) {
   .season-content-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -958,6 +1172,7 @@ body {
 }
 @media (max-width: 600px) {
   .season-content-grid { grid-template-columns: 1fr; }
+  .big5-grid { grid-template-columns: repeat(3, 1fr); }
   .season-display { padding: 1.5rem; }
   .season-month-heading { font-size: 2.2rem; }
 }
@@ -1012,3 +1227,107 @@ body {
   .practical-grid { grid-template-columns: 1fr; }
   .review-form-grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   INSTAGRAM SECTION
+   ============================================================ */
+.insta-section { padding: 5rem 0; background: var(--charcoal); }
+
+/* Profile card */
+.insta-profile {
+  display: flex; align-items: center; gap: 2rem;
+  padding-bottom: 2.5rem; margin-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  flex-wrap: wrap;
+}
+.insta-avatar-link { flex-shrink: 0; text-decoration: none; }
+.insta-avatar-ring {
+  width: 80px; height: 80px; border-radius: 50%; padding: 3px;
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  transition: transform .3s;
+}
+.insta-avatar-link:hover .insta-avatar-ring { transform: scale(1.04); }
+.insta-avatar-inner {
+  width: 100%; height: 100%; border-radius: 50%;
+  background: var(--charcoal); border: 2px solid var(--charcoal);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.insta-profile-info { flex: 1; min-width: 200px; }
+.insta-name-row {
+  display: flex; align-items: center; gap: .5rem; margin-bottom: .2rem;
+}
+.insta-display-name {
+  font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: #fff;
+}
+.insta-verified { display: inline-flex; align-items: center; flex-shrink: 0; }
+.insta-username {
+  font-family: var(--sans); font-size: .8rem; color: rgba(255,255,255,.45);
+  text-decoration: none; letter-spacing: .02em; display: block; margin-bottom: .9rem;
+}
+.insta-username:hover { color: rgba(255,255,255,.7); }
+.insta-stats {
+  display: flex; gap: 2rem; flex-wrap: wrap;
+}
+.insta-stat {
+  display: flex; flex-direction: column; align-items: flex-start; gap: .1rem;
+}
+.insta-stat strong {
+  font-family: var(--serif); font-size: 1.35rem; font-weight: 400; color: #fff; line-height: 1;
+}
+.insta-stat span {
+  font-family: var(--sans); font-size: .62rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.32);
+}
+.insta-follow-btn {
+  border-color: rgba(255,255,255,.28) !important;
+  color: rgba(255,255,255,.75) !important;
+  margin-left: auto;
+  align-self: center;
+}
+.insta-follow-btn:hover {
+  background: rgba(255,255,255,.1) !important;
+  border-color: rgba(255,255,255,.5) !important;
+  color: #fff !important;
+}
+
+/* Post embed grid */
+.insta-embeds-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  align-items: start;
+}
+.insta-post-link {
+  display: block;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #111;
+}
+.insta-post-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease, filter .35s ease;
+}
+.insta-post-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0);
+  transition: background .25s ease;
+}
+.insta-post-overlay svg {
+  opacity: 0;
+  transform: scale(.8);
+  transition: opacity .25s ease, transform .25s ease;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.5));
+}
+.insta-post-link:hover img { transform: scale(1.05); filter: brightness(.75); }
+.insta-post-link:hover .insta-post-overlay { background: rgba(0,0,0,.25); }
+.insta-post-link:hover .insta-post-overlay svg { opacity: 1; transform: scale(1); }
