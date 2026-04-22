@@ -1028,61 +1028,105 @@ body {
   .mountains-grid { grid-template-columns: 1fr; }
   .gear-grid { grid-template-columns: 1fr; }
 
-  /* Season explorer — 2×2 display grid, fits one screen */
-  .season-explorer { padding: 1.5rem 1rem 1.8rem; }
+  /* ── Season Explorer mobile: 2×2 grid, single viewport ── */
+  .season-explorer { padding: 1.4rem 1rem 1.6rem !important; }
   .season-explorer .section-eyebrow { display: none; }
-  .season-explorer .section-title { font-size: 1.25rem; margin-bottom: 0; }
+  .season-explorer .section-title { font-size: 1.2rem !important; margin-bottom: 0; }
   .season-explorer .section-desc { display: none; }
-  .season-explorer .section-header { margin-bottom: .7rem; }
-  .season-slider-container { margin: .6rem 0 0; }
-  .season-month-labels { height: 1.1rem; margin-bottom: .2rem; }
-  .season-month-labels span { font-size: .52rem; }
-  .season-legend { gap: .35rem; }
-  .sleg span { font-size: .55rem; }
+  .season-explorer .section-header { margin-bottom: .6rem !important; }
+
+  /* Compact slider */
+  .season-slider-container { margin: .5rem 0 0 !important; }
+  .season-month-labels { height: 1rem; margin-bottom: .15rem; }
+  .season-month-labels span { font-size: .5rem; line-height: 1rem; }
+  .season-legend { gap: .5rem; padding-top: .4rem; }
+  .sleg { gap: .3rem; font-size: .56rem; }
+  .sleg-bar { width: 14px; }
+
+  /* Display box — 2×2 grid */
   .season-display {
-    display: grid;
+    display: grid !important;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
-    gap: .6rem;
-    padding: .8rem;
-    margin-top: .7rem;
+    gap: .5rem;
+    padding: .75rem !important;
+    margin-top: .6rem !important;
   }
+
+  /* Cell 1,1 — month + migration */
   .season-display-top {
     grid-column: 1; grid-row: 1;
-    flex-direction: column; align-items: flex-start;
-    gap: .3rem; border-bottom: none;
-    padding-bottom: 0; margin-bottom: 0;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: .25rem !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    justify-content: flex-start;
+    overflow: hidden;
   }
-  .season-name-row { gap: .35rem; flex-wrap: wrap; }
-  .season-month-heading { font-size: 1.35rem; }
-  .season-type-pill { font-size: .5rem; padding: .18rem .55rem; }
-  .season-mig-col { text-align: left; max-width: 100%; }
-  .season-mig-label { font-size: .48rem; margin-bottom: .15rem; }
-  .season-mig-place { font-size: .78rem; }
+  .season-name-row { gap: .3rem; flex-wrap: wrap; align-items: center; }
+  .season-month-heading { font-size: 1.3rem !important; }
+  .season-type-pill { font-size: .48rem !important; padding: .15rem .5rem !important; }
+  .season-mig-col { text-align: left !important; max-width: 100% !important; }
+  .season-mig-label { font-size: .47rem; margin-bottom: .1rem; }
+  .season-mig-place { font-size: .75rem !important; line-height: 1.3; }
+
+  /* Cell 1,2 — Big 5 (horizontal rows) */
   .big5-index {
     grid-column: 2; grid-row: 1;
-    margin-top: 0; padding-top: 0; border-top: none;
-    border-left: 1px solid rgba(255,255,255,.08); padding-left: .6rem;
+    margin-top: 0 !important; padding-top: 0 !important;
+    border-top: none !important;
+    border-left: 1px solid rgba(255,255,255,.1);
+    padding-left: .55rem;
   }
-  .big5-grid { grid-template-columns: repeat(5,1fr); gap: .2rem .25rem; margin-top: .35rem; }
-  .b5-name { font-size: .44rem; }
-  .b5-val { font-size: .78rem; }
-  .b5-max { font-size: .52rem; }
+  .big5-index > .season-col-label { margin-bottom: .4rem !important; }
+  .big5-grid {
+    display: flex !important;
+    flex-direction: column;
+    gap: .28rem !important;
+    margin-top: 0 !important;
+  }
+  /* Each animal: NAME ━━━ 5 in one row */
+  .b5-item {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: .3rem !important;
+  }
+  .b5-name {
+    font-size: .48rem !important;
+    width: 42px; flex-shrink: 0;
+    letter-spacing: .04em;
+  }
+  .b5-track { flex: 1; height: 3px !important; }
+  .b5-val { font-size: .82rem !important; flex-shrink: 0; line-height: 1; min-width: 12px; }
+  .b5-max { display: none; }
+
+  /* Cell 2,1 — event box */
   .season-event-box {
     grid-column: 1; grid-row: 2;
-    margin-bottom: 0; padding: .5rem .65rem; border-left-width: 2px;
+    margin-bottom: 0 !important;
+    padding: .5rem .6rem !important;
+    border-left-width: 2px !important;
   }
-  .season-event-name { font-size: .82rem; margin-bottom: .18rem; }
-  .season-event-body { font-size: .7rem; line-height: 1.4; }
+  .season-event-name { font-size: .8rem !important; margin-bottom: .15rem !important; }
+  .season-event-body { font-size: .68rem !important; line-height: 1.4 !important; }
+
+  /* Cell 2,2 — wildlife + parks (no tip) */
   .season-content-grid {
     grid-column: 2; grid-row: 2;
-    grid-template-columns: 1fr; gap: .4rem;
-    border-left: 1px solid rgba(255,255,255,.08); padding-left: .6rem;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: .4rem !important;
+    border-left: 1px solid rgba(255,255,255,.1);
+    padding-left: .55rem;
   }
-  .season-content-grid > div:last-child { display: none; }
-  .season-col-label { font-size: .48rem; margin-bottom: .35rem; }
-  .animal-tag { font-size: .62rem; padding: .14rem .5rem; }
-  .season-parks-ul li { font-size: .68rem; padding: .18rem 0 .18rem .85rem; }
+  .season-content-grid > div:last-child { display: none !important; }
+  .season-col-label { font-size: .47rem !important; margin-bottom: .3rem !important; letter-spacing: .08em; }
+  .animal-tags { gap: .25rem; }
+  .animal-tag { font-size: .6rem !important; padding: .12rem .45rem !important; }
+  .season-parks-ul li { font-size: .67rem !important; padding: .16rem 0 .16rem .8rem !important; border-bottom: none; }
 
   /* Instagram — 2×2 posts */
   .insta-section { padding: 1.8rem 0; }
