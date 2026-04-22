@@ -1028,6 +1028,36 @@ body {
   .mountains-grid { grid-template-columns: 1fr; }
   .gear-grid { grid-template-columns: 1fr; }
 
+  /* Parks — horizontal scroll carousel */
+  .parks-grid {
+    display: flex; overflow-x: auto; gap: .75rem;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    padding-bottom: .5rem;
+  }
+  .park-card {
+    min-width: 78vw; max-width: 78vw;
+    flex-shrink: 0; scroll-snap-align: start;
+  }
+
+  /* Swipe hint below carousels */
+  .swipe-hint {
+    display: flex; align-items: center; justify-content: center;
+    gap: .4rem; margin-top: .6rem;
+    font-family: var(--sans); font-size: .62rem; font-weight: 500;
+    letter-spacing: .07em; text-transform: uppercase;
+    color: rgba(255,255,255,.28);
+  }
+  .swipe-hint--light { color: var(--text-light); }
+  .swipe-hint svg { flex-shrink: 0; }
+
+  /* Package carousel wrapper — fade-right edge hint */
+  .pkg-carousel-wrap { position: relative; }
+  .pkg-carousel-wrap::after {
+    content: ''; pointer-events: none;
+    position: absolute; right: 0; top: 0; bottom: .6rem; width: 52px;
+    background: linear-gradient(to left, var(--warm-white) 0%, transparent 100%);
+  }
+
   /* ── Season Explorer mobile: 2×2 grid, single viewport ── */
   .season-explorer { padding: 1.4rem 1rem 1.6rem !important; }
   .season-explorer .section-eyebrow { display: none; }
@@ -1095,9 +1125,10 @@ body {
     gap: .3rem !important;
   }
   .b5-name {
-    font-size: .48rem !important;
-    width: 42px; flex-shrink: 0;
-    letter-spacing: .04em;
+    font-size: .44rem !important;
+    width: 52px; flex-shrink: 0;
+    letter-spacing: .03em;
+    overflow: hidden; white-space: nowrap;
   }
   .b5-track { flex: 1; height: 3px !important; }
   .b5-val { font-size: .82rem !important; flex-shrink: 0; line-height: 1; min-width: 12px; }

@@ -155,6 +155,11 @@
         </div>
 
       </div>
+      <p class="swipe-hint" id="parks-swipe-hint" style="display:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        swipe to explore parks
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </p>
     </div>
   </section>
 
@@ -242,6 +247,7 @@
         <h2 class="section-title" data-en="Choose Your Duration" data-fr="Choisissez Votre Durée">Choose Your Duration</h2>
         <p class="section-desc" data-en="Every package can be customised, combined with cultural visits or mountain expeditions, and extended at any time. No prices listed — Philipo quotes based on your exact group, dates, and style." data-fr="Chaque forfait peut être personnalisé, combiné avec des visites culturelles ou des expéditions en montagne, et prolongé à tout moment. Aucun prix affiché — Philipo établit un devis selon votre groupe, vos dates et votre style.">Every package can be customised, combined with cultural visits or mountain expeditions, and extended at any time. No prices listed — Philipo quotes based on your exact group, dates, and style.</p>
       </div>
+      <div class="pkg-carousel-wrap">
       <div class="packages-grid">
         <div class="package-card">
           <div class="package-name" data-en="Express" data-fr="Express">Express</div>
@@ -294,7 +300,13 @@
           </ul>
           <a href="index.html#contact" class="btn-outline" data-en="Enquire" data-fr="Renseignements">Enquire</a>
         </div>
-      </div>
+      </div><!-- /packages-grid -->
+      </div><!-- /pkg-carousel-wrap -->
+      <p class="swipe-hint swipe-hint--light" id="pkg-swipe-hint" style="display:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        swipe to explore durations
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </p>
 
       <div class="info-box">
         <p data-en="<strong>All packages include:</strong> private 4×4 safari vehicle, expert guide (Philipo or his vetted team), all park entry fees, full-board accommodation, airport transfers, and 24/7 support. They can all be extended or combined with tribal cultural visits, Kilimanjaro, or a Zanzibar beach finale." data-fr="<strong>Tous les forfaits incluent :</strong> véhicule safari 4×4 privé, guide expert (Philipo ou son équipe vérifiée), tous les droits d'entrée dans les parcs, hébergement en pension complète, transferts aéroport et assistance 24h/24. Ils peuvent tous être prolongés ou combinés avec des visites culturelles tribales, le Kilimandjaro ou une finale balnéaire à Zanzibar."><strong>All packages include:</strong> private 4×4 safari vehicle, expert guide (Philipo or his vetted team), all park entry fees, full-board accommodation, airport transfers, and 24/7 support. They can all be extended or combined with tribal cultural visits, Kilimanjaro, or a Zanzibar beach finale.</p>
@@ -564,6 +576,32 @@
       L.marker([p.lat, p.lng], { icon: parkIcon }).addTo(parksMap)
         .bindPopup(`<strong style="color:#C9952A">${p.name}</strong><br><span style="font-size:.8em;color:#aaa">${p.tip}</span>`, { className: 'map-popup' });
     });
+  </script>
+  <script>
+    (function() {
+      function isMobile() { return window.innerWidth <= 480; }
+
+      // Show swipe hints + scroll package carousel to featured card on mobile
+      function initMobileCarousels() {
+        var mobile = isMobile();
+
+        // Package carousel
+        var pkgHint = document.getElementById('pkg-swipe-hint');
+        var pkgGrid = document.querySelector('.packages-grid');
+        var featured = document.querySelector('.package-card--featured');
+        if (pkgHint) pkgHint.style.display = mobile ? 'flex' : 'none';
+        if (mobile && pkgGrid && featured) {
+          pkgGrid.scrollLeft = featured.offsetLeft - pkgGrid.offsetLeft;
+        }
+
+        // Parks carousel
+        var parksHint = document.getElementById('parks-swipe-hint');
+        if (parksHint) parksHint.style.display = mobile ? 'flex' : 'none';
+      }
+
+      window.addEventListener('load', initMobileCarousels);
+      window.addEventListener('resize', initMobileCarousels);
+    })();
   </script>
 </body>
 </html>
