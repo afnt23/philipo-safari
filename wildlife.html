@@ -155,7 +155,7 @@
       </div>
       <p class="swipe-hint" id="parks-swipe-hint" style="display:none;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        swipe to explore parks
+        <span data-en="swipe to explore parks" data-fr="glisser pour explorer les parcs">swipe to explore parks</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
       </p>
     </div>
@@ -172,10 +172,10 @@
 
       <div class="season-slider-container">
         <div class="season-month-labels" id="season-month-labels">
-          <span data-m="0">Jan</span><span data-m="1">Feb</span><span data-m="2">Mar</span>
-          <span data-m="3">Apr</span><span data-m="4">May</span><span data-m="5">Jun</span>
-          <span data-m="6">Jul</span><span data-m="7">Aug</span><span data-m="8">Sep</span>
-          <span data-m="9">Oct</span><span data-m="10">Nov</span><span data-m="11">Dec</span>
+          <span data-m="0" data-en="Jan" data-fr="Jan">Jan</span><span data-m="1" data-en="Feb" data-fr="Fév">Feb</span><span data-m="2" data-en="Mar" data-fr="Mar">Mar</span>
+          <span data-m="3" data-en="Apr" data-fr="Avr">Apr</span><span data-m="4" data-en="May" data-fr="Mai">May</span><span data-m="5" data-en="Jun" data-fr="Juin">Jun</span>
+          <span data-m="6" data-en="Jul" data-fr="Juil">Jul</span><span data-m="7" data-en="Aug" data-fr="Aoû">Aug</span><span data-m="8" data-en="Sep" data-fr="Sep">Sep</span>
+          <span data-m="9" data-en="Oct" data-fr="Oct">Oct</span><span data-m="10" data-en="Nov" data-fr="Nov">Nov</span><span data-m="11" data-en="Dec" data-fr="Déc">Dec</span>
         </div>
         <div class="season-track-outer">
           <div class="season-track-fill"></div>
@@ -200,10 +200,6 @@
             <span class="season-mig-place" id="sd-mig"></span>
           </div>
         </div>
-        <div class="big5-index">
-          <p class="season-col-label" data-en="Big 5 Encounter Index" data-fr="Indice de Rencontre Big 5">Big 5 Encounter Index</p>
-          <div class="big5-grid" id="sd-big5"></div>
-        </div>
         <div class="season-event-box">
           <div class="season-event-name" id="sd-event"></div>
           <div class="season-event-body" id="sd-desc"></div>
@@ -221,6 +217,10 @@
             <p class="season-col-label" data-en="Philipo's Tip" data-fr="Conseil de Philipo">Philipo's Tip</p>
             <p class="season-tip-text" id="sd-tip"></p>
           </div>
+        </div>
+        <div class="big5-index">
+          <p class="season-col-label" data-en="Big 5 Encounter Index" data-fr="Indice de Rencontre Big 5">Big 5 Encounter Index</p>
+          <div class="big5-grid" id="sd-big5"></div>
         </div>
       </div>
     </div>
@@ -302,7 +302,7 @@
       </div><!-- /pkg-carousel-wrap -->
       <p class="swipe-hint swipe-hint--light" id="pkg-swipe-hint" style="display:none;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        swipe to explore durations
+        <span data-en="swipe to explore durations" data-fr="glisser pour explorer les durées">swipe to explore durations</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
       </p>
 
@@ -471,23 +471,163 @@
     }
   ];
 
+  const SEASONS_FR = [
+    {
+      name: 'Janvier', badge: 'Petite Saison Sèche', type: 'dry',
+      migLabel: 'Saison des Naissances',
+      mig: 'Serengeti Sud & Ndutu',
+      event: 'Début des Naissances de Gnous',
+      desc: "Jusqu'à 8 000 veaux naissent chaque jour dans les plaines de Ndutu. L'activité des prédateurs atteint son apogée — lions, guépards et hyènes suivent les troupeaux. Chaud, sec et excellente visibilité.",
+      animals: [{n:'Gnou',s:1},{n:'Lion',s:1},{n:'Guépard',s:1},{n:'Hyène',s:0},{n:'Zèbre',s:0},{n:'Flamant Rose',s:0}],
+      parks: ['Serengeti (Ndutu)', 'Ngorongoro', 'Lake Manyara'],
+      tip: "Réservez des camps mobiles dans la zone de Ndutu — ils se positionnent directement sur les terres de mise bas pour des scènes extraordinaires de prédateurs.",
+      big5: [5, 3, 3, 3, 3]
+    },
+    {
+      name: 'Février', badge: 'Petite Saison Sèche', type: 'dry',
+      migLabel: 'Pic des Naissances',
+      mig: 'Ndutu & Serengeti Sud',
+      event: 'Pic de la Saison des Naissances',
+      desc: "Le spectacle prédateur-proie le plus dramatique au monde. Un demi-million de veaux dans les plaines du sud. Les mères guépards avec leurs petits sont fréquemment observées. Ciel dégagé et excellentes conditions photo.",
+      animals: [{n:'Gnou',s:1},{n:'Guépard',s:1},{n:'Lion',s:1},{n:'Veaux Nouveau-nés',s:1},{n:'Hyène',s:0},{n:'Chacal',s:0}],
+      parks: ['Serengeti (Ndutu)', 'Cratère Ngorongoro', 'Tarangire'],
+      tip: "Février est sans doute le meilleur mois en Tanzanie. Moins de foule qu'en juillet. Réservez tôt — la demande est très élevée.",
+      big5: [5, 3, 3, 3, 3]
+    },
+    {
+      name: 'Mars', badge: 'Début des Grandes Pluies', type: 'rain',
+      migLabel: 'En Route vers le Nord',
+      mig: 'Centre Serengeti, direction nord-ouest',
+      event: 'Début de la Saison Verte',
+      desc: "Les pluies arrivent et le Serengeti vire à l'émeraude vif. Les oiseaux migrateurs font leur apparition. Les paysages luxuriants offrent des photos dramatiques. Certaines pistes deviennent difficiles — 4×4 indispensable.",
+      animals: [{n:'Éléphant',s:1},{n:'Girafe',s:1},{n:'Oiseaux Migrateurs',s:1},{n:'Buffle',s:0},{n:'Gnou',s:0},{n:'Cigogne',s:0}],
+      parks: ["Serengeti", "Tarangire", "PN d'Arusha"],
+      tip: "Les tarifs baissent de 30–40% en saison verte. Les parcs sont pratiquement déserts — un vrai avantage pour la photo et l'observation animalière.",
+      big5: [3, 2, 4, 3, 2]
+    },
+    {
+      name: 'Avril', badge: 'Grandes Pluies', type: 'rain',
+      migLabel: 'Couloir Occidental',
+      mig: 'Centre & Ouest Serengeti',
+      event: 'Pic des Grandes Pluies',
+      desc: "Les précipitations les plus abondantes de l'année. Le circuit sud moins accessible. Ruaha et Nyerere sont de meilleures options. Faune aviaire incroyable et paysages luxuriants. Très peu de touristes.",
+      animals: [{n:'Oiseaux (200+ espèces)',s:1},{n:'Éléphant',s:0},{n:'Buffle',s:0},{n:'Hippopotame',s:0},{n:'Crocodile',s:0},{n:'Impala',s:0}],
+      parks: ['Nyerere / Selous', 'Ruaha', 'Gombe & Mahale'],
+      tip: "Pour une vraie nature sauvage — sans autres véhicules — avril est imbattable. Les pistes sont difficiles mais l'expérience est inoubliable.",
+      big5: [2, 2, 3, 2, 2]
+    },
+    {
+      name: 'Mai', badge: 'Fin des Grandes Pluies', type: 'rain',
+      migLabel: 'Approche du Grumeti',
+      mig: 'Couloir Occidental, approche du Grumeti',
+      event: 'Accumulation au Grumeti',
+      desc: "Les pluies se réduisent en seconde partie. La migration se masse autour du Grumeti — des traversées plus modestes mais dramatiques commencent. Les parcs rouvrent entièrement.",
+      animals: [{n:'Gnou',s:1},{n:'Crocodile',s:1},{n:'Hippopotame',s:0},{n:'Lion',s:0},{n:'Éléphant',s:0},{n:'Topi',s:0}],
+      parks: ['Serengeti (Couloir Occidental)', 'Ruaha', 'Nyerere'],
+      tip: "La traversée du Grumeti est dramatique mais sous-estimée. Restez dans le couloir occidental — vous pourrez assister aux meilleures traversées sans foule.",
+      big5: [3, 2, 4, 3, 2]
+    },
+    {
+      name: 'Juin', badge: 'Saison Sèche', type: 'dry-peak',
+      migLabel: 'Traversées du Grumeti',
+      mig: 'Couloir Occidental & Nord Serengeti',
+      event: 'Ouverture de la Grande Saison Sèche',
+      desc: "Le ciel se dégage, la poussière retombe et la saison sèche commence en force. Les animaux se concentrent autour des points d'eau — l'observation animalière s'intensifie. La migration atteint le Nord Serengeti et s'approche de la rivière Mara.",
+      animals: [{n:'Gnou',s:1},{n:'Éléphant',s:1},{n:'Lion',s:1},{n:'Léopard',s:0},{n:'Lycaon',s:0},{n:'Girafe',s:0}],
+      parks: ['Serengeti (Nord)', 'Ngorongoro', 'Tarangire', 'Ruaha'],
+      tip: "Juin marque le début des cinq meilleurs mois pour les safaris. Réservez 6–12 mois à l'avance pour les départs de juillet et août.",
+      big5: [4, 3, 5, 4, 3]
+    },
+    {
+      name: 'Juillet', badge: 'Pic de la Sécheresse', type: 'dry-peak',
+      migLabel: 'Traversées de la Mara',
+      mig: 'Nord Serengeti & Rivière Mara',
+      event: 'Traversées de la Rivière Mara',
+      desc: "Les traversées emblématiques. Des milliers de gnous se précipitent dans les eaux peuplées de crocodiles, remontent en masse sur la rive opposée et reviennent. La traversée peut se produire plusieurs fois par jour. Haute saison pour tous les parcs.",
+      animals: [{n:'Gnou',s:1},{n:'Crocodile',s:1},{n:'Lion',s:1},{n:'Guépard',s:0},{n:'Éléphant',s:0},{n:'Chimpanzé',s:0}],
+      parks: ['Serengeti (Kogatende)', 'Ngorongoro', 'Tarangire', 'Gombe & Mahale'],
+      tip: "Positionnez-vous sur un point de traversée reconnu (Mara 1 ou Sand River) pendant plusieurs jours consécutifs — les traversées sont imprévisibles. La patience est tout.",
+      big5: [5, 4, 5, 4, 3]
+    },
+    {
+      name: 'Août', badge: 'Pic de la Sécheresse', type: 'dry-peak',
+      migLabel: 'Traversées de la Mara',
+      mig: 'Nord Serengeti & Masai Mara',
+      event: 'Les Traversées Continuent',
+      desc: "Les traversées se poursuivent en août. Tarangire atteint son apogée spectaculaire — plus de 3 000 éléphants dans un seul parc. Les groupes de lions de Ngorongoro en activité maximale. Le mois le plus fréquenté et le plus cher.",
+      animals: [{n:'Éléphant',s:1},{n:'Gnou',s:1},{n:'Lion',s:1},{n:'Léopard',s:1},{n:'Rhinocéros Noir',s:0},{n:'Hippopotame',s:0}],
+      parks: ['Tarangire', 'Serengeti (Nord)', 'Ngorongoro', 'Katavi'],
+      tip: "Si le budget le permet, combinez le Nord Serengeti pour les traversées avec une extension à Tarangire — août est l'apogée absolue de Tarangire.",
+      big5: [5, 4, 5, 5, 4]
+    },
+    {
+      name: 'Septembre', badge: 'Saison Sèche', type: 'dry-peak',
+      migLabel: 'Retour vers le Sud',
+      mig: 'Masai Mara, début du retour vers le sud',
+      event: 'Migration vers le Sud',
+      desc: "Les troupeaux amorcent leur retour vers le sud. Excellentes conditions dans toute la Tanzanie. Moins de foule qu'en août. Katavi atteint son apogée extraordinaire — des centaines d'hippopotames dans des mares qui rétrécissent.",
+      animals: [{n:'Hippopotame',s:1},{n:'Buffle',s:1},{n:'Lycaon',s:1},{n:'Lion',s:0},{n:'Éléphant',s:0},{n:'Girafe',s:0}],
+      parks: ['Katavi', 'Ruaha', 'Nyerere', 'Ngorongoro'],
+      tip: "Septembre à Katavi est l'une des expériences animalières les plus dramatiques d'Afrique — des centaines d'hippopotames en compétition. Presque sans touristes.",
+      big5: [4, 4, 5, 5, 3]
+    },
+    {
+      name: 'Octobre', badge: 'Saison Sèche', type: 'dry-peak',
+      migLabel: 'Retour vers le Sud',
+      mig: 'Retour dans le Nord Serengeti',
+      event: 'La Migration Revient vers le Sud',
+      desc: "La fin de la grande saison sèche. Excellent rapport qualité-prix — moins de visiteurs que juillet–août mais les conditions restent excellentes. Le trekking des chimpanzés à Gombe et Mahale est idéal.",
+      animals: [{n:'Chimpanzé',s:1},{n:'Gnou',s:1},{n:'Éléphant',s:0},{n:'Léopard',s:0},{n:'Lion',s:0},{n:'Colobe',s:0}],
+      parks: ["Gombe & Mahale", "Serengeti", "Ngorongoro", "PN d'Arusha"],
+      tip: "Octobre est un excellent compromis — qualité de saison sèche à des prix plus bas. Associez le Serengeti au trekking des chimpanzés pour une combinaison extraordinaire.",
+      big5: [4, 3, 4, 4, 3]
+    },
+    {
+      name: 'Novembre', badge: 'Petites Pluies', type: 'shower',
+      migLabel: 'Approche de Ndutu',
+      mig: 'Centre Serengeti, vers Ndutu',
+      event: 'Arrivée des Petites Pluies',
+      desc: "De brèves averses l'après-midi rafraîchissent le paysage. Les bonnes conditions persistent le matin. La faune aviaire explose avec des centaines d'espèces migratrices arrivant d'Europe et d'Asie.",
+      animals: [{n:'Oiseaux Migrateurs',s:1},{n:'Gnou',s:0},{n:'Zèbre',s:0},{n:'Éléphant',s:0},{n:'Flamant Rose',s:1},{n:'Cigogne',s:0}],
+      parks: ["Lake Manyara", "Tarangire", "Serengeti", "PN d'Arusha"],
+      tip: "Les pluies de novembre sont courtes et prévisibles — généralement des orages l'après-midi. Les matins sont superbes. Lake Manyara se teinte à nouveau de rose flamant.",
+      big5: [3, 2, 3, 3, 2]
+    },
+    {
+      name: 'Décembre', badge: 'Petite Saison Sèche', type: 'dry',
+      migLabel: 'Plaines de Ndutu',
+      mig: 'Serengeti Sud & Ndutu, naissances imminentes',
+      event: 'La Migration Revient à Ndutu',
+      desc: "Les pluies s'estompent en décembre. Les troupeaux convergent vers les riches plaines de Ndutu avant les naissances. La saison festive attire plus de visiteurs mais la faune est exceptionnelle — le cycle est sur le point de recommencer.",
+      animals: [{n:'Gnou',s:1},{n:'Zèbre',s:1},{n:'Lion',s:0},{n:'Guépard',s:0},{n:'Éléphant',s:0},{n:'Hyène',s:0}],
+      parks: ['Serengeti (Ndutu)', 'Ngorongoro', 'Tarangire', 'Lake Manyara'],
+      tip: "Un excellent mois pour un safari festif — la zone de Ndutu est magique et l'anticipation de la saison des naissances rend chaque game drive électrique.",
+      big5: [4, 3, 3, 3, 3]
+    }
+  ];
+
   const rangeEl = document.getElementById('season-range');
   const labelsEl = document.getElementById('season-month-labels');
   const displayEl = document.getElementById('season-display');
-  const B5_NAMES = ['Lion', 'Leopard', 'Elephant', 'Buffalo', 'Rhino'];
+  const B5_NAMES    = ['Lion', 'Leopard', 'Elephant', 'Buffalo', 'Rhino'];
+  const B5_NAMES_FR = ['Lion', 'Léopard', 'Éléphant', 'Buffle', 'Rhinocéros'];
 
   function positionLabels() {
     var spans = labelsEl.querySelectorAll('span');
     var W = labelsEl.offsetWidth;
-    var thumbR = 13; // half of 26px thumb
+    var thumbR = 13;
     var usable = W - 2 * thumbR;
     spans.forEach(function(sp, i) {
       sp.style.left = (thumbR + i * usable / 11) + 'px';
     });
   }
 
+  function getLang() { return document.documentElement.getAttribute('lang') || 'en'; }
+
   function updateSeasonDisplay(idx) {
-    var s = SEASONS[idx];
+    var lang = getLang();
+    var s = (lang === 'fr' ? SEASONS_FR : SEASONS)[idx];
+    var b5Names = lang === 'fr' ? B5_NAMES_FR : B5_NAMES;
     displayEl.style.opacity = '0';
     setTimeout(function() {
       document.getElementById('sd-month').textContent = s.name;
@@ -506,7 +646,7 @@
       pEl.innerHTML = s.parks.map(function(p) { return '<li>' + p + '</li>'; }).join('');
       document.getElementById('sd-tip').textContent = s.tip;
       var b5El = document.getElementById('sd-big5');
-      b5El.innerHTML = B5_NAMES.map(function(name, ai) {
+      b5El.innerHTML = b5Names.map(function(name, ai) {
         var score = s.big5[ai];
         return '<div class="b5-item">' +
           '<span class="b5-name">' + name + '</span>' +
@@ -535,7 +675,20 @@
 
   positionLabels();
   window.addEventListener('resize', positionLabels);
-  updateSeasonDisplay(6); // start on July
+
+  // Defer initial render until after lang.js applies the saved language
+  document.addEventListener('DOMContentLoaded', function() {
+    updateSeasonDisplay(parseInt(rangeEl.value));
+  });
+
+  // Re-render when user switches language
+  (function() {
+    var _orig = window.setLang;
+    window.setLang = function(lang) {
+      _orig(lang);
+      updateSeasonDisplay(parseInt(rangeEl.value));
+    };
+  })();
   // ── end Season Explorer ──────────────────────────────────────────
   </script>
   <script>
