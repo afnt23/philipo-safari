@@ -874,6 +874,7 @@ body {
   .testimonials-grid {
     display: flex; overflow-x: auto; gap: .9rem;
     scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
     padding: .5rem 1.1rem 1rem; margin: 0; max-width: none;
   }
   .testimonials-grid::-webkit-scrollbar { height: 3px; }
@@ -1024,6 +1025,7 @@ body {
   .packages-grid {
     display: flex; overflow-x: auto; gap: .8rem;
     scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
     padding-bottom: .6rem;
   }
   .package-card {
@@ -1048,6 +1050,7 @@ body {
     gap: .75rem;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
     padding: .25rem 1.1rem .7rem;
   }
   .why-grid::-webkit-scrollbar { height: 3px; }
@@ -1061,6 +1064,7 @@ body {
   .mountains-grid {
     display: flex; overflow-x: auto; gap: .75rem;
     scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
     padding-bottom: .5rem;
   }
   .mountain-card { min-width: 80vw; max-width: 80vw; flex-shrink: 0; scroll-snap-align: start; }
@@ -1069,6 +1073,7 @@ body {
   .parks-grid {
     display: flex; overflow-x: auto; gap: .75rem;
     scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
     padding-bottom: .5rem;
   }
   .park-card {
@@ -1202,6 +1207,7 @@ body {
   .tribes-grid {
     display: flex; overflow-x: auto; gap: .75rem;
     scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
     padding-bottom: .5rem;
   }
   .tribes-grid::-webkit-scrollbar { height: 3px; }
@@ -1212,6 +1218,7 @@ body {
   .routes-grid {
     display: flex; overflow-x: auto; gap: .75rem;
     scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
     padding-bottom: .5rem;
   }
   .routes-grid::-webkit-scrollbar { height: 3px; }
@@ -1222,6 +1229,7 @@ body {
   .gear-grid {
     display: flex; overflow-x: auto; gap: .65rem;
     scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
     padding-bottom: .5rem;
   }
   .gear-grid::-webkit-scrollbar { height: 3px; }
@@ -1232,6 +1240,7 @@ body {
   .combos-grid {
     display: flex; overflow-x: auto; gap: .75rem;
     scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
     padding-bottom: .5rem;
   }
   .combos-grid::-webkit-scrollbar { height: 3px; }
@@ -1245,6 +1254,7 @@ body {
   .history-grid {
     display: flex; overflow-x: auto; gap: .6rem;
     scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
     padding: .25rem 1.1rem .6rem;
   }
   .history-grid::-webkit-scrollbar { height: 3px; }
