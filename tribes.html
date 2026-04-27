@@ -16,7 +16,6 @@
     <ul class="nav-links">
       <li><a href="index.html#about" data-en="About" data-fr="À Propos">About</a></li>
       <li><a href="index.html#experiences" data-en="Experiences" data-fr="Expériences">Experiences</a></li>
-      <li><a href="gallery.html" data-en="Gallery" data-fr="Galerie">Gallery</a></li>
       <li><a href="index.html#contact" class="nav-cta" data-en="Plan Your Journey" data-fr="Planifier Mon Voyage">Plan Your Journey</a></li>
       <li><div class="lang-toggle"><button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button><button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button></div></li>
     </ul>
@@ -26,7 +25,6 @@
     <a href="index.html" data-en="Home" data-fr="Accueil">Home</a>
     <a href="wildlife.html" data-en="Wildlife" data-fr="Faune">Wildlife</a>
     <a href="kilimanjaro.html">Kilimanjaro</a>
-    <a href="gallery.html" data-en="Gallery" data-fr="Galerie">Gallery</a>
     <a href="index.html#contact" data-en="Contact" data-fr="Contact">Contact</a>
     <div class="lang-toggle"><button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button><button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button></div>
   </div>
@@ -125,6 +123,11 @@
         </div>
 
       </div>
+      <p class="swipe-hint swipe-hint--light" id="tribes-swipe-hint" style="display:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        swipe to explore tribes
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </p>
     </div>
   </section>
 
@@ -198,20 +201,17 @@
           <a href="index.html#contact" class="btn-outline" data-en="Enquire" data-fr="Renseignements">Enquire</a>
         </div>
       </div>
+      <p class="swipe-hint swipe-hint--light" id="pkg-swipe-hint" style="display:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        swipe to explore packages
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </p>
       <div class="info-box">
         <p data-en="<strong>Responsible tourism:</strong> all cultural visits are arranged with full community consent and benefit the communities directly. Philipo's personal relationships ensure visits are genuine — not theatrical performances staged for outsiders." data-fr="<strong>Tourisme responsable :</strong> toutes les visites culturelles sont organisées avec le plein consentement de la communauté et en bénéficient directement. Les relations personnelles de Philipo garantissent que les visites sont authentiques — pas des spectacles montés pour les étrangers."><strong>Responsible tourism:</strong> all cultural visits are arranged with full community consent and benefit the communities directly. Philipo's personal relationships ensure visits are genuine — not theatrical performances staged for outsiders.</p>
       </div>
     </div>
   </section>
 
-  <!-- Photo row -->
-  <div class="gallery-strip" style="height:280px;">
-    <div class="gallery-item"><img src="pictures/maasai/F268034E-9A8D-44C8-B3E4-A1CCFF888B80.PNG" alt="Maasai beads"></div>
-    <div class="gallery-item"><img src="pictures/maasai/510AB032-66A5-47A7-B62F-515D33EDF356.PNG" alt="Maasai village"></div>
-    <div class="gallery-item"><img src="pictures/maasai/68D84BF2-13B3-43B7-9ADA-D0875CCFA4B3.PNG" alt="Maasai boy"></div>
-    <div class="gallery-item"><img src="pictures/maasai/86BA67E3-0AFC-4E02-87DC-BC607D753541.PNG" alt="Maasai cattle"></div>
-    <div class="gallery-item"><img src="pictures/maasai/0CF38D16-BFED-4BA7-91F9-7997F778AE2F.PNG" alt="Maasai group"></div>
-  </div>
 
   <div class="page-cta-strip">
     <h2 data-en="Ready to Meet Tanzania's People?" data-fr="Prêt à Rencontrer le Peuple de Tanzanie ?">Ready to Meet Tanzania's People?</h2>
@@ -227,7 +227,6 @@
           <a href="index.html" data-en="Home" data-fr="Accueil">Home</a>
           <a href="wildlife.html" data-en="Wildlife" data-fr="Faune">Wildlife</a>
           <a href="kilimanjaro.html">Kilimanjaro</a>
-          <a href="gallery.html" data-en="Gallery" data-fr="Galerie">Gallery</a>
           <a href="index.html#contact" data-en="Contact" data-fr="Contact">Contact</a>
         </div>
       </div>
@@ -243,6 +242,23 @@
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }));
     const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }), { threshold: .08 });
     document.querySelectorAll('.tribe-card,.package-card,.info-box').forEach(el => { el.classList.add('fade-in'); obs.observe(el); });
+    (function() {
+      function isMobile() { return window.innerWidth <= 480; }
+      function initHints() {
+        var m = isMobile();
+        var th = document.getElementById('tribes-swipe-hint');
+        var ph = document.getElementById('pkg-swipe-hint');
+        if (th) th.style.display = m ? 'flex' : 'none';
+        if (ph) ph.style.display = m ? 'flex' : 'none';
+        if (m) {
+          var featured = document.querySelector('.package-card--featured');
+          var pkgGrid = document.querySelector('.packages-grid');
+          if (pkgGrid && featured) pkgGrid.scrollLeft = featured.offsetLeft - (pkgGrid.clientWidth - featured.offsetWidth) / 2;
+        }
+      }
+      window.addEventListener('load', initHints);
+      window.addEventListener('resize', initHints);
+    })();
   </script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>

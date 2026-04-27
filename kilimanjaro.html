@@ -16,7 +16,6 @@
     <ul class="nav-links">
       <li><a href="index.html#about" data-en="About" data-fr="À Propos">About</a></li>
       <li><a href="index.html#experiences" data-en="Experiences" data-fr="Expériences">Experiences</a></li>
-      <li><a href="gallery.html" data-en="Gallery" data-fr="Galerie">Gallery</a></li>
       <li><a href="index.html#contact" class="nav-cta" data-en="Plan Your Journey" data-fr="Planifier Mon Voyage">Plan Your Journey</a></li>
       <li><div class="lang-toggle"><button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button><button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button></div></li>
     </ul>
@@ -26,7 +25,6 @@
     <a href="index.html" data-en="Home" data-fr="Accueil">Home</a>
     <a href="wildlife.html" data-en="Wildlife" data-fr="Faune">Wildlife</a>
     <a href="tribes.html" data-en="Tribes" data-fr="Tribus">Tribes</a>
-    <a href="gallery.html" data-en="Gallery" data-fr="Galerie">Gallery</a>
     <a href="index.html#contact" data-en="Contact" data-fr="Contact">Contact</a>
     <div class="lang-toggle"><button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button><button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button></div>
   </div>
@@ -150,6 +148,11 @@
         </div>
 
       </div>
+      <p class="swipe-hint swipe-hint--light" id="routes-swipe-hint" style="display:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        swipe to explore routes
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </p>
     </div>
   </section>
 
@@ -227,6 +230,11 @@
           </ul>
         </div>
       </div>
+      <p class="swipe-hint swipe-hint--light" id="gear-swipe-hint" style="display:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        swipe to explore gear
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </p>
     </div>
   </section>
 
@@ -255,6 +263,11 @@
           <p data-en="A sacred Maasai mountain on the Kenya border, rising from the thornbush savanna. A 1–2 day hike with extraordinary views over both Kenya and Tanzania. Walking with Maasai guides through cattle country to the summit is itself a profound cultural experience. Perfect to combine with an Arusha area safari." data-fr="Une montagne sacrée Maasaï à la frontière kenyane, s'élevant de la savane épineuse. Une randonnée de 1–2 jours avec des vues extraordinaires sur le Kenya et la Tanzanie. Marcher avec des guides Maasaï à travers le pays des bovins jusqu'au sommet est en lui-même une expérience culturelle profonde. Parfait à combiner avec un safari de la région d'Arusha.">A sacred Maasai mountain on the Kenya border, rising from the thornbush savanna. A 1–2 day hike with extraordinary views over both Kenya and Tanzania. Walking with Maasai guides through cattle country to the summit is itself a profound cultural experience. Perfect to combine with an Arusha area safari.</p>
         </div>
       </div>
+      <p class="swipe-hint swipe-hint--light" id="mountains-swipe-hint" style="display:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        swipe to explore peaks
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </p>
     </div>
   </section>
 
@@ -294,6 +307,11 @@
           <span class="combo-duration" data-en="9–12 days total" data-fr="9–12 jours au total">9–12 days total</span>
         </div>
       </div>
+      <p class="swipe-hint" id="combos-swipe-hint" style="display:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        swipe to explore combos
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </p>
     </div>
   </section>
 
@@ -311,7 +329,6 @@
           <a href="index.html" data-en="Home" data-fr="Accueil">Home</a>
           <a href="wildlife.html" data-en="Wildlife" data-fr="Faune">Wildlife</a>
           <a href="tribes.html" data-en="Tribes" data-fr="Tribus">Tribes</a>
-          <a href="gallery.html" data-en="Gallery" data-fr="Galerie">Gallery</a>
           <a href="index.html#contact" data-en="Contact" data-fr="Contact">Contact</a>
         </div>
       </div>
@@ -327,6 +344,18 @@
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }));
     const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }), { threshold: .08 });
     document.querySelectorAll('.route-card,.package-card,.mountain-card,.combo-card,.why-card,.gear-category').forEach(el => { el.classList.add('fade-in'); obs.observe(el); });
+    (function() {
+      function isMobile() { return window.innerWidth <= 480; }
+      function initHints() {
+        var m = isMobile();
+        ['routes-swipe-hint','gear-swipe-hint','mountains-swipe-hint','combos-swipe-hint'].forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el) el.style.display = m ? 'flex' : 'none';
+        });
+      }
+      window.addEventListener('load', initHints);
+      window.addEventListener('resize', initHints);
+    })();
   </script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
