@@ -960,9 +960,6 @@ body {
   .tribes-grid { grid-template-columns: 1fr; }
   .combos-grid { grid-template-columns: 1fr; max-width: 100%; }
 
-  /* Hide leaflet maps on mobile — too heavy for small screens */
-  #tribes-map, #mountains-map { display: none; }
-
   /* Page CTA strip */
   .page-cta-strip { padding: 3rem 1.1rem; }
   .page-cta-strip h2 { font-size: 1.7rem; margin-bottom: .7rem; }
